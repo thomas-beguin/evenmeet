@@ -5,14 +5,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
-
-
-  devise_for :users
-
-  get "users/:id", to "user_events#show",
-  post "users/:id", to "user_events#show",
-
-  get "users/:id", to "challenges#show"
+  get "/events/:id", to: "events#show"
+  resources :events do
+    resources :participations, only: %i[new create]
+  end
 
 end

@@ -1,0 +1,17 @@
+<div class="container" >
+  <h1>Event Show</h1>
+  <H3><%= @event.id %></H3>
+  <H4><%= @event.title %></H4>
+  
+  <%= @participations.each do |participation| %>
+    <p><%= participation.event_id %> --- <%= participation.user_id %> -- <%= participation.hint %></p>
+  <% end %>
+
+  <%= simple_form_for [@event, @participation] do |f| %>
+    <%= f.input :event_id, as: :hidden, input_html: { value: @event.id } %>
+    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+    <%= f.input :hint ,placeholder: "Mon indice"%>
+    <%= f.submit class: 'btn btn-primary text-white p-2 w-100' %>
+  <% end %>
+
+</div>
