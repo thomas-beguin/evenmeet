@@ -10,4 +10,9 @@ Rails.application.routes.draw do
     resources :participations, only: %i[new create]
   end
 
+  # get "users/:id", to "participations#show"
+  # post "users/:id", to "participations#show"
+
+  # get "users/:id", to "challenges#show"
+
 end
