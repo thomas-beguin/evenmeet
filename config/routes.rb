@@ -6,13 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  # get "users/:id", to "participations#show"
+  # post "users/:id", to "participations#show"
 
-
-  devise_for :users
-
-  get "users/:id", to "user_events#show",
-  post "users/:id", to "user_events#show",
-
-  get "users/:id", to "challenges#show"
+  # get "users/:id", to "challenges#show"
 
 end
