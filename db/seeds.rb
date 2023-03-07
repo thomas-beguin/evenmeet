@@ -37,7 +37,8 @@ puts "Creating Events"
   event = Event.new(
     name: "Solidays",
     category:
-    date:
+    start_date:
+    end_date:
     address:
     dascription:
   )
@@ -49,7 +50,8 @@ puts "Creating Events"
   event = Event.new(
     name: "Printemps de Bourges",
     category:
-    date:
+    start_date:
+    end_date:
     address:
     dascription:
   )
@@ -61,7 +63,8 @@ puts "Creating Events"
   event = Event.new(
     name: "Hellfest",
     category:
-    date:
+    start_date:
+    end_date:
     address:
     dascription:
   )
@@ -74,7 +77,8 @@ puts "Creating Events"
   event = Event.new(
     name: "Garorock",
     category:
-    date:
+    start_date:
+    end_date:
     address:
     dascription:
   )
@@ -86,7 +90,8 @@ puts "Creating Events"
   event = Event.new(
     name: "Marsatac",
     category:
-    date:
+    start_date:
+    end_date:
     address:
     dascription:
   )
@@ -98,7 +103,8 @@ puts "Creating Events"
   event = Event.new(
     name: "Francofolies",
     category:
-    date:
+    start_date:
+    end_date:
     address:
     dascription:
   )
@@ -110,7 +116,8 @@ puts "Creating Events"
   event = Event.new(
     name: "Main Square Festival",
     category:
-    date:
+    start_date:
+    end_date:
     address:
     dascription:
   )
