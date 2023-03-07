@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :participations, dependent: :destroy
   has_many :relationships,  through: :participations
   has_many :messages,       dependent: :destroy
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :city, presence: true
+  validates :last_name, presence: true
 end
