@@ -5,9 +5,9 @@ class Participation < ApplicationRecord
   # has_many   :relationships
   has_many   :sender_relationships, class_name:  "Relationship",
                                     foreign_key: "sender_id",
-                                    dependent:   :destroy
+                                    dependent: :destroy
   has_many   :receiver_relationships, class_name:  "Relationship",
                                        foreign_key: "receiver_id",
-                                       dependent:   :destroy
+                                       dependent: :destroy
   has_many   :senders
 end
