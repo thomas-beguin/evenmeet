@@ -1,1 +1,67 @@
 // Specific CSS for your home-page
+.title {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  background-color: grey;
+}
+
+.container {
+  border-top: solid 1px;
+  margin: 15px auto;
+  width: 90%;
+}
+
+.event-card {
+  width: 100%;
+  background-color: lightgrey;
+  margin-top: 20px;
+  border-radius: 5px;
+  img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}
+
+.event-description {
+  padding-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 3px;
+  font-size: small;
+  text-align: justify;
+}
+
+.search-form {
+  border: 1px solid #dee2e6c4;
+  padding: 5px;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 0px 7px #ced4da5e;
+}
+
+.search-bar {
+  border: none;
+  margin-left: 10px;
+  width: 350px;
+
+  &:focus {
+    outline: none;
+    background-color: #ffffff00;
+  }
+}
+
+.search-button {
+  background-color: $primary;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.search-button i {
+  padding: 10px;
+  font-size: 13px;
+  color: white;
+}
