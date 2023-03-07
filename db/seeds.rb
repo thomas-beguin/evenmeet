@@ -23,6 +23,7 @@ bob.save!
 puts "Users created : #{User.count}"
 puts "---------------------------------------"
 puts "Creating Events"
+
 solidays = Event.new(title: "Solidays",
                      category: "Festival de musique",
                      tags: "",
