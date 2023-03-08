@@ -15,10 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_145245) do
   enable_extension "plpgsql"
 
   create_table "challenges", force: :cascade do |t|
-    t.text "description"
     t.bigint "reward_id", null: false
     t.bigint "relationship_id", null: false
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["relationship_id"], name: "index_challenges_on_relationship_id"
@@ -26,23 +25,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_145245) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "nature"
+    t.string "title"
+    t.string "category"
+    t.string "tags"
     t.text "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.float "latitude"
     t.float "longitude"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
-    t.bigint "relationship_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["relationship_id"], name: "index_messages_on_relationship_id"
+    t.index ["challenge_id"], name: "index_messages_on_challenge_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "participations", force: :cascade do |t|
@@ -58,19 +61,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_145245) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "status"
-    t.bigint "participation_sender_id"
-    t.bigint "participation_recipient_id"
-    t.bigint "reward_id", null: false
+    t.integer "status", default: 0
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["participation_recipient_id"], name: "index_relationships_on_participation_recipient_id"
-    t.index ["participation_sender_id"], name: "index_relationships_on_participation_sender_id"
-    t.index ["reward_id"], name: "index_relationships_on_reward_id"
+    t.index ["receiver_id"], name: "index_relationships_on_receiver_id"
+    t.index ["sender_id"], name: "index_relationships_on_sender_id"
   end
 
   create_table "reward_choices", force: :cascade do |t|
-    t.integer "status"
     t.bigint "participation_id", null: false
     t.bigint "reward_id", null: false
     t.datetime "created_at", null: false
@@ -81,6 +81,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_145245) do
 
   create_table "rewards", force: :cascade do |t|
     t.bigint "event_id", null: false
+    t.text "title"
+    t.text "description"
+    t.text "reward"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_rewards_on_event_id"
@@ -106,12 +109,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_145245) do
 
   add_foreign_key "challenges", "relationships"
   add_foreign_key "challenges", "rewards"
-  add_foreign_key "messages", "relationships"
+  add_foreign_key "messages", "challenges"
+  add_foreign_key "messages", "users"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "users"
-  add_foreign_key "relationships", "participations", column: "participation_recipient_id"
-  add_foreign_key "relationships", "participations", column: "participation_sender_id"
-  add_foreign_key "relationships", "rewards"
+  add_foreign_key "relationships", "participations", column: "receiver_id"
+  add_foreign_key "relationships", "participations", column: "sender_id"
+  add_foreign_key "reward_choices", "participations"
   add_foreign_key "reward_choices", "rewards"
   add_foreign_key "rewards", "events"
 end

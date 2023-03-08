@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <div class="nav-item active">
+    <%= link_to root_path, class: "nav-link" do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+    <%= link_to current_event_path, class: "nav-link" do %>
+      <i class="fa-solid fa-play"></i>
+    <% end %>
+    <%= link_to "...", class: "nav-link" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
+    <%= link_to "...", class: "nav-link" do %>
+      <i class="fa-solid fa-comments"></i>
+    <% end %>
+    <%= link_to dashboard_path, class: "nav-link" do %>
+      <i class="fa-regular fa-user"></i>
+    <% end %>
+  </div>
+</nav>
+
+#swiperoom
+#chatroom

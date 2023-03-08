@@ -7,4 +7,7 @@ class Event < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  scope :current, -> {where("start_date < :now AND end_date > :now", now: DateTime.now)}
+  scope :incoming, -> {where("start_date > :now", now: DateTime.now).order(start_date: :asc)}
 end
