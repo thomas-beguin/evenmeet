@@ -12,3 +12,6 @@
 @import "components/map";
 @import "pages/index";
 
+body {
+  overscroll-behavior: none;
+}
