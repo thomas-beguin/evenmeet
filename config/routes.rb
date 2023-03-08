@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :event, only: %i[show] do
+
+  resources :event, only: %i[show]
+
+  resources :participations, only: %i[show] do
     resources :relationships, only: %i[new create]
   end
 end

@@ -1,6 +1,6 @@
 export class Swiper {
   constructor(attributes) {
-    this.cards = attributes.cards || []
+    this.cards            = attributes.cards || []
     this.numOfCards       = this.cards.length
     this.currentCardIndex = this.cards.length - 1
     this.currentCard      = this.cards[this.currentCardIndex]
@@ -127,5 +127,5 @@ export class Swiper {
     this.currentCard.querySelector('.profile-link').click()
   }
 }
-  
+
 global.Swiper = Swiper

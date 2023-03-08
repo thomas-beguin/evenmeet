@@ -3,7 +3,7 @@ import { Modal } from "bootstrap";
 import { Swiper } from "../helpers/swiper";
 
 export default class extends Controller {
-  static targets = ["card", "modal", "modalBody"]
+  static targets = ["card", "modal", "modalBody", "content"]
 
   connect() {
     this.initSwiper()
@@ -27,7 +27,8 @@ export default class extends Controller {
   }
 
   swipeLeft(id) {
-    const url = `/event/1/relationships`
+    const participationId = this.contentTarget.dataset.participationId
+    const url = `/participations/${participationId}/relationships`
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -40,8 +41,9 @@ export default class extends Controller {
     fetchWithToken(url, options)
   }
 
-  swipeRight(id){
-    const url = `/event/1/relationships`
+  swipeRight(id) {
+    const participationId = this.contentTarget.dataset.participationId
+    const url = `/participations/${participationId}/relationships`
     const options = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -63,8 +65,6 @@ export default class extends Controller {
       this.modal.show()
     }
   }
-
-
 
 }
 
