@@ -2,7 +2,17 @@
   <h4>Even meet</h4>
 </div>
 
-<div class="container">
+<div class="container" data-controller="map">
+  <div id="map-box" class="mapbox-map hide-map"
+      data-controller="map"
+      data-map-target="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <div class="div-cta-map">
+    <button class="cta-map" id="map-button" data-map-target="ctamap" data-action="click->showmap#show">Search events</button>
+  </div>
 
   <div class="search">
     <%= form_with url: root_path, method: :get, class: "d-flex search-form" do %>
@@ -63,5 +73,4 @@
       <p>Dum haec in oriente aguntur, Arelate hiemem agens Constantius post theatralis ludos atque circenses</p>
     </div>
   </div>
-
 </div>
