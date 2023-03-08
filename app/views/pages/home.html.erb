@@ -2,6 +2,17 @@
   <h4>Even meet</h4>
 </div>
 
+  <div class="search">
+    <%= render "shared/search_form" %>
+  </div>
+
+  <%# <% @events.each do | event | %>
+    <%# <div>
+      <p><%= event.title %></p>
+      <%# <p><%= event.description %></p>
+    <%# </div>
+  <% end %>
+
 <div class="container" data-controller="map">
   <div id="map-box" class="mapbox-map hide-map"
       data-controller="map"
@@ -12,10 +23,6 @@
 
   <div class="div-cta-map">
     <button class="cta-map" id="map-button" data-map-target="ctamap" data-action="click->showmap#show">Search events</button>
-  </div>
-
-  <div class="search">
-    <%= render "shared/search_form" %>
   </div>
 
   <div class="event-card">

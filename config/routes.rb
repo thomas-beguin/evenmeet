@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get "events/current", to: "events#current", as: :current_event
   resources :events do
     resources :participations, only: %i[new create]
+    resources :relationships, only: %i[new create]
   end
-  resources :challenges, only: :show do
+  resources :challenges, only: %i[show index] do
     resources :messages, only: :create
   end
+end
