@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_110647) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_145245) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,11 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_110647) do
     t.string "category"
     t.string "tags"
     t.text "description"
-    t.date "start_date"
-    t.date "end_date"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -52,6 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_110647) do
     t.bigint "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["event_id"], name: "index_participations_on_event_id"
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
