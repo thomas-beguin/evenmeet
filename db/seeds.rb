@@ -24,6 +24,7 @@ puts "Users created : #{User.count}"
 puts "---------------------------------------"
 puts "Creating Events"
 
+
 solidays = Event.new(
   title: "Solidays",
   category: "Festival de musique",
@@ -62,6 +63,7 @@ rockenseine = Event.new(
   end_date: DateTime.now + 3.days
 )
 rockenseine.save!
+
 
 puts "Events created : #{Event.count}"
 puts "---------------------------------------"
