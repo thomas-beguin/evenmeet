@@ -23,4 +23,8 @@ class User < ApplicationRecord
       events.incoming.first
     end
   end
+
+  def current_participation
+    participations.find_by(event: current_event)
+  end
 end
