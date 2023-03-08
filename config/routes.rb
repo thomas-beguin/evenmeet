@@ -10,10 +10,7 @@ Rails.application.routes.draw do
   resources :events do
     resources :participations, only: %i[new create]
   end
-
-  # get "users/:id", to "participations#show"
-  # post "users/:id", to "participations#show"
-
-  # get "users/:id", to "challenges#show"
-
+  resources :challenges, only: :show do
+    resources :messages, only: :create
+  end
 end
