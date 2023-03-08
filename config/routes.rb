@@ -11,7 +11,14 @@ Rails.application.routes.draw do
   
   resources :events do
     resources :participations, only: %i[new create]
+    resources :relationships, only: %i[new create]
   end
+
+  resources :challenges, only: %i[show index] do
+    resources :messages, only: :create
+  end
+end
+
   
   resources :participations, only: %i[show] do
     resources :relationships, only: %i[new create]
@@ -21,3 +28,4 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 end
+
