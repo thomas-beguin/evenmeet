@@ -6,14 +6,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get "/events/:id", to: "events#show"
+  get "dashboard", to: "pages#dashboard"
+  get "events/current", to: "events#current", as: :current_event
   resources :events do
     resources :participations, only: %i[new create]
   end
 
-  # get "users/:id", to "participations#show"
-  # post "users/:id", to "participations#show"
 
-  # get "users/:id", to "challenges#show"
 
 end
