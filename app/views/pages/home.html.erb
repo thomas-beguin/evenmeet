@@ -1,2 +1,16 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<div data-controller="map">
+  <div id="map-box" class="mapbox-map hide-map"
+      data-controller="map"
+      data-map-target="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+
+  <div class="div-cta-map">
+    <button class="cta-map" id="map-button" data-map-target="ctamap" data-action="click->showmap#show">Search events</button>
+  </div>
+</div>
