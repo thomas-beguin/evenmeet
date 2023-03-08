@@ -1,4 +1,5 @@
 require "open-uri"
+
 puts "Destroying..."
 User.destroy_all
 Event.destroy_all
@@ -6,22 +7,32 @@ Reward.destroy_all
 puts "User : #{User.all.length}"
 puts "Event : #{Event.all.length}"
 puts "Reward : #{Reward.all.length}"
+
 puts "---------------------------------------"
 puts "Creating Users"
+
 toto = User.new(first_name: "Toto",
                 last_name: "TOTO",
                 email: "toto@mail.com",
                 password: "password",
                 city: "Paris")
+
 toto.photos.attach(io: URI.open("https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"), filename: "seed.png", content_type: "image/png")
+
 toto.save!
+
 bob = User.new(first_name: "Bob",
                last_name: "BOB",
                email: "bob@mail.com",
                password: "password",
                city: "Paris")
+
 bob.photos.attach(io: URI.open("https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"), filename: "seed.png", content_type: "image/png")
+
+
+
 bob.save!
+
 jessica = User.new(first_name: "Jessica",
   last_name: "CHASTAIN",
   email: "jessica@mail.com",
@@ -29,6 +40,7 @@ jessica = User.new(first_name: "Jessica",
   city: "Paris")
 jessica.photos.attach(io: URI.open("https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cG9ydHJhaXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"), filename: "seed.png", content_type: "image/png")
 jessica.save!
+
 hugo = User.new(first_name: "Hugo",
   last_name: "POUSSIN",
   email: "hugo@mail.com",
@@ -89,6 +101,7 @@ rockenseine.save!
 
 
 puts "Events created : #{Event.count}"
+
 puts "---------------------------------------"
 puts "Creating Participations"
 
