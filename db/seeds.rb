@@ -114,79 +114,79 @@ lollapalooza = Event.new(
 lollapalooza.photos.attach(io: URI.open("https://global-uploads.webflow.com/616ee9a6ca0a92c43c8929b6/63d0f1b632a91dddc41688ce_onimage.jpg"), filename: "seed.png", content_type: "image/png")
 lollapalooza.save!
 
-# francofolies = Event.new(
-#   title: "Francofolies de La Rochelle",
-#   category: "Music festival",
-#   tags: "",
-#   address: "14 Bd Maréchal Lyautey, 17000 La Rochelle",
-#   description: "Some of the artists who will grace Francofolies festival-goers have already been announced. M, Lomepal, Gazo, Soprano, Chilla, Michel Polnareff or Matmatah are expected in La Rochelle this summer.",
-#   start_date: DateTime.now - 8.days,
-#   end_date: DateTime.now - 7.days
-# )
-# francofolies.photos.attach(io: URI.open("https://agendaculturel.emstorage.fr/francofolies-20221124110139.png"), filename: "seed.png", content_type: "image/png")
-# francofolies.save!
+francofolies = Event.new(
+  title: "Francofolies de La Rochelle",
+  category: "Music festival",
+  tags: "",
+  address: "14 Bd Maréchal Lyautey, 17000 La Rochelle",
+  description: "Some of the artists who will grace Francofolies festival-goers have already been announced. M, Lomepal, Gazo, Soprano, Chilla, Michel Polnareff or Matmatah are expected in La Rochelle this summer.",
+  start_date: DateTime.now - 8.days,
+  end_date: DateTime.now - 7.days
+)
+francofolies.photos.attach(io: URI.open("https://agendaculturel.emstorage.fr/francofolies-20221124110139.png"), filename: "seed.png", content_type: "image/png")
+francofolies.save!
 
-# rockenseine = Event.new(
-#   title: "Rock en Seine",
-#   category: "Music festival",
-#   tags: "",
-#   address: "2 Rue Cauchy, 75015 Paris",
-#   description: "The most rock’n’roll of Paris festivals is back for an anniversary edition. 2023 will mark the 20th anniversary of Rock en Seine. This means we can expect an exceptional line-up for this event which has already brought in Arctic Monkeys, Stromae, The Blaze, Yungblud and IDLES. The programme will be unveiled in January.",
-#   start_date: DateTime.now + 10.days,
-#   end_date: DateTime.now + 13.days
-# )
-# rockenseine.photos.attach(io: URI.open("https://www.rockenseine.com/wp-content/uploads/2021/12/RES22_DOUBLE-RATM-COVERS-RS_banniere-FB-1920x1080-1.jpg"), filename: "seed.png", content_type: "image/png")
-# rockenseine.save!
+rockenseine = Event.new(
+  title: "Rock en Seine",
+  category: "Music festival",
+  tags: "",
+  address: "2 Rue Cauchy, 75015 Paris",
+  description: "The most rock’n’roll of Paris festivals is back for an anniversary edition. 2023 will mark the 20th anniversary of Rock en Seine. This means we can expect an exceptional line-up for this event which has already brought in Arctic Monkeys, Stromae, The Blaze, Yungblud and IDLES. The programme will be unveiled in January.",
+  start_date: DateTime.now + 10.days,
+  end_date: DateTime.now + 13.days
+)
+rockenseine.photos.attach(io: URI.open("https://www.rockenseine.com/wp-content/uploads/2021/12/RES22_DOUBLE-RATM-COVERS-RS_banniere-FB-1920x1080-1.jpg"), filename: "seed.png", content_type: "image/png")
+rockenseine.save!
 
-# mainsquare = Event.new(
-#   title: "Main Square Festival",
-#   category: "Music festival",
-#   tags: "",
-#   address: "6 Pl. Guy Mollet, 62022 Arras",
-#   description: "The Arras music festival is set to deliver an epic 2023 edition. While the rest of the line-up has yet to be revealed, music fans can already look forward to live performances from Aya Nakamura, Orelsan, David Guetta, Macklemore and American band Maroon 5.",
-#   start_date: DateTime.now + 18.days,
-#   end_date: DateTime.now + 20.days
-# )
-# mainsquare.photos.attach(io: URI.open("https://generation.hautsdefrance.fr/wp-content/uploads/2022/06/MAINSQUAREFESTIVAL2022_GENERIQUE_1200x630.jpg"), filename: "seed.png", content_type: "image/png")
-# mainsquare.save!
+mainsquare = Event.new(
+  title: "Main Square Festival",
+  category: "Music festival",
+  tags: "",
+  address: "6 Pl. Guy Mollet, 62022 Arras",
+  description: "The Arras music festival is set to deliver an epic 2023 edition. While the rest of the line-up has yet to be revealed, music fans can already look forward to live performances from Aya Nakamura, Orelsan, David Guetta, Macklemore and American band Maroon 5.",
+  start_date: DateTime.now + 18.days,
+  end_date: DateTime.now + 20.days
+)
+mainsquare.photos.attach(io: URI.open("https://generation.hautsdefrance.fr/wp-content/uploads/2022/06/MAINSQUAREFESTIVAL2022_GENERIQUE_1200x630.jpg"), filename: "seed.png", content_type: "image/png")
+mainsquare.save!
 
-# hellfest = Event.new(
-#   title: "Hellfest",
-#   category: "Music festival",
-#   tags: "",
-#   address: "1 Les Grands Champs, 44190 Clisson",
-#   description: "For its 16th edition, Hellfest returns with a line-up that will delight all rock and metal fans. Over the span of four days, the village of Clisson, in the Loire-Atlantique region, will welcome the biggest names in the genre: Iron Maiden, KISS, SlipKnot, Sum41, Machine Gun Kelly and Pantera.",
-#   start_date: DateTime.now + 21.days,
-#   end_date: DateTime.now + 23.days
-# )
-# hellfest.photos.attach(io: URI.open("https://generation.hautsdefrance.fr/wp-content/uploads/2022/06/MAINSQUAREFESTIVAL2022_GENERIQUE_1200x630.jpg"), filename: "seed.png", content_type: "image/png")
-# hellfest.save!
+hellfest = Event.new(
+  title: "Hellfest",
+  category: "Music festival",
+  tags: "",
+  address: "1 Les Grands Champs, 44190 Clisson",
+  description: "For its 16th edition, Hellfest returns with a line-up that will delight all rock and metal fans. Over the span of four days, the village of Clisson, in the Loire-Atlantique region, will welcome the biggest names in the genre: Iron Maiden, KISS, SlipKnot, Sum41, Machine Gun Kelly and Pantera.",
+  start_date: DateTime.now + 21.days,
+  end_date: DateTime.now + 23.days
+)
+hellfest.photos.attach(io: URI.open("https://api-cdn.arte.tv/img/v2/image/pNyK3ojBsfoFi6xqz4j3eW/1920x1080"), filename: "seed.png", content_type: "image/png")
+hellfest.save!
 
-# delta = Event.new(
-#   title: "Delta Festival",
-#   category: "Music festival",
-#   tags: "",
-#   address: "9 Quai du Lazaret, 13002 Marseille",
-#   description: "Every summer, the Prado beach in Marseille hosts one of the biggest festivals in France: Delta. We still don’t know the names of the artists on the bill for this edition. With five stages and regulars such as Big Flo & Oli, PNL, Kungs and Vitalic, the festival offers a rich and varied programme every year.",
-#   start_date: DateTime.now + 1.day,
-#   end_date: DateTime.now + 3.days
-# )
-# delta.photos.attach(io: URI.open("https://images.bfmtv.com/owqG4OKlNTDmFADP6vv3xTor9U0=/30x2:1966x1091/1936x0/images/Delta-Festival-2022-1228406.jpg"), filename: "seed.png", content_type: "image/png")
-# delta.save!
+delta = Event.new(
+  title: "Delta Festival",
+  category: "Music festival",
+  tags: "",
+  address: "9 Quai du Lazaret, 13002 Marseille",
+  description: "Every summer, the Prado beach in Marseille hosts one of the biggest festivals in France: Delta. We still don’t know the names of the artists on the bill for this edition. With five stages and regulars such as Big Flo & Oli, PNL, Kungs and Vitalic, the festival offers a rich and varied programme every year.",
+  start_date: DateTime.now + 1.day,
+  end_date: DateTime.now + 3.days
+)
+delta.photos.attach(io: URI.open("https://images.bfmtv.com/owqG4OKlNTDmFADP6vv3xTor9U0=/30x2:1966x1091/1936x0/images/Delta-Festival-2022-1228406.jpg"), filename: "seed.png", content_type: "image/png")
+delta.save!
 
-# vieillescharrues = Event.new(
-#   title: "Vieilles Charrues",
-#   category: "Music festival",
-#   tags: "",
-#   address: "Rue Jean-Sébastien Corvellec, 29270 Carhaix-Plouguer",
-#   description: "The 31st edition of Les Veilles Charrues will bring together internationally renowned artists on stage. Robbie Williams, the Red Hot Chili Peppers, Blur and singer Rosalia will share the stage with French singers such as Aya Nakamura, Petit Biscuit, Agar Agar, Pomme and JAIN.",
-#   start_date: DateTime.now + 1.day,
-#   end_date: DateTime.now + 3.days
-# )
-# vieillescharrues.photos.attach(io: URI.open("https://cdn.vieillescharrues.asso.fr/wp-content/uploads/2022/12/visuel_OG_VieillesCharrues23_V2.jpg"), filename: "seed.png", content_type: "image/png")
-# vieillescharrues.save!
+vieillescharrues = Event.new(
+  title: "Vieilles Charrues",
+  category: "Music festival",
+  tags: "",
+  address: "Rue Jean-Sébastien Corvellec, 29270 Carhaix-Plouguer",
+  description: "The 31st edition of Les Veilles Charrues will bring together internationally renowned artists on stage. Robbie Williams, the Red Hot Chili Peppers, Blur and singer Rosalia will share the stage with French singers such as Aya Nakamura, Petit Biscuit, Agar Agar, Pomme and JAIN.",
+  start_date: DateTime.now + 1.day,
+  end_date: DateTime.now + 3.days
+)
+vieillescharrues.photos.attach(io: URI.open("https://cdn.vieillescharrues.asso.fr/wp-content/uploads/2022/12/visuel_OG_VieillesCharrues23_V2.jpg"), filename: "seed.png", content_type: "image/png")
+vieillescharrues.save!
 
-# puts "Events created : #{Event.count}"
+puts "Events created : #{Event.count}"
 
 # puts "---------------------------------------"
 # puts "Creating Rewards"
@@ -256,7 +256,7 @@ puts "Creating Relationships"
 Event.all.each do |event|
   Participation.where(event: event.id).each do |participation|
     Relationship.create(
-      status: 1,
+      status: [0, 1].sample,
       sender: participation,
       receiver: Participation.where(event: event.id).where.not(user: participation.user).sample
     )
