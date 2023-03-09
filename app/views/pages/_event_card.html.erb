@@ -1,5 +1,5 @@
 <% events.each do |event| %>
-  <%= link_to event_path(event), class:"text-decoration-none" do %>
+  <%= link_to current_event_path, class:"text-decoration-none" do %>
     <div class="event-card">
       <% if event.photos.attached? %>
       <div class="event-image">

@@ -16,15 +16,15 @@
               <%# La partie du haut de la carte %>
             </div>
 
-            <%# if user.photos.any?(&:attached?) %>
-              <%#= cl_image_tag user.photos.first.key, class: 'swiper__card__img' %>
-            <%# end %>
+            <% if participation.user.photos.attached? %>
+              <%= cl_image_tag participation.user.photos.first.key, class: 'swiper__card__img' %>
+            <% end
 
-            <%=
-              image_tag("https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGZlc3RpdmFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                        alt: "rss feed",
-                        class: 'swiper__card__img')
-            %>
+            # <%=
+            #   image_tag(participation.user.photos.first.key"https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGZlc3RpdmFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+            #             alt: "rss feed",
+            #             class: 'swiper__card__img')
+            # %>
 
             <div class="swiper__card__content_bottom">
               <p class="swiper__card__name">
