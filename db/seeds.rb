@@ -301,6 +301,7 @@ puts "Relationships created : #{Relationship.count}"
 #     reward:
 #   )
 
+
 puts "---------------------------------------"
 puts "Creating Challenges"
 
@@ -325,3 +326,4 @@ puts "Challenges created : #{Challenge.count}"
 # t.text "content"
 #     t.bigint "user_id", null: false
 #     t.bigint "challenge_id", null: false
+

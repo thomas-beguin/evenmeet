@@ -8,13 +8,8 @@ class PagesController < ApplicationController
     else
       @events = Event.all
     end
-    # @events = Event.all
-
-    # @markers = @events.geocoded.map do |event|
-    #   {
-    #     lat: event.latitude,
-    #     lng: event.longitude
-    #   }
-    # end
+    
+    @participations = Participation.all
+    @participation = Participation.new
   end
 end

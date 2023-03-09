@@ -7,9 +7,14 @@
 }
 
 .container {
-  border-top: solid 1px;
+  // border-top: solid 1px;
   margin: 15px auto;
   width: 90%;
+}
+
+h3 {
+  padding-top: 5px;
+  padding-left: 10px;
 }
 
 .event-card {
@@ -17,6 +22,7 @@
   background-color: lightgrey;
   margin-top: 20px;
   border-radius: 5px;
+  height: 220px;
   img {
     width: 100%;
     height: 120px;
@@ -26,10 +32,76 @@
 }
 
 .event-description {
-  padding-top: 5px;
   margin-left: 10px;
   margin-right: 10px;
   padding-bottom: 3px;
   font-size: small;
   text-align: justify;
+}
+
+.event-modal {
+  height: 0vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: lightgray;
+  z-index: 1;
+  opacity: 0;
+  transition: height ease 1s;
+  width: 0;
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  &.active {
+    height: calc(100vh - 60px);
+    opacity: 1;
+    width: 100vw;
+  }
+}
+
+.gen-infos {
+  .dev {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 15px;
+  }
+}
+
+.event-modal .wrapper-relative {
+  & i {
+    transform: translate(-50%, 100px);
+    transition: transform 1s ease-in;
+  }
+}
+
+.event-modal.active .wrapper-relative {
+  position: relative;
+  height: 100%;
+  overflow: scroll;
+  & i {
+    position: absolute;
+    bottom: 714px;
+    left: 6%;
+    padding: 20px;
+    transform: translate(-50%, 0px);
+    color: white;
+  }
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #670BFF;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.btn-flat:hover {
+  background: #a50bff;
+  color: white;
 }
