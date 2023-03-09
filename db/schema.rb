@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_115418) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_163014) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_115418) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "read", default: 1
     t.index ["relationship_id"], name: "index_challenges_on_relationship_id"
     t.index ["reward_id"], name: "index_challenges_on_reward_id"
   end
@@ -57,8 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_115418) do
     t.string "category"
     t.string "tags"
     t.text "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date "start_date"
+    t.date "end_date"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

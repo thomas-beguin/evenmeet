@@ -1,6 +1,7 @@
 class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
+    @challenge.read!
     @message = Message.new
   end
 
