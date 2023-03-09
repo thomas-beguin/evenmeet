@@ -20,11 +20,20 @@
       <p><%= challenge.reward.title %></p>
     </div>
     <div class="list-content-secondary">
-      <% if challenge.updated_at.strftime("%D") == Date.today.strftime("%D") %>
-        <span><%= challenge.updated_at.strftime("%I:%M%p") %></span>
+      <% if challenge.messages.any? %>
+        <% if challenge.messages.last.updated_at.strftime("%D") == Date.today.strftime("%D") %>
+          <span><%= challenge.messages.last.updated_at.strftime("%I:%M%p") %></span>
+        <% else %>
+          <span><%= challenge.messages.last.updated_at.strftime("%D") %></span>
+        <% end %>
       <% else %>
-        <span><%= challenge.updated_at.strftime("%D") %></span>
+        <span>New</span>
       <% end %>
+
+      <% if challenge.new_message? %>
+        <p class="text-end text-primary"><i class="fa-solid fa-circle"></i></p>
+      <% end %>
+
     </div>
   </div>
 

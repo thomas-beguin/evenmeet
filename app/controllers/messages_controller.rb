@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def create
     @challenge = Challenge.find(params[:challenge_id])
+    @challenge.new_message!
     @message = Message.new(message_params)
     @message.challenge = @challenge
     @message.user = current_user
