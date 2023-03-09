@@ -20,8 +20,6 @@ mickael = User.new(first_name: "Mickael",
 mickael.photos.attach(io: URI.open("https://images.unsplash.com/photo-1500210701147-9eaeb52f32ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
 mickael.save!
 
-puts "Mickael created"
-
 robert = User.new(first_name: "Robert",
                last_name: "BOUBLARD",
                email: "robert@mail.com",
@@ -29,8 +27,6 @@ robert = User.new(first_name: "Robert",
                city: "Paris")
 robert.photos.attach(io: URI.open("https://images.unsplash.com/photo-1623082574085-157d955f1d35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
 robert.save!
-
-puts "Robert created"
 
 jessica = User.new(first_name: "Jessica",
   last_name: "CHASTAIN",
@@ -40,8 +36,6 @@ jessica = User.new(first_name: "Jessica",
 jessica.photos.attach(io: URI.open("https://images.unsplash.com/photo-1570053381569-78f606b5caab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2831&q=80"), filename: "seed.png", content_type: "image/png")
 jessica.save!
 
-puts "Jessica created"
-
 hugo = User.new(first_name: "Hugo",
   last_name: "POUSSIN",
   email: "hugo@mail.com",
@@ -49,8 +43,6 @@ hugo = User.new(first_name: "Hugo",
   city: "Evry")
 hugo.photos.attach(io: URI.open("https://images.unsplash.com/photo-1567784177951-6fa58317e16b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
 hugo.save!
-
-puts "Hugo created"
 
 melanie = User.new(first_name: "Mélanie",
   last_name: "PICHARD",
@@ -60,7 +52,38 @@ melanie = User.new(first_name: "Mélanie",
 melanie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3387&q=80"), filename: "seed.png", content_type: "image/png")
 melanie.save!
 
-puts "Melanie created"
+sven = User.new(first_name: "Sven",
+  last_name: "Migdard",
+  email: "sven@mail.com",
+  password: "password",
+  city: "Ivry")
+sven.photos.attach(io: URI.open("https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+sven.save!
+
+paul = User.new(first_name: "Paul",
+  last_name: "Lefèbvre",
+  email: "paul@mail.com",
+  password: "password",
+  city: "Ivry")
+paul.photos.attach(io: URI.open("https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+paul.save!
+
+aurelie = User.new(first_name: "Aurélie",
+  last_name: "Paulson",
+  email: "aurelie@mail.com",
+  password: "password",
+  city: "London")
+aurelie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1592621385612-4d7129426394?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+aurelie.save!
+
+ceyla = User.new(first_name: "Ceyla",
+  last_name: "Nichols",
+  email: "ceyla@mail.com",
+  password: "password",
+  city: "London")
+ceyla.photos.attach(io: URI.open("https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+ceyla.save!
+
 puts "All demo users created"
 # puts "Creating 15 additional users"
 # 8.times do
@@ -188,14 +211,15 @@ vieillescharrues.save!
 
 puts "Events created : #{Event.count}"
 
-# puts "---------------------------------------"
-# puts "Creating Rewards"
+puts "---------------------------------------"
+puts "Creating Rewards"
 
 Event.all.each do |event|
   beer = Reward.create(
     title:  "Beer challenge",
     event: event,
-    description:  "Find your match and go get a beer at the bar with a 30% discount!"
+    description:  "Find your match and go get a beer at the bar with a 30% discount!",
+    reward: "30% discount"
   )
   beer.photo.attach(io: URI.open("https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"), filename: "seed.png", content_type: "image/png")
   beer.save!
@@ -203,7 +227,8 @@ Event.all.each do |event|
   burger = Reward.create(
     title:  "Burger challenge",
     event: event,
-    description:  "Find your match and go get a burger at the restaurant with a 15% discount!"
+    description:  "Find your match and go get a burger at the restaurant with a 15% discount!",
+    reward: "15% discount"
   )
   burger.photo.attach(io: URI.open("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1899&q=80"), filename: "seed.png", content_type: "image/png")
   burger.save!
@@ -211,7 +236,8 @@ Event.all.each do |event|
   tshirt = Reward.create(
     title:  "T-shirt challenge",
     event: event,
-    description:  "Find your match and buy a t-shirt at the merch shop with a 10% discount!"
+    description:  "Find your match and buy a t-shirt at the merch shop with a 10% discount!",
+    reward: "10% discount"
   )
   tshirt.photo.attach(io: URI.open("https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"), filename: "seed.png", content_type: "image/png")
   tshirt.save!
