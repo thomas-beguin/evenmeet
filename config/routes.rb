@@ -14,12 +14,12 @@ Rails.application.routes.draw do
     resources :relationships, only: %i[new create]
   end
 
-  resources :challenges, only: %i[show index] do
-    resources :messages, only: :create
-  end
-
   resources :participations, only: %i[show] do
     resources :relationships, only: %i[new create]
+  end
+
+  resources :challenges, only: %i[show index] do
+    resources :messages, only: :create
   end
 
   resources :challenges, only: :show do

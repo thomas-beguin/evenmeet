@@ -8,6 +8,7 @@
 </div>
 
 <div class="container">
+
   <% @events.each do | event | %>
     <div class="event-card-wrapper" data-controller="toggle-element">
       <div class="event-card" data-action="click->toggle-element#toggle">
@@ -55,4 +56,5 @@
 
     </div>
   <% end %>
+    <%#= render 'event_card', events: @events %>
 </div>

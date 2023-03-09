@@ -1,7 +1,5 @@
 <div class="container" >
-  <h1>Event Show</h1>
-  <H3><%= @event.id %></H3>
-  <H4><%= @event.title %></H4>
+  <h4><%= @event.title %></h4>
 
   <% @participations.each do |participation| %>
     <p><%= participation.event_id %> --- <%= participation.user_id %> -- <%= participation.hint %></p>

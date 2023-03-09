@@ -1,0 +1,16 @@
+<% events.each do |event| %>
+  <%= link_to current_event_path, class:"text-decoration-none" do %>
+    <div class="event-card">
+      <% if event.photos.attached? %>
+      <div class="event-image">
+          <%= cl_image_tag event.photos.first.key, class:"card-img-top", style:"height: 306px;object-fit: cover;" %>
+      </div>
+      <% else %>
+        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" class="card-img-top" alt="...">
+      <% end %>
+      <div class="event-description">
+        <p><%= "#{event.description}" %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>

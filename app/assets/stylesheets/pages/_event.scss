@@ -1,0 +1,66 @@
+.event-img {
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+}
+
+
+// Scroll Menu
+
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.scrollsubmenu {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  width: 150px;
+}
+
+.event-title {
+  font-size: 18px;
+}
+
+// Reward
+
+.reward-card {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1614851099511-773084f6911d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3JhZGllbnQlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60');
+  background-position: center;
+  background-size: cover;
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-reward {
+  font-size: 12px;
+  white-space: initial;
+}
+
+// Participations
+
+.participation-img {
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.box {
+  padding-bottom: 100%;
+  background-image: url("https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGZlc3RpdmFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-position: top;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.col-lg-2, .col-md-3, .col-xs-6{
+  margin-top: 30px !important;
+}

@@ -1,7 +1,15 @@
-<div class="container chatroom"
+<% if @challenge.relationship.receiver.user == current_user %>
+  <% target = @challenge.relationship.sender %>
+<% else %>
+  <% target = @challenge.relationship.receiver %>
+<% end %>
+
+<div class="container challenge"
   data-controller="challenge-subscription"
-  data-challenge-subscription-challenge-id-value="<%= @challenge.id %>">
-  <h4>#<%= @challenge.id %></h4>
+  data-challenge-subscription-challenge-id-value="<%= @challenge.id %>"
+>
+
+  <h4><%= "Chat with #{ target.user.first_name }" %></h4>
 
   <div class="messages" data-challenge-subscription-target="messages">
     <% @challenge.messages.each do |message| %>
@@ -10,13 +18,13 @@
   </div>
 
   <%= simple_form_for [@challenge, @message],
-    html: {class: "d-flex"} do |f|
+    html: { data: { action: "turbo:submit-end->challenge-subscription#resetForm" }, class: "d-flex" } do |f|
   %>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message ##{@challenge.id}",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message ##{@challenge.id}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
 </div>

@@ -18,7 +18,13 @@ class RelationshipsController < ApplicationController
       # New relationship => on en fait rien
       # Relation existante en refused => on ne fait rien
       # Relation existante en pending => accepted!
-      relation.accepted! if relation.pending? && relation.receiver == @current_participation
+      if relation.pending? && relation.receiver == @current_participation
+        relation.accepted!
+        @challenge = Challenge.new
+        @challenge.relationship = relation
+        @challenge.reward = Reward.all.sample
+        @challenge.save
+      end
     else
       # New relationship => refused!
       # Relationship existante => refused!

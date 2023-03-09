@@ -2,5 +2,5 @@
   <h1>You have no current events!</h1>
   <%= link_to 'Join an event', root_path %>
 <% else %>
-  <%= link_to current_user.current_event %>
+  <%= render "event_page", event: current_user.current_event %>
 <% end %>
