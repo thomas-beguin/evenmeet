@@ -6,6 +6,13 @@
     autocomplete: "off"
   %>
 
+    <%= text_field_tag :geo,
+    params[:geo],
+    class: "search-bar",
+    placeholder: "Search an event by address",
+    autocomplete: "off"
+  %>
+
   <%= button_tag type: 'submit', class: "search-button" do %>
     <i class="fa-solid fa-magnifying-glass"></i>
   <% end %>
