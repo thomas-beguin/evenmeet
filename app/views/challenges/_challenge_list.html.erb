@@ -14,13 +14,17 @@
     <% end %>
   </div>
 
-  <div class="list-content border-top border-bottom w-100">
+  <div class="list-content border-top w-100">
     <div class="list-content-main">
       <h4><%= target.user.first_name %></h4>
       <p><%= challenge.reward.title %></p>
     </div>
     <div class="list-content-secondary">
-      <span><%= challenge.updated_at.strftime("%I:%M%p") %></span>
+      <% if challenge.updated_at.strftime("%D") == Date.today.strftime("%D") %>
+        <span><%= challenge.updated_at.strftime("%I:%M%p") %></span>
+      <% else %>
+        <span><%= challenge.updated_at.strftime("%D") %></span>
+      <% end %>
     </div>
   </div>
 
