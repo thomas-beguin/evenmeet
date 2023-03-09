@@ -3,30 +3,11 @@
 </div>
 
 
-  <div class="search">
-    <%= render "shared/search_form" %>
-  </div>
-
-  <%# <% @events.each do | event | %>
-    <%# <div>
-      <p><%= event.title %></p>
-      <%# <p><%= event.description %></p>
-    <%# </div>
-  <% end %>
+<div class="search">
+  <%= render "shared/search_form" %>
+</div>
 
 <div class="container">
-  <!--
-
-  <div id="map-box" class="mapbox-map hide-map"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-  <div class="div-cta-map">
-    <button class="cta-map" id="map-button" data-map-target="ctamap" data-action="click->showmap#show">Search events</button>
-  </div>
-  -->
 
   <div class="event-card">
     <div class="event-image">
@@ -73,5 +54,3 @@
     </div>
   </div>
 </div>
-
-<%= console %>
