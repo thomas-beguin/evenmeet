@@ -14,7 +14,7 @@ puts "Creating Users"
 
 mickael = User.new(first_name: "Mickael",
                 last_name: "SIGMAR",
-                email: "toto@mail.com",
+                email: "mickael@mail.com",
                 password: "password",
                 city: "Paris")
 mickael.photos.attach(io: URI.open("https://images.unsplash.com/photo-1500210701147-9eaeb52f32ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
@@ -24,7 +24,7 @@ puts "Mickael created"
 
 robert = User.new(first_name: "Robert",
                last_name: "BOUBLARD",
-               email: "bob@mail.com",
+               email: "robert@mail.com",
                password: "password",
                city: "Paris")
 robert.photos.attach(io: URI.open("https://images.unsplash.com/photo-1623082574085-157d955f1d35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
@@ -42,28 +42,28 @@ jessica.save!
 
 puts "Jessica created"
 
-hugo = User.new(first_name: "Hugo",
-  last_name: "POUSSIN",
-  email: "hugo@mail.com",
-  password: "password",
-  city: "Evry")
-hugo.photos.attach(io: URI.open("https://images.unsplash.com/photo-1567784177951-6fa58317e16b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
-hugo.save!
+# hugo = User.new(first_name: "Hugo",
+#   last_name: "POUSSIN",
+#   email: "hugo@mail.com",
+#   password: "password",
+#   city: "Evry")
+# hugo.photos.attach(io: URI.open("https://images.unsplash.com/photo-1567784177951-6fa58317e16b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+# hugo.save!
 
-puts "Hugo created"
+# puts "Hugo created"
 
-melanie = User.new(first_name: "Mélanie",
-  last_name: "PICHARD",
-  email: "melanie@mail.com",
-  password: "password",
-  city: "Evry")
-melanie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3387&q=80"), filename: "seed.png", content_type: "image/png")
-melanie.save!
+# melanie = User.new(first_name: "Mélanie",
+#   last_name: "PICHARD",
+#   email: "melanie@mail.com",
+#   password: "password",
+#   city: "Evry")
+# melanie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3387&q=80"), filename: "seed.png", content_type: "image/png")
+# melanie.save!
 
-puts "Melanie created"
-puts "All demo users created"
-puts "Creating 45 additional users"
-# 2.times do
+# puts "Melanie created"
+# puts "All demo users created"
+# puts "Creating 15 additional users"
+# 8.times do
 #   user = User.new(first_name: Faker::Name.male_first_name,
 #     last_name: Faker::Name.last_name,
 #     email: Faker::Internet.email,
@@ -74,7 +74,7 @@ puts "Creating 45 additional users"
 #   puts "#{user.first_name} created"
 # end
 
-# 2.times do
+# 7.times do
 #   user = User.new(first_name: Faker::Name.female_first_name,
 #     last_name: Faker::Name.last_name,
 #     email: Faker::Internet.email,
@@ -101,7 +101,6 @@ solidays = Event.new(
 )
 solidays.photos.attach(io: URI.open("https://statics-infoconcert.digitick.com/media/a_effacer/solidays_resa-pass3j_visunews0123.jpg"), filename: "seed.png", content_type: "image/png")
 solidays.save!
-puts "Solidays created"
 
 lollapalooza = Event.new(
   title: "Lollapalooza Paris",
@@ -114,7 +113,6 @@ lollapalooza = Event.new(
 )
 lollapalooza.photos.attach(io: URI.open("https://global-uploads.webflow.com/616ee9a6ca0a92c43c8929b6/63d0f1b632a91dddc41688ce_onimage.jpg"), filename: "seed.png", content_type: "image/png")
 lollapalooza.save!
-puts "Lollapalooza created"
 
 francofolies = Event.new(
   title: "Francofolies de La Rochelle",
@@ -127,7 +125,6 @@ francofolies = Event.new(
 )
 francofolies.photos.attach(io: URI.open("https://agendaculturel.emstorage.fr/francofolies-20221124110139.png"), filename: "seed.png", content_type: "image/png")
 francofolies.save!
-puts "Francofolies created"
 
 rockenseine = Event.new(
   title: "Rock en Seine",
@@ -140,7 +137,6 @@ rockenseine = Event.new(
 )
 rockenseine.photos.attach(io: URI.open("https://www.rockenseine.com/wp-content/uploads/2021/12/RES22_DOUBLE-RATM-COVERS-RS_banniere-FB-1920x1080-1.jpg"), filename: "seed.png", content_type: "image/png")
 rockenseine.save!
-puts "Rock en Seine created"
 
 mainsquare = Event.new(
   title: "Main Square Festival",
@@ -153,7 +149,6 @@ mainsquare = Event.new(
 )
 mainsquare.photos.attach(io: URI.open("https://generation.hautsdefrance.fr/wp-content/uploads/2022/06/MAINSQUAREFESTIVAL2022_GENERIQUE_1200x630.jpg"), filename: "seed.png", content_type: "image/png")
 mainsquare.save!
-puts "Main Square created"
 
 hellfest = Event.new(
   title: "Hellfest",
@@ -166,7 +161,6 @@ hellfest = Event.new(
 )
 hellfest.photos.attach(io: URI.open("https://generation.hautsdefrance.fr/wp-content/uploads/2022/06/MAINSQUAREFESTIVAL2022_GENERIQUE_1200x630.jpg"), filename: "seed.png", content_type: "image/png")
 hellfest.save!
-puts "Hellfest created"
 
 delta = Event.new(
   title: "Delta Festival",
@@ -179,7 +173,6 @@ delta = Event.new(
 )
 delta.photos.attach(io: URI.open("https://images.bfmtv.com/owqG4OKlNTDmFADP6vv3xTor9U0=/30x2:1966x1091/1936x0/images/Delta-Festival-2022-1228406.jpg"), filename: "seed.png", content_type: "image/png")
 delta.save!
-puts "Delta Festival created"
 
 vieillescharrues = Event.new(
   title: "Vieilles Charrues",
@@ -192,7 +185,6 @@ vieillescharrues = Event.new(
 )
 vieillescharrues.photos.attach(io: URI.open("https://cdn.vieillescharrues.asso.fr/wp-content/uploads/2022/12/visuel_OG_VieillesCharrues23_V2.jpg"), filename: "seed.png", content_type: "image/png")
 vieillescharrues.save!
-puts "Vieilles Charrues created"
 
 puts "Events created : #{Event.count}"
 
@@ -207,7 +199,6 @@ Event.all.each do |event|
   )
   beer.photo.attach(io: URI.open("https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"), filename: "seed.png", content_type: "image/png")
   beer.save!
-  puts "Beer challenge created for #{event.title}"
 
   burger = Reward.create(
     title:  "Burger challenge",
@@ -216,7 +207,6 @@ Event.all.each do |event|
   )
   burger.photo.attach(io: URI.open("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1899&q=80"), filename: "seed.png", content_type: "image/png")
   burger.save!
-  puts "Burger challenge created for #{event.title}"
 
   tshirt = Reward.create(
     title:  "T-shirt challenge",
@@ -225,7 +215,6 @@ Event.all.each do |event|
   )
   tshirt.photo.attach(io: URI.open("https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"), filename: "seed.png", content_type: "image/png")
   tshirt.save!
-  puts "T-shirt challenge created for #{event.title}"
 end
 
 puts "Rewards created : #{Reward.count}"
@@ -236,40 +225,45 @@ puts "Creating Participations"
 hints = ["coiffe indienne", "ailes d'anges", "costume de dinosaure", "veste militaire", "masque de loup", "bicorne", "drapeau breton", "lunettes rouge et t-shirt jaune à pois verts"]
 
 User.all.each do |user|
-  participation = Participation.create!(
+  Participation.create!(
     hint: hints.sample,
     user: user,
     event: Event.all.sample
   )
-  puts "#{user.first_name} is joining #{participation.event}"
 end
 
 puts "Participations created : #{Participation.count}"
 
+# puts "---------------------------------------"
+# puts "Creating Reward Choices"
+
+# demo_users = [mickael, robert, jessica, hugo, melanie]
+
+# Participation.all.each do |participation|
+#   choice = RewardChoice.create(
+#   status: [0, 1].sample,
+#   user: participation.user,
+#   reward: Reward.all[event: participation.event].sample
+# )
+#   puts "#{participation.user} chooses to participate in the #{participation.reward} challenge"
+# end
+
 puts "---------------------------------------"
-puts "Creating Reward Choices"
+puts "Creating Relationships"
 
-demo_users = [mickael, robert, jessica, hugo, melanie]
-
-Participation.all.each do |participation|
-  choice = RewardChoice.create(
-  status: [0, 1].sample,
-  user: participation.user,
-  reward: Reward.all[event: participation.event].sample
-)
-  puts "#{participation.user} chooses to participate in the #{participation.reward} challenge"
+Event.all.each do |event|
+  Participation.where(event: event.id).each do |participation|
+    3.times do
+      Relationship.create(
+        status: [0, 2].sample,
+        sender: participation,
+        receiver: Participation.where(event: event.id).where.not(user: participation.user).sample
+      )
+    end
+  end
 end
 
-# puts "---------------------------------------"
-# puts "Creating Relationships"
-
-# RewardChoice.all[status: 1].each do |choice|
-#   Relationship.create(
-#     status: [0, 1, 2].sample,
-#     sender: choice.user,
-#     receiver: Participation.all participation.event.user all.sample
-# )
-# end
+puts "Relationships created : #{Relationship.count}"
 
 # puts "---------------------------------------"
 # puts "Creating Challenges"
@@ -280,5 +274,3 @@ end
 #     relationship: relationship,
 #     reward:
 #   )
-
-end
