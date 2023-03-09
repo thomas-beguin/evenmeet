@@ -1,8 +1,8 @@
 class Relationship < ApplicationRecord
   # Permet de faire : relation.participation_sender = participation
   # Sinon, on doit passer par l'id
-  belongs_to :sender,    class_name: "Participation"
-
+  belongs_to :sender, class_name: "Participation"
+  
   # Permet de faire : relation.participation_receiver = participation
   # Sinon, on doit passer par l'id
   belongs_to :receiver, class_name: "Participation"

@@ -1,22 +1,29 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-light bg-light justify-content-between ">
   <div class="nav-item active">
     <%= link_to root_path, class: "nav-link" do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
+
     <%= link_to current_event_path, class: "nav-link" do %>
       <i class="fa-solid fa-play"></i>
     <% end %>
-    <%= link_to "...", class: "nav-link" do %>
-      <i class="fa-solid fa-heart"></i>
+
+    <% if current_user.nil? || current_user.current_event.nil? %>
+      <span class="nav-link">
+        <i class="fa-solid fa-heart"></i>
+      </span>
+    <% else %>
+      <%= link_to new_participation_relationship_path(current_user.current_participation), class: "nav-link" do %>
+        <i class="fa-solid fa-heart"></i>
+      <% end %>
     <% end %>
-    <%= link_to "...", class: "nav-link" do %>
+
+    <%= link_to challenges_path, class: "nav-link" do %>
       <i class="fa-solid fa-comments"></i>
     <% end %>
+
     <%= link_to dashboard_path, class: "nav-link" do %>
-      <i class="fa-regular fa-user"></i>
+      <i class="fa-solid fa-user"></i>
     <% end %>
   </div>
 </nav>
-
-#swiperoom
-#chatroom
