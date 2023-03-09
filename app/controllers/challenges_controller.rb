@@ -5,5 +5,6 @@ class ChallengesController < ApplicationController
   end
 
   def index
+    @challenges = current_user.current_participation.sender_challenges + current_user.current_participation.receiver_challenges
   end
 end
