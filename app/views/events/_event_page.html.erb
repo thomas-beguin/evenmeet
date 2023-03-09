@@ -1,0 +1,15 @@
+<div class="p-1 mb-5">
+  <div class="mb-3">
+    <% if event.photos.attached? %>
+      <%= cl_image_tag event.photos.first.key %>
+    <% else %>
+      <%= image_tag "https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg", class:"event-img" %>
+    <% end %>
+  </div>
+  <h1><%= event.title %></h1>
+  <p> <%= event.description %> </p>
+  <h2>Rewards:</h2>
+  <%= render "rewards", rewards: event.rewards %>
+  <h2>Participants:</h2>
+  <%= render "participations", participations: event.participations %>
+</div>
