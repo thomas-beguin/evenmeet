@@ -1,8 +1,15 @@
+<% if @challenge.relationship.receiver.user == current_user %>
+  <% target = @challenge.relationship.sender %>
+<% else %>
+  <% target = @challenge.relationship.receiver %>
+<% end %>
+
 <div class="container challenge"
   data-controller="challenge-subscription"
   data-challenge-subscription-challenge-id-value="<%= @challenge.id %>"
 >
-  <h4><%= "Chat with #{ @challenge.relationship.receiver.user == current_user ? current_user.first_name : @challenge.relationship.receiver.user.first_name }" %></h4>
+
+  <h4><%= "Chat with #{ target.user.first_name }" %></h4>
 
   <div class="messages" data-challenge-subscription-target="messages">
     <% @challenge.messages.each do |message| %>
