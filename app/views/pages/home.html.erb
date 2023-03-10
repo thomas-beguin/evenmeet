@@ -15,5 +15,53 @@
 
 
 <div class="container">
-    <%= render 'event_card', events: @events %>
+
+  <% @events.each do | event | %>
+    <div class="event-card-wrapper" data-controller="toggle-element">
+      <div class="event-card" data-action="click->toggle-element#toggle">
+        <div class="event-image">
+          <%= image_tag "https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg", width: 30, height: 40 %>
+        </div>
+        <h3><%= event.title %></h3>
+        <div class="event-description">
+          <p> <%= event.description.size > 100 ? "#{event.description.first(110)} ..." : event.description %> </p>
+        </div>
+      </div>
+
+      <div class="event-modal" data-toggle-element-target="modal">
+        <div class="wrapper-relative">
+          <div class="event-image">
+            <%= image_tag "https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg", width: 30, height: 40 %>
+          </div>
+
+          <div class="container">
+            <div class="gen-infos">
+              <p>When? From <%= event.start_date.strftime("%A %B %e") %> to <%= event.end_date.strftime("%A %B %e") %></p>
+              <p>Where? <%= event.address %></p>
+              <h1><%= event.title %></h1>
+                <div class="dev">
+                  <p><%= event.description %></p>
+                </div>
+
+                <div class="container" >
+                  <%= simple_form_for [event, @participation] do |f| %>
+                    <%= f.input :event_id, as: :hidden, input_html: { value: event.id } %>
+                    <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+                    <%= f.input :hint ,placeholder: "Mon indice"%>
+                    <%= f.submit class: 'btn btn-primary text-white p-2 w-100' %>
+                  <% end %>
+                </div>
+
+               <%# <%= link_to "Join this event", new_event_participation_path(event), class:"btn btn-flat" %>
+
+            </div>
+            <i class="fa-solid fa-x" data-action="click->toggle-element#toggle"></i>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+    <%#= render 'event_card', events: @events %>
 </div>

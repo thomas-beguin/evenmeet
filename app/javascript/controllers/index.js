@@ -10,10 +10,11 @@ application.register("challenge-subscription", ChallengeSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
 
 import SwipeController from "./swipe_controller"
 application.register("swipe", SwipeController)
 
-// import MapController from "./map_controller"
-// application.register("map", MapController)
-
+import ToggleElementController from "./toggle_element_controller"
+application.register("toggle-element", ToggleElementController)

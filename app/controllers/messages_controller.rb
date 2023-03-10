@@ -1,11 +1,16 @@
 class MessagesController < ApplicationController
   def create
     @challenge = Challenge.find(params[:challenge_id])
+    @challenge.new_message!
     @message = Message.new(message_params)
     @message.challenge = @challenge
     @message.user = current_user
     if @message.save
-      redirect_to challenge_path(@challenge)
+      ChallengeChannel.broadcast_to(
+        @challenge,
+        render_to_string(partial: "message", locals: {message: @message})
+      )
+      head :ok
     else
       render "challenges/show", status: :unprocessable_entity
     end
