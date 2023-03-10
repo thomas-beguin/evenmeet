@@ -49,7 +49,7 @@ melanie = User.new(first_name: "Mélanie",
   email: "melanie@mail.com",
   password: "password",
   city: "Evry")
-melanie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3387&q=80"), filename: "seed.png", content_type: "image/png")
+melanie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
 melanie.save!
 
 sven = User.new(first_name: "Sven",
@@ -116,7 +116,7 @@ puts "Creating Events"
 solidays = Event.new(
   title: "Solidays",
   category: "Music festival",
-  tags: "",
+  tags: "Top 5",
   address: "2 Rte des Tribunes, 75016 Paris",
   description: "Once again this year, the Hippodrome Longchamps in Paris will welcome thousands of festival-goers to celebrate the start of summer with music. Although the line-up is still confidential, there is no doubt that 2023 will once again live up to the expectations of festival-goers. PLK, Macklemore, Angèle, J Balvin and Stromae have already been headlining the festival.",
   start_date: DateTime.now - 1.day,
@@ -128,7 +128,7 @@ solidays.save!
 lollapalooza = Event.new(
   title: "Lollapalooza Paris",
   category: "Music festival",
-  tags: "",
+  tags: "Top 5",
   address: "5 Rue de Lagny, 75020 Paris",
   description: "A few weeks after Solidays, it’s Lolapalooza’s turn to bring together music lovers at the Hippodrome Longchamps. And for the occasion, the festival has kicked things up a notch: Kendrick Lamar, Rosalia, Lil Nas X, Aya Nakamura and Damso are verified as headliners for the 2023 edition.",
   start_date: DateTime.now - 2.hours,
@@ -140,7 +140,7 @@ lollapalooza.save!
 francofolies = Event.new(
   title: "Francofolies de La Rochelle",
   category: "Music festival",
-  tags: "",
+  tags: "Top 5",
   address: "14 Bd Maréchal Lyautey, 17000 La Rochelle",
   description: "Some of the artists who will grace Francofolies festival-goers have already been announced. M, Lomepal, Gazo, Soprano, Chilla, Michel Polnareff or Matmatah are expected in La Rochelle this summer.",
   start_date: DateTime.now - 8.days,
@@ -152,7 +152,7 @@ francofolies.save!
 rockenseine = Event.new(
   title: "Rock en Seine",
   category: "Music festival",
-  tags: "",
+  tags: "Top 5",
   address: "2 Rue Cauchy, 75015 Paris",
   description: "The most rock’n’roll of Paris festivals is back for an anniversary edition. 2023 will mark the 20th anniversary of Rock en Seine. This means we can expect an exceptional line-up for this event which has already brought in Arctic Monkeys, Stromae, The Blaze, Yungblud and IDLES. The programme will be unveiled in January.",
   start_date: DateTime.now + 10.days,
@@ -164,7 +164,7 @@ rockenseine.save!
 mainsquare = Event.new(
   title: "Main Square Festival",
   category: "Music festival",
-  tags: "",
+  tags: "Newcomers",
   address: "6 Pl. Guy Mollet, 62022 Arras",
   description: "The Arras music festival is set to deliver an epic 2023 edition. While the rest of the line-up has yet to be revealed, music fans can already look forward to live performances from Aya Nakamura, Orelsan, David Guetta, Macklemore and American band Maroon 5.",
   start_date: DateTime.now + 18.days,
@@ -176,7 +176,7 @@ mainsquare.save!
 hellfest = Event.new(
   title: "Hellfest",
   category: "Music festival",
-  tags: "",
+  tags: "Metal",
   address: "1 Les Grands Champs, 44190 Clisson",
   description: "For its 16th edition, Hellfest returns with a line-up that will delight all rock and metal fans. Over the span of four days, the village of Clisson, in the Loire-Atlantique region, will welcome the biggest names in the genre: Iron Maiden, KISS, SlipKnot, Sum41, Machine Gun Kelly and Pantera.",
   start_date: DateTime.now + 21.days,
@@ -188,7 +188,7 @@ hellfest.save!
 delta = Event.new(
   title: "Delta Festival",
   category: "Music festival",
-  tags: "",
+  tags: "Newcomers",
   address: "9 Quai du Lazaret, 13002 Marseille",
   description: "Every summer, the Prado beach in Marseille hosts one of the biggest festivals in France: Delta. We still don’t know the names of the artists on the bill for this edition. With five stages and regulars such as Big Flo & Oli, PNL, Kungs and Vitalic, the festival offers a rich and varied programme every year.",
   start_date: DateTime.now + 1.day,
@@ -200,7 +200,7 @@ delta.save!
 vieillescharrues = Event.new(
   title: "Vieilles Charrues",
   category: "Music festival",
-  tags: "",
+  tags: "Top 5",
   address: "Rue Jean-Sébastien Corvellec, 29270 Carhaix-Plouguer",
   description: "The 31st edition of Les Veilles Charrues will bring together internationally renowned artists on stage. Robbie Williams, the Red Hot Chili Peppers, Blur and singer Rosalia will share the stage with French singers such as Aya Nakamura, Petit Biscuit, Agar Agar, Pomme and JAIN.",
   start_date: DateTime.now + 1.day,
@@ -326,4 +326,3 @@ puts "Challenges created : #{Challenge.count}"
 # t.text "content"
 #     t.bigint "user_id", null: false
 #     t.bigint "challenge_id", null: false
-

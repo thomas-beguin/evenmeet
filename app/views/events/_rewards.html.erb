@@ -1,7 +1,8 @@
 <div class="scrollmenu">
   <% rewards.each do |reward| %>
     <div class="mt-3 me-2 pb-3 scrollsubmenu">
-        <div class="reward-card">
+        <div class="reward-card", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= reward.photo.url %>); background-position: center; background-size: cover;">
+
           <h4 class="event-title"><%= reward.title.capitalize %></h4>
           <span class="event-reward">Reward: <%= reward.reward.capitalize %></span>
         </div>

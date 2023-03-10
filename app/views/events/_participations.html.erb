@@ -1,8 +1,8 @@
 <div class="container border-0">
   <div class="row">
-    <% participations.each do |participation| %>
+    <% participations.where.not(user: current_user).each do |participation| %>
       <div class="col-6">
-          <div class="box my-2">
+          <div class="box my-2", style="background-image: url(<%= participation.user.photos.first.url %>); background-position: top; background-size: cover;">
           </div>
       </div>
     <% end %>
