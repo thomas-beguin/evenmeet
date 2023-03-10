@@ -1,11 +1,16 @@
 <div class="sticky-top title">
-  <h4>Even meet</h4>
+  <h4 class="m-0">Even meet</h4>
 </div>
 
-<div class="search">
-  <%= render "shared/search_form" %>
-</div>
 
 <div class="container">
-  <%= render 'event_card', events: @events %>
+  <div class="search mb-3">
+    <%= render "shared/search_form" %>
+  </div>
+  <%= render 'top_event',  events: @events.shuffle.first(10) %>
+  <%= render 'scroll_events', events: @events.shuffle, category: "Rock"%>
+  <%= render 'scroll_events', events: @events.shuffle, category: "Techno"%>
+  <%= render 'scroll_events', events: @events.shuffle, category: "Rap"%>
+  <%= render 'scroll_events', events: @events.shuffle, category: "Psy-Trans"%>
+  <%#= render 'event_card', events: @events %>
 </div>
