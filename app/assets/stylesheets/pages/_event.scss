@@ -21,18 +21,19 @@ div.scrollmenu {
 }
 
 .event-title {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 // Reward
 
 .reward-card {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1614851099511-773084f6911d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3JhZGllbnQlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60');
+  background: #0000001f;
+  border: solid #ffffff0d;
   background-position: center;
   background-size: cover;
   height: 150px;
   width: 150px;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -49,7 +50,8 @@ div.scrollmenu {
 .participation-img {
   object-fit: cover;
   object-position: top;
-  width: 100%;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
 }
 
@@ -63,4 +65,30 @@ div.scrollmenu {
 
 .col-lg-2, .col-md-3, .col-xs-6{
   margin-top: 30px !important;
+}
+
+
+// Container
+.container-event {
+  position: relative;
+}
+
+// Overlay
+.overlay-image {
+  position: absolute;
+  background: linear-gradient(0deg, #0E222B, #2e155621);
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+
+body {
+  background-color: #0E222B;
+}
+
+// p events
+.paragraph-event {
+  color: #8b9aa0;
 }
