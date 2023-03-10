@@ -1,6 +1,7 @@
-<nav class="navbar navbar-light justify-content-between">
+<nav class="navbar navbar-light justify-content-between " data-controller="navbar">
   <div class="nav-item active">
-    <%= link_to root_path, class: "nav-link" do %>
+    <%= link_to root_path, class: "nav-link",
+                           "data-navbar-target": "home" do %>
       <i class="fa-solid fa-house"></i>
     <% end %>
 

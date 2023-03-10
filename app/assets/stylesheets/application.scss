@@ -15,27 +15,28 @@
 body {
   overscroll-behavior: none;
   //background-image: url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGdyYWRpZW50JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
-  background-size: cover;
-  background-repeat: no-repeat;
+  // background-size: cover;
+  // background-repeat: no-repeat;
   max-height: 100%;
   min-height: 100vh;
+  background-color: #0E222B;
 }
 
-body {
-  // background: linear-gradient(311deg,#91ad33,#734339,#1f794b,#4683d4,#3efb7e,#df42cc);
-  background: linear-gradient(311deg,#91ad33,rgb(126, 55, 28),#1f794b,#4683d4,#3efb7e,#df42cc);
-  background-size: 360% 360%;
-  animation: gradient-animation 10s ease infinite;
-}
+// body {
+//   // background: linear-gradient(311deg,#91ad33,#734339,#1f794b,#4683d4,#3efb7e,#df42cc);
+//   background: linear-gradient(311deg,#91ad33,rgb(126, 55, 28),#1f794b,#4683d4,#3efb7e,#df42cc);
+//   background-size: 360% 360%;
+//   animation: gradient-animation 10s ease infinite;
+// }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+// @keyframes gradient-animation {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0% 50%;
+//   }
+// }

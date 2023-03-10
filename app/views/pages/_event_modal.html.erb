@@ -1,0 +1,30 @@
+<div class="event-modal" data-toggle-element-target="modal">
+  <div class="wrapper-relative">
+    <div class="event-image">
+      <%= cl_image_tag event.photos.first.key, width: 30, height: 40 %>
+    </div>
+
+    <div class="container">
+      <div class="gen-infos">
+        <p>When? From <%= event.start_date.strftime("%A %B %e") %> to <%= event.end_date.strftime("%A %B %e") %></p>
+        <p>Where? <%= event.address %></p>
+        <h1><%= event.title %></h1>
+          <div class="dev">
+            <p><%= event.description %></p>
+          </div>
+
+          <% if user_signed_in? %>
+          <div class="container" >
+            <%= simple_form_for [event, @participation] do |f| %>
+              <%= f.input :event_id, as: :hidden, input_html: { value: event.id } %>
+              <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+              <%= f.input :hint ,placeholder: "Mon indice"%>
+              <%= f.submit class: 'btn btn-primary text-white p-2 w-100' %>
+            <% end %>
+          </div>
+          <% end %>
+      </div>
+      <i class="fa-solid fa-x" data-action="click->toggle-element#toggle"></i>
+    </div>
+  </div>
+</div>

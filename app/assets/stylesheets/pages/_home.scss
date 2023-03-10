@@ -1,10 +1,10 @@
 // Specific CSS for your home-page
 .title {
   text-align: center;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  background-color: #80808000;
+  padding: 15px;
+  background-color: #0E222B;
   color: white;
+  font-size: 30px;
 }
 
 .container {
@@ -17,6 +17,55 @@ h3 {
   padding-top: 5px;
   padding-left: 10px;
 }
+
+// TOP 10
+
+.event-title {
+  // white-space: initial;
+  // font-size: 30px;
+}
+
+.section-title {
+  color: white;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  font-size: 18px;
+  padding-left: 0px;
+}
+
+.top-event-card {
+  width: 100%;
+  background-color: lightgrey;
+  border-radius: 5px;
+  height: 220px;
+  background-color: #00000024;
+  color: white;
+}
+
+// Scroll
+
+.scroll-event-card {
+  width: 100%;
+  background-color: lightgrey;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 150px;
+  background-color: #00000024;
+  color: white;
+}
+
+.scroll-event-title {
+  font-size: 16px;
+  margin: 0px;
+}
+
+.scroll-event-dates {
+  font-size: 12px;
+  color: #d8d8d8;
+  font-weight: lighter;
+}
+
+// ============
 
 .event-card {
   width: 100%;
