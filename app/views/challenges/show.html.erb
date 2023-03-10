@@ -9,7 +9,7 @@
   data-challenge-subscription-challenge-id-value="<%= @challenge.id %>"
 >
 
-  <h4><%= "Chat with #{ target.user.first_name }" %></h4>
+  <h4 class="mt-2 mb-3"><%= "Chat with #{ target.user.first_name }" %></h4>
 
   <div class="messages" data-challenge-subscription-target="messages">
     <% @challenge.messages.each do |message| %>

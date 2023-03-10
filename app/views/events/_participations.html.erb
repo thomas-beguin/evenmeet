@@ -1,10 +1,9 @@
-<div class="container border-0">
-  <div class="row">
-    <% participations.where.not(user: current_user).each do |participation| %>
-      <div class="col-6">
-          <div class="box my-2", style="background-image: url(<%= participation.user.photos.first.url %>); background-position: top; background-size: cover;">
-          </div>
-      </div>
-    <% end %>
-  </div>
+<div class="participant-div mt-3">
+    <div class="row ps-3 m-0">
+    <% count = 0 %>
+      <% participations.where.not(user: current_user).each do |participation| %>
+        <img class="participant-img" src="<%= participation.user.photos.first.url %>" alt="">
+        <% count +=1 %>
+      <% end %>
+    </div>
 </div>
