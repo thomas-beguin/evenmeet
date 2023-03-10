@@ -4,7 +4,7 @@
   <% target = challenge.relationship.receiver %>
 <% end %>
 
-<div class="challenges-list">
+<div class="challenges-list ">
 
   <div class="list-image">
     <% if target.user.photos.attached? %>
@@ -16,7 +16,7 @@
 
   <div class="list-content border-top w-100">
     <div class="list-content-main">
-      <h4><%= target.user.first_name %></h4>
+      <h4 class="text-white"><%= target.user.first_name %></h4>
       <p><%= challenge.reward.title %></p>
     </div>
     <div class="list-content-secondary">
