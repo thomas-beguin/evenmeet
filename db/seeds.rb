@@ -5,6 +5,8 @@ puts "Destroying..."
 User.destroy_all
 Event.destroy_all
 Reward.destroy_all
+Participation.destroy_all
+Relationship.destroy_all
 puts "User : #{User.all.length}"
 puts "Event : #{Event.all.length}"
 puts "Reward : #{Reward.all.length}"
@@ -326,4 +328,3 @@ puts "Challenges created : #{Challenge.count}"
 # t.text "content"
 #     t.bigint "user_id", null: false
 #     t.bigint "challenge_id", null: false
-
