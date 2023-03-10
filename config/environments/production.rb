@@ -42,9 +42,9 @@ Rails.application.configure do
   config.active_storage.service = :cloudinary
 
   # Mount Action Cable outside main process or domain.
-  config.action_cable.mount_path = "/challenges/:challenge_id"
-  config.action_cable.url = "https://evenmeet.osc-fr1.scalingo.io/challenges/:challenge_id"
-  config.action_cable.allowed_request_origins = [ "https://evenmeet.osc-fr1.scalingo.io/challenges/:challenge_id", /http:\/\/evenmeet.osc-fr1.scalingo.io/challenges/:challenge_id.*/ ]
+  # config.action_cable.mount_path = "/challenges/:challenge_id"
+  # config.action_cable.url = "https://evenmeet.osc-fr1.scalingo.io/challenges/:challenge_id"
+  # config.action_cable.allowed_request_origins = [ "https://evenmeet.osc-fr1.scalingo.io/challenges/:challenge_id", /http:\/\/evenmeet.osc-fr1.scalingo.io/challenges/:challenge_id.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
