@@ -21,21 +21,21 @@ body {
   min-height: 100vh;
 }
 
-body {
-  // background: linear-gradient(311deg,#91ad33,#734339,#1f794b,#4683d4,#3efb7e,#df42cc);
-  background: linear-gradient(311deg,#91ad33,rgb(126, 55, 28),#1f794b,#4683d4,#3efb7e,#df42cc);
-  background-size: 360% 360%;
-  animation: gradient-animation 10s ease infinite;
-}
+// body {
+//   // background: linear-gradient(311deg,#91ad33,#734339,#1f794b,#4683d4,#3efb7e,#df42cc);
+//   background: linear-gradient(311deg,#91ad33,rgb(126, 55, 28),#1f794b,#4683d4,#3efb7e,#df42cc);
+//   background-size: 360% 360%;
+//   animation: gradient-animation 10s ease infinite;
+// }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+// @keyframes gradient-animation {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0% 50%;
+//   }
+// }
