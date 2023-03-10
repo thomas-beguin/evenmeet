@@ -1,5 +1,38 @@
-<div class="container border-0 text-white">
-  <h4 class="mb-4">Current challenges</h4>
+<div class="px-3 border-0 text-white">
+  <div data-controller="toggle-element">
+    <div class="d-flex my-3">
+      <div class="d-flex flex-column justify-content-center">
+        <i class="fa fa-bars"
+           data-action="click->toggle-element#menuactive"
+           data-toggle-element-target="menuactive"
+           style="font-size:calc(1.275rem + 0.3vw)"></i>
+      </div>
+      <h4 class="ms-2 m-0">Messages</h4>
+    </div>
+    <h5 class="m-4" style="text-align: center;font-size: 30px;"><%= @challenges.first.reward.event.title %></h5>
+
+    <div class="event-channel" data-toggle-element-target="modal">
+      <%= link_to "#" do %>
+        <span>❤️ Favorites</span>
+      <% end %>
+      <%= link_to "#" do %>
+        <span>📅 <%=  current_user.current_event.title %></span>
+      <% end %>
+
+      <% @events.each do |event| %>
+        <%= link_to "#" do %>
+          <% if event == current_user.current_event %>
+            <span>Current: <%= event.title %></span>
+          <% else %>
+            <span><%= event.title %></span>
+          <% end %>
+
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
   <% @challenges.each do |challenge| %>
     <%= link_to challenge_path(challenge), class:"text-decoration-none" do %>
       <%= render "challenge_list", challenge: challenge %>

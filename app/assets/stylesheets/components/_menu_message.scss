@@ -1,0 +1,33 @@
+/* Style the navigation menu */
+.event-channel {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.099);
+  backdrop-filter: blur(4px);
+  height: calc(100vh - 64px);;
+  position: absolute;
+  transform: translateX(-100vh);
+  transition: transform 0.5s ease-in-out;
+  &.active {
+    height: calc(100vh - 64px);;
+    width: 100%;
+    transform: translateX(0);
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 24px;
+  }
+}
+
+.menu-active {
+  z-index: 10;
+}

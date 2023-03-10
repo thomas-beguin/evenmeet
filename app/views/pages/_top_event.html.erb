@@ -1,11 +1,12 @@
-<h3 class="section-title mt-1">Top 10</h3>
+<h3 class="section-title mt-1 mb-1">Top 10</h3>
 <div class="scrollmenu">
   <% events.each do |event| %>
       <div class="me-2 pb-3 scrollsubmenu" data-controller="toggle-element">
         <div class="top-event-card", style="background-image: url(<%= event.photos.first.url %>); background-position: center; background-size: cover;",
             data-action="click->toggle-element#toggle">
         </div>
-        <%= render "event_modal", event: event %>
+        <%#= render "event_modal", event: event %>
+        <%= render "events/event_page",  event: event %>
       </div>
   <% end %>
 </div>
