@@ -33,8 +33,8 @@ class RelationshipsController < ApplicationController
 
     if relation.accepted?
       respond_to do |format|
-        format.json { render(json: { content: "You matched with #{@target_participation.user.first_name}" }) }
-        # format.json { render(json: { content: render_to_string(partial: 'modal/success', locals: { match: @match }, formats: :html) }) }
+        # format.json { render(json: { content: "You matched with #{@target_participation.user.first_name}" }) }
+        format.json { render(json: { content: render_to_string(partial: "relationships/match", locals: { target: @target_participation, current: @current_participation}, formats: :html) }) }
         format.html {
           redirect_to root_path, status: :see_other, notice: "You matched with #{@target_participation.user.first_name}"
         }
