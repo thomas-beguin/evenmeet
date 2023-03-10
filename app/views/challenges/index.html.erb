@@ -1,4 +1,5 @@
 <div class="container border-0">
+  <h4 class="mb-4">Current challenges</h4>
   <% @challenges.each do |challenge| %>
     <%= link_to challenge_path(challenge), class:"text-decoration-none" do %>
       <%= render "challenge_list", challenge: challenge %>
