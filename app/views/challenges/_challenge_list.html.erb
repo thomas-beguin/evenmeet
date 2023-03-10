@@ -30,7 +30,7 @@
         <span>New</span>
       <% end %>
 
-      <% if challenge.new_message? %>
+      <% if challenge.new_message? && challenge.messages.last.user != current_user %>
         <p class="text-end text-primary"><i class="fa-solid fa-circle"></i></p>
       <% end %>
 

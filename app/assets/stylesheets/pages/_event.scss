@@ -4,7 +4,6 @@
   height: 300px;
 }
 
-
 // Scroll Menu
 
 div.scrollmenu {
@@ -31,9 +30,10 @@ div.scrollmenu {
   border: solid #ffffff0d;
   background-position: center;
   background-size: cover;
-  height: 150px;
+  height: 100px;
   width: 150px;
   border-radius: 4px;
+  margin-bottom: 10px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -57,9 +57,6 @@ div.scrollmenu {
 
 .box {
   padding-bottom: 100%;
-  background-image: url("https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGZlc3RpdmFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
-  background-position: top;
-  background-size: cover;
   border-radius: 50%;
 }
 
@@ -76,7 +73,6 @@ div.scrollmenu {
 // Overlay
 .overlay-image {
   position: absolute;
-  background: linear-gradient(0deg, #0E222B, #2e155621);
   z-index: 10;
   width: 100%;
   height: 100%;
@@ -91,4 +87,20 @@ body {
 // p events
 .paragraph-event {
   color: #8b9aa0;
+  font-size: 14px;
+  margin: 0;
+}
+
+.participant-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 100px;
+  margin-left: -15px;
+  border: solid white;
+  padding: 0px;
+}
+
+.participant-div {
+
 }
