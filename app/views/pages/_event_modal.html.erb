@@ -1,29 +1,41 @@
 <div class="event-modal" data-toggle-element-target="modal">
   <div class="wrapper-relative">
-    <div>
-      <%= cl_image_tag event.photos.first.key, width: 30, height: 40 %>
-    </div>
-
-    <div class="container">
-      <div class="gen-infos">
-        <p><strong>Infos</strong></p>
-        <p>📅 From <%= event.start_date.strftime("%A %B %e") %> to <%= event.end_date.strftime("%A %B %e") %></p>
-        <p>📍 <%= event.address %></p>
-        <p class="mt-2"><strong>Description</strong></p>
-        <p><%= event.description %></p>
-
-        <% if user_signed_in? %>
-          <div class="container" >
-            <%= simple_form_for [event, @participation] do |f| %>
-              <%= f.input :event_id, as: :hidden, input_html: { value: event.id } %>
-              <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-              <%= f.input :hint ,placeholder: "Mon indice"%>
-              <%= f.submit class: 'btn btn-primary text-white p-2 w-100' %>
-            <% end %>
-          </div>
+    <div class="container-event">
+      <div class="mb-3">
+        <% if event.photos.attached? %>
+          <%= cl_image_tag event.photos.first.key, class:"event-img" %>
+        <% else %>
+          <%= image_tag "https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg", class:"event-img", style:"height: 40vh" %>
         <% end %>
+
       </div>
-      <i class="fa-solid fa-x" data-action="click->toggle-element#toggle"></i>
+      <i class="fa-solid fa-chevron-left back" data-action="click->toggle-element#toggle"></i>
+      <div class="overlay-image"></div>
     </div>
+
+    <div class="px-3">
+      <h1 class="text-white font-weight-bold"><%= event.title %></h1>
+      <div class="d-flex flex-row mt-2">
+        <i class="fa-solid fa-calendar-days me-2" style="color: #8b9aa0"></i>
+        <p class="paragraph-event me-1"><%= event.start_date.strftime("%D") %> -</p>
+        <p class="paragraph-event"><%= event.end_date.strftime("%D") %></p>
+      </div>
+      <div class="d-flex flex-row mt-1">
+        <i class="fa-solid fa-location-dot me-2" style="color: #8b9aa0"></i>
+        <p class="paragraph-event"> <%= event.address %> </p>
+      </div>
+      <div class="mt-4">
+        <h2 class="text-white mt-4">Participants:</h2>
+        <%= render "events/participations", participations: event.participations %>
+      </div>
+      <div class="mt-4">
+        <h2 class="text-white mt-2">Rewards:</h2>
+        <%= render "events/rewards", rewards: event.rewards %>
+      </div>
+      <h2 class="text-white mt-4">Infos:</h2>
+      <p class="paragraph-event mt-2"> <%= event.description %> </p>
+    </div>
+
+    <%= render "pages/participation_submit", event: event, participation: @participation %>
   </div>
 </div>

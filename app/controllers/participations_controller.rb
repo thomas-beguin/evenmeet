@@ -16,6 +16,10 @@ class ParticipationsController < ApplicationController
     end
   end
 
+  def index
+    @participations = current_user.participations.joins(:event).merge(Event.order(start_date: :asc))
+  end
+
   private
 
   def participation_params

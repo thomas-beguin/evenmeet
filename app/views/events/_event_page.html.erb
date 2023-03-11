@@ -1,5 +1,4 @@
-<div class="event-modal" data-toggle-element-target="modal">
-  <div class="wrapper-relative">
+
     <div class="container-event">
       <div class="mb-3">
         <% if event.photos.attached? %>
@@ -9,7 +8,6 @@
         <% end %>
 
       </div>
-      <i class="fa-solid fa-chevron-left back" data-action="click->toggle-element#toggle"></i>
       <div class="overlay-image"></div>
     </div>
 
@@ -36,6 +34,5 @@
       <p class="paragraph-event mt-2"> <%= event.description %> </p>
     </div>
 
-    <%= render "pages/participation_submit", event: event, participation: @participation %>
+    <%#= render "pages/participation_submit", event: event, participation: @participation %>
   </div>
-</div>
