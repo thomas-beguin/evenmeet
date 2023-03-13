@@ -1,4 +1,12 @@
-/* Style the navigation menu */
+.navbar-menu {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 16px;
+  width: 100%;
+  z-index: 1;
+}
+
 .event-channel {
   display: flex;
   flex-direction: column;

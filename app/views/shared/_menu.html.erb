@@ -1,6 +1,6 @@
 <div class="px-3 border-0 text-white">
   <div data-controller="toggle-element">
-    <div class="d-flex my-3">
+    <div class="d-flex navbar-menu">
 
       <div class="d-flex flex-column justify-content-center">
         <i class="fa fa-bars"
@@ -9,17 +9,27 @@
            style="font-size:calc(1.275rem + 0.3vw)"></i>
       </div>
 
-      <% if params[:controller] == "pages" || params[:controller] == "participations" && params[:action] == "index" %>
+      <% if params[:controller] == "pages" && params[:action] != "dashboard" || params[:controller] == "participations" && params[:action] == "index" %>
         <h4 class="ms-2 m-0">Home</h4>
-      <% elsif params[:controller == "users"] %>
+      <% elsif params[:action] == "dashboard" %>
         <h4 class="ms-2 m-0">My Profile</h4>
-      <% else %>
+      <% elsif current_user %>
         <h4 class="ms-2 m-0"><%= current_user.current_event.title %></h4>
       <% end %>
 
     </div>
 
     <div class="event-channel" data-toggle-element-target="modal">
+      <i
+        class="fa-solid fa-chevron-left"
+        data-action="click->toggle-element#menuactive"
+        data-toggle-element-target="menuactive"
+        style="font-size:calc(1.275rem + 0.3vw);
+                top: 0px;
+                position: fixed;
+                padding: 16px;
+                left: 0;"
+      ></i>
 
       <%= link_to root_path do %>
         <span>🏠 Home Page</span>

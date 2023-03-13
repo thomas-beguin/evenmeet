@@ -14,7 +14,11 @@
     </div>
   </nav>
 
-<% elsif params[:action] != "dashboard" %>
+<%
+  elsif params[:controller] == "events" ||
+        params[:controller] == "relationships" ||
+        params[:controller] == "challenges"
+%>
   <nav class="navbar navbar-light justify-content-between " data-controller="navbar">
 
     <div class="nav-item active">
