@@ -24,6 +24,7 @@ class RelationshipsController < ApplicationController
         @challenge.relationship = relation
         @challenge.reward = Reward.all.sample
         @challenge.save
+        initialize_messages(@challenge)
       end
     else
       # New relationship => refused!
@@ -84,5 +85,16 @@ class RelationshipsController < ApplicationController
 
   def liked?
     params[:liked] == true
+  end
+
+  def initialize_messages(current_challenge)
+    sender = current_challenge.relationship.sender
+    receiver = current_challenge.relationship.receiver
+    Message.create(challenge: current_challenge,
+                   user: sender.user,
+                   content: "Hey #{receiver.user.first_name}, my hint is #{current_challenge.relationship.sender.hint}")
+    Message.create(challenge: current_challenge,
+                   user: receiver.user,
+                   content: "Hey #{sender.user.first_name}, my hint is #{current_challenge.relationship.receiver.hint}")
   end
 end

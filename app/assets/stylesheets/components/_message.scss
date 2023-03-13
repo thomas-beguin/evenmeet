@@ -18,3 +18,12 @@
   background-color:#a32abc;
   color: white;
 }
+
+.message-bar {
+  position: fixed;
+  width: 100%;
+  bottom: 60px;
+  left: 0px;
+  padding: 0px 1rem;
+  display: flex;
+}

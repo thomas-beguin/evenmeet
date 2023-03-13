@@ -9,6 +9,7 @@
   <div class="container challenge text-white"
     data-controller="challenge-subscription"
     data-challenge-subscription-challenge-id-value="<%= @challenge.id %>"
+    style="margin-bottom: 65px;"
   >
 
     <h4 class="mt-2 mb-3"><%= "Chat with #{ target.user.first_name }" %></h4>
@@ -20,7 +21,7 @@
     </div>
 
     <%= simple_form_for [@challenge, @message],
-      html: { data: { action: "turbo:submit-end->challenge-subscription#resetForm" }, class: "d-flex mt-3" } do |f|
+      html: { data: { action: "turbo:submit-end->challenge-subscription#resetForm" }, class: "message-bar" } do |f|
     %>
       <%= f.input :content,
         label: false,
