@@ -1,3 +1,5 @@
-<div class="badge rounded-pill bg-light text-black fs-5 p-1 border border-light">
-  <%= event.name %>
-</div>
+<%#= image_tag "icons/favicon.ico", height: 30, width: 30, alt: "Logo" %>
+<%= cl_image_tag participation.user.photos.first.key, style:"height: 40px;
+                                                             width: 40px;
+                                                             object-fit: cover;
+                                                             border-radius: 50%;" %>

@@ -4,22 +4,16 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
     @challenge.read!
     @message = Message.new
-# Radar :
-    if @challenge.relationship.receiver.user == current_user
-      @target = @challenge.relationship.sender
-    else
-      @target = @challenge.relationship.receiver
-    end
-    @markers = [current_user, target] do |player|
+    
+    @participations = Participation.where(id: [@challenge.relationship.sender.id, @challenge.relationship.receiver.id])
+
+    @markers = @participations.geocoded.map do |part|
       {
-        lat: player.latitude,
-        lng: player.longitude
+        lat: part.latitude,
+        lng: part.longitude,
+        marker_html: render_to_string(partial: "shared/marker", locals: { participation: part })
       }
     end
-
-
-  # set lat long pour target via un fetch
-  # stocker lat et long dans data attributes sur la view avec method MapBox
   end
 
   def index

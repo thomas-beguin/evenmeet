@@ -218,28 +218,28 @@ puts "Creating Rewards"
 
 Event.all.each do |event|
   beer = Reward.create(
-    title:  "Beer challenge",
+    title:  "Beer discount",
     event: event,
     description:  "Find your match and go get a beer at the bar with a 30% discount!",
-    reward: "30% discount"
+    reward: "Get 30% off"
   )
   beer.photo.attach(io: URI.open("https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"), filename: "seed.png", content_type: "image/png")
   beer.save!
 
   burger = Reward.create(
-    title:  "Burger challenge",
+    title:  "Burger discount",
     event: event,
     description:  "Find your match and go get a burger at the restaurant with a 15% discount!",
-    reward: "15% discount"
+    reward: "Get 15% off"
   )
   burger.photo.attach(io: URI.open("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1899&q=80"), filename: "seed.png", content_type: "image/png")
   burger.save!
 
   tshirt = Reward.create(
-    title:  "T-shirt challenge",
+    title:  "Get your T-shirt",
     event: event,
     description:  "Find your match and buy a t-shirt at the merch shop with a 10% discount!",
-    reward: "10% discount"
+    reward: "Get a 10% discount"
   )
   tshirt.photo.attach(io: URI.open("https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"), filename: "seed.png", content_type: "image/png")
   tshirt.save!
