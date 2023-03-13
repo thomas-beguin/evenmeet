@@ -1,30 +1,44 @@
-<nav class="navbar navbar-light justify-content-between " data-controller="navbar">
-  <div class="nav-item active">
-    <%= link_to root_path, class: "nav-link",
-                           "data-navbar-target": "home" do %>
-      <i class="fa-solid fa-house"></i>
-    <% end %>
+<% if params[:controller] == "pages" && params[:action] != "dashboard" || params[:controller] == "participations" %>
 
-    <%= link_to current_event_path, class: "nav-link" do %>
-      <i class="fa-solid fa-play"></i>
-    <% end %>
-
-    <% if current_user.nil? || current_user.current_event.nil? %>
-      <span class="nav-link">
-        <i class="fa-solid fa-heart"></i>
-      </span>
-    <% else %>
-      <%= link_to new_participation_relationship_path(current_user.current_participation), class: "nav-link" do %>
-        <i class="fa-solid fa-heart"></i>
+  <nav class="navbar navbar-light justify-content-between " data-controller="navbar">
+    <div class="nav-item active">
+      <%= link_to root_path, class: "nav-link",
+                            "data-navbar-target": "home" do %>
+        <i class="fa-solid fa-house"></i>
       <% end %>
-    <% end %>
 
-    <%= link_to challenges_path, class: "nav-link" do %>
-      <i class="fa-solid fa-comments"></i>
-    <% end %>
+      <%= link_to participations_path, class: "nav-link",
+                            "data-navbar-target": "home" do %>
+        <i class="fa-regular fa-calendar-check"></i>
+      <% end %>
+    </div>
+  </nav>
 
-    <%= link_to dashboard_path, class: "nav-link" do %>
-      <i class="fa-solid fa-user"></i>
-    <% end %>
-  </div>
-</nav>
+<%
+  elsif params[:controller] == "events" ||
+        params[:controller] == "relationships" ||
+        params[:controller] == "challenges"
+%>
+  <nav class="navbar navbar-light justify-content-between " data-controller="navbar">
+
+    <div class="nav-item active">
+      <%= link_to current_event_path, class: "nav-link" do %>
+        <i class="fa-solid fa-play"></i>
+      <% end %>
+
+      <% if current_user.nil? || current_user.current_event.nil? %>
+        <span class="nav-link">
+          <i class="fa-solid fa-heart"></i>
+        </span>
+      <% else %>
+        <%= link_to new_participation_relationship_path(current_user.current_participation), class: "nav-link" do %>
+          <i class="fa-solid fa-heart"></i>
+        <% end %>
+      <% end %>
+
+      <%= link_to challenges_path, class: "nav-link" do %>
+        <i class="fa-solid fa-comments"></i>
+      <% end %>
+    </div>
+  </nav>
+<% end %>

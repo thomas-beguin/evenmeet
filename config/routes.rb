@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :relationships, only: %i[new create]
   end
 
-  resources :participations, only: %i[show] do
+  resources :participations, only: %i[show index] do
     resources :relationships, only: %i[new create]
   end
 

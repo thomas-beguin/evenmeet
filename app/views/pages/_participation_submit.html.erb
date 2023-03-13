@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <div class="container">
+    <%= simple_form_for [event, participation] do |f| %>
+      <%= f.input :event_id, as: :hidden, input_html: { value: event.id } %>
+      <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+      <%= f.input :hint ,placeholder: "Mon indice"%>
+      <%= f.submit class: 'btn btn-primary text-white p-2 w-100' %>
+    <% end %>
+  </div>
+<% end %>

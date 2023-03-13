@@ -1,0 +1,31 @@
+<div class="text-white" data-controller="toggle-element">
+
+  <div class="dpx-3">
+    <div class="bg-gradient rounded-4">
+      <h3><%= current_user.current_event.title %></h3>
+      <p><%= current_user.current_event.start_date %></p>
+      <p><%= current_user.current_event.end_date %></p>
+    </div>
+
+    <div class="d-flex mt-4 mb-2 position-relative">
+      <div class="col-6 text-center pb-1" data-action="click->toggle-element#current">
+        <span>Coming soon</span>
+      </div>
+      <div class="col-6 text-center pb-1" data-action="click->toggle-element#passed">
+        <span>Passed</span>
+      </div>
+      <span class="menu-bar" data-toggle-element-target="participations"></span>
+    </div>
+  </div>
+
+  <div class="px-3">
+    <div data-toggle-element-target="currentparticipations">
+      current participations
+    </div>
+
+    <div class="d-none" data-toggle-element-target="passedparticipations">
+      passed participations
+    </div>
+  </div>
+
+</div>

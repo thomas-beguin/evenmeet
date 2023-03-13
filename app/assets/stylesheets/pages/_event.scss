@@ -16,7 +16,12 @@ div.scrollmenu {
   display: inline-block;
   color: white;
   text-decoration: none;
-  width: 150px;
+  .top-event-card {
+    width: 300px;
+  }
+  .scroll-event-card{
+    width: 160px;
+  }
 }
 
 .event-title {
@@ -89,6 +94,7 @@ body {
   color: #8b9aa0;
   font-size: 14px;
   margin: 0;
+  white-space: break-spaces;
 }
 
 .participant-img {
