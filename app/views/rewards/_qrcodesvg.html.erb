@@ -1,0 +1,14 @@
+    <div style="width: 150px">
+      <% qrcode = RQRCode::QRCode.new("#{challenge_path}/rewards/qrcode?target_id=#{current_user.id}")
+      # NOTE: showing with default options specified explicitly
+      svg = qrcode.as_svg(
+        color: "fff",
+        shape_rendering: "crispEdges",
+        module_size: 11,
+        standalone: true,
+        use_path: true,
+        viewbox: true,
+      )
+      %>
+      <%= svg.html_safe %>
+    </div>
