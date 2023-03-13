@@ -9,7 +9,7 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChallengeChannel", id: this.challengeIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
-    )
+      )
     console.log(`Subscribed to the chatroom with the id ${this.challengeIdValue}.`)
 
   }

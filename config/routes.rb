@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "radar",     to: "participations#radar"
   get "dashboard", to: "pages#dashboard"
   get "events/current", to: "events#current", as: :current_event
+  
+  resources :participations, only: %i[update]
 
   resources :events do
     resources :participations, only: %i[new create]

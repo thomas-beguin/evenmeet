@@ -16,9 +16,6 @@ application.register("map", MapController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
-import RadarController from "./radar_controller"
-application.register("radar", RadarController)
-
 import SwipeController from "./swipe_controller"
 application.register("swipe", SwipeController)
 
