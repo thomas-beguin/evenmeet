@@ -1,4 +1,4 @@
-<%# if challenge.status == 1 %>
+<% if @challenge.status == 1 %>
 
   <% if @challenge.relationship.receiver.user == current_user %>
     <% target = @challenge.relationship.sender %>
@@ -38,6 +38,32 @@
     <% end %>
   </div>
 
-<%# else %>
+<% else %>
+
+  <% if @challenge.relationship.receiver.user == current_user %>
+    <% target = @challenge.relationship.sender %>
+  <% else %>
+    <% target = @challenge.relationship.receiver %>
+  <% end %>
+
+  <div class="container radar"
+    data-controller="radar"
+    data-radar-challenge-id-value="<%= @challenge.id %>"
+    data-radar-markers-value="<%= @markers.to_json %>"
+    data-radar-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  >
+
+  <div class="coordinates" data-radar-target="coordinates">
+    </div>
+  </div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<% end %>
 
 <%# 1. Ecran vérouillé si challenge.status ==   %>
+
+<%#= render "radar_modal",  event: event %>
