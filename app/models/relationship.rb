@@ -7,6 +7,6 @@ class Relationship < ApplicationRecord
   # Sinon, on doit passer par l'id
   belongs_to :receiver, class_name: "Participation"
 
-  has_one    :challenge, dependent: :destroy
+  has_many   :challenge, dependent: :destroy
   enum :status, { pending: 0, accepted: 1, refused: 2 }
 end
