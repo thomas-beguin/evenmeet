@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get "radar",     to: "participations#radar"
   get "dashboard", to: "pages#dashboard"
   get "events/current", to: "events#current", as: :current_event
 

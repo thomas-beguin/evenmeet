@@ -20,6 +20,18 @@ class ParticipationsController < ApplicationController
     @participations = current_user.participations.joins(:event).merge(Event.order(start_date: :asc))
   end
 
+  def radar
+    @participations = Participation.all
+
+    @markers = @participations.geocoded.map do |part|
+      {
+        lat: part.latitude,
+        lng: part.longitude,
+        marker_html: render_to_string(partial: "marker", locals: { participation: part })
+      }
+    end
+  end
+
   private
 
   def participation_params
