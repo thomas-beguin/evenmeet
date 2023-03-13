@@ -12,32 +12,36 @@ export default class extends Controller {
 
   connect() {
 
-    setInterval( () => navigator.geolocation.getCurrentPosition((data) => {
-                        const lat = data.coords.latitude;
-                        const lng = data.coords.longitude;
-                        const participationId = this.participationTarget.dataset.participationId
-                        const challengeId = this.participationTarget.dataset.challengeId
-                        const url = `/participations/${participationId}`
-                        const options = {
-                          method: "PATCH",
-                          headers: { "Content-Type": "application/json" },
-                          body: JSON.stringify({
-                            "lng": lng,
-                            "lat": lat,
-                            "challenge-id": challengeId
-                          })
-                        }
+    navigator.geolocation.watchPosition((data) => {
+        const lat = data.coords.latitude;
+        const lng = data.coords.longitude;
+        const participationId = this.participationTarget.dataset.participationId
+        const challengeId = this.participationTarget.dataset.challengeId
+        const url = `/participations/${participationId}`
+        const options = {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            "lng": lng,
+            "lat": lat,
+            "challenge-id": challengeId
+          })
+        }
 
-                        fetchWithToken(url, options)
-                          .then(response => response.json())
-                          .then((data) => {
-                            console.log(data)
-                            // Desrtroy all previous markers
-                            this.markers.forEach((e) => { e.remove() })
-                            this.#addMarkersToMap(data.markers)
-                          })
-                      })
-                , 10000)
+        fetchWithToken(url, options)
+          .then(response => response.json())
+          .then((data) => {
+            // Desrtroy all previous markers
+            const markersToDelete = document.querySelectorAll(".marker")
+            markersToDelete.forEach((marker) => {
+              marker.remove()
+            })
+            this.markers = []
+            this.#addMarkersToMap(data.markers)
+            console.log("New changes")
+            console.log(data.markers)
+          })
+      })
 
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -46,33 +50,21 @@ export default class extends Controller {
       style: "mapbox://styles/thomasbeguin/clf6pymut007b01mry8gyq1wi",
     })
 
-    this.map.addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true
-      })
-      );
-
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarkers()
     this.markers = []
   }
 
   #addMarkersToMap(markers) {
-    this.markersValue.forEach((marker) => {
-
+    markers.forEach((marker) => {
       const customMarker = document.createElement("div")
+      customMarker.classList.add("marker")
       customMarker.innerHTML = marker.marker_html
 
       var marker = new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(this.map)
-      this.markers.push(marker)
+      this.markers = [ marker.lng, marker.lat ]
     })
   }
 
