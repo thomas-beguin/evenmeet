@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
     if @message.save
       ChallengeChannel.broadcast_to(
         @challenge,
-        render_to_string(partial: "message", locals: { message: @message })
+        {message: render_to_string(partial: "message", locals: { message: @message })}
       )
       head :ok
     else

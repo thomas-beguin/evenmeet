@@ -14,3 +14,15 @@
     left: calc((100vw - 32px) / 2);
   }
 }
+
+.form-bottom {
+  flex-direction: column;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.container {
+  margin-bottom: 15px;
+  border-top: solid 1px;
+}

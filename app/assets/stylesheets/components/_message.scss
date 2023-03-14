@@ -2,8 +2,8 @@
   border-radius: 10px;
   min-width: 220px;
   .img {
-    height: 50px;
-    width: 50px;
+    height: 36px;
+    width: 36px;
     object-fit: cover;
     border-radius: 50%;
   }
@@ -17,4 +17,140 @@
 .msg.right {
   background-color:#a32abc;
   color: white;
+}
+
+// MESSAGE BAR
+
+.message-bar {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  padding: 0px 1rem;
+  display: flex;
+  background: #0E222B;
+  padding-top: 10px;
+
+  input {
+    border-radius: 18px;
+  }
+}
+
+.message-sender {
+  border-radius: 50%;
+  width: 38px;
+  background: transparent;
+  border: none;
+  color: white;
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+
+// NAVBAR MESSAGE
+
+.message-menu {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  color: white;
+  padding-top: 16px;
+  padding-bottom: 0px;
+  width: 100%;
+  z-index: 1;
+  background: #0E222B;
+  font-size: calc(1.275rem + 0.3vw);
+
+  .message-menu-first {
+    border-bottom: 1px solid #7f8f96;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+  }
+
+  .message-submenu {
+    border-bottom: 1px solid #31464f;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 10px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.message-menu-target {
+  margin: 0px;
+  font-size: 18px;
+}
+
+.message-menu-hint {
+  margin: 0px;
+  font-size: 14px;
+  color: #a1b5be;
+}
+
+// SUBMENU
+
+.message-submenu {
+  padding: 10px 16px;
+  display: flex;
+}
+
+.message-menu-photo {
+  margin-right: 8px;
+
+  img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+.message-submenu-info {
+  h3 {
+    margin: 0px;
+    font-size: 16px;
+    padding: 0px;
+  }
+
+  p {
+    margin: 5px 0px;
+    font-size: 14px;
+    color: #a1b5be;
+  }
+}
+
+.message-submenu-button {
+  background-color: transparent;
+  font-size: 14px;
+  border-radius: 10px;
+  color: white;
+  border: 0.8px solid #a1b5be;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  p {
+    margin: 0px;
+    padding: 0px;
+  };
+}
+
+// SHOWMAP
+
+.message-map {
+  width: 100%;
+  height: 600px;
+}
+
+.hidemap {
+  height: 0px;
+}
+.showmap {
+  width: 100%;
+  height: 600px;
 }

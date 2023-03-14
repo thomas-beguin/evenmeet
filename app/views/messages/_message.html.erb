@@ -12,13 +12,13 @@
           </div>
         </div>
       </div>
-      <%= cl_image_tag message.user.photos.first.key, class: "avatar ms-3 align-self-end col-1", style:"height: 50px; width: 50px;", alt: "avatar" %>
+      <%= cl_image_tag message.user.photos.first.key, class: "avatar ms-3 align-self-end col-1", style:"height: 36px; width: 36px;", alt: "avatar" %>
     </div>
   </div>
 <% else %>
   <div class="d-flex flex-row justify-content-start mb-4">
     <div class="d-flex flex-row justify-content-start">
-      <%= cl_image_tag message.user.photos.first.key, class: "avatar me-3 align-self-start col-1", style:"height: 50px; width: 50px;", alt: "avatar" %>
+      <%= cl_image_tag message.user.photos.first.key, class: "avatar me-3 align-self-start col-1", style:"height: 36px; width: 36px;", alt: "avatar" %>
       <div class="msg left p-1 pb-1 pe-2 ps-2 col-10">
         <div id="message-<%= message.id %>" class="text-white">
           <small>
