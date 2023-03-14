@@ -1,14 +1,11 @@
 
 <% if @challenge.status == "pending" %>
-  <h1 class="text-light">CHALLENGE PENDING</h1>
+  <%= render 'rewards/challengepending', challenge: @challenge %>
   <%= render 'rewards/qrcodesvg', challenge: @challenge %>
-
-
-  <div id="qr-reader" style="width: 600px" data-controller="qrcode"></div>
-
-
+  <div id="qr-reader" style="width: 350px" data-controller="qrcode"></div>
 <% elsif @challenge.status == "won" %>
   <h1 class="text-light">CHALLENGE WON</h1>
+
 <% end %>
 
 <% console %>
