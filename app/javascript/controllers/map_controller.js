@@ -66,6 +66,7 @@ export default class extends Controller {
       style: "mapbox://styles/thomasbeguin/clf6pymut007b01mry8gyq1wi",
     })
 
+
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarkers()
     this.markers = []

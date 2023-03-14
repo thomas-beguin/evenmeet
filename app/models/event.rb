@@ -10,4 +10,8 @@ class Event < ApplicationRecord
 
   scope :current, -> {where("start_date < :now AND end_date > :now", now: DateTime.now)}
   scope :incoming, -> {where("start_date > :now", now: DateTime.now).order(start_date: :asc)}
+
+  def start_time
+    start_date
+  end
 end
