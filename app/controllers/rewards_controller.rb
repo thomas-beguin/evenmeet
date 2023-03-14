@@ -6,24 +6,18 @@ class RewardsController < ApplicationController
 
   def qrcode
     @challenge = Challenge.find(params[:id])
-    @target_id = params[:target_id]
+    @target_id = params[:target_id].to_i
     @user = current_user.id
-    @relationship = @challenge.relationship
-    @rel_sender = @challenge.relationship.sender_id
-    @rel_receiver = @challenge.relationship.receiver_id
-    @id_sender = Participation.find(@rel_sender).user_id
-    @id_receiver = Participation.find(@rel_receiver).user_id
-
-    if @user == @id_sender
-      @target_id == @id_receiver ? @challenge.status = 0 : @challenge.status = 1
-      @challenge.save
+    @sender = Participation.find(@challenge.relationship.sender_id).user_id
+    @receiver = Participation.find(@challenge.relationship.receiver_id).user_id
+    if @user == @sender
+      @challenge.won! if @target_id == @receiver
       @test = 1
-      redirect_to reward_path
-    elsif @user == @id_receiver
-      @target_id == @id_sender ? @challenge.status = 0 : @challenge.status = 1
-      @challenge.save
+      redirect_to reward_path, status: :see_other
+    elsif @user == @receiver
+      @challenge.won! if @target_id == @sender
       @test = 2
-      redirect_to reward_path
+      redirect_to reward_path, status: :see_other
     end
     console
   end

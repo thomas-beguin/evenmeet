@@ -16,6 +16,9 @@ application.register("map", MapController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import QrcodeController from "./qrcode_controller"
+application.register("qrcode", QrcodeController)
+
 import SwipeController from "./swipe_controller"
 application.register("swipe", SwipeController)
 
