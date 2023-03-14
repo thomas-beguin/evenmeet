@@ -14,8 +14,12 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChallengeChannel", id: this.challengeIdValue },
-      { received: data =>
-        console.log(data) }
+      { received: (data) => {
+          if (data.markers) {
+            console.log(data)
+          }
+        }
+      }
     )
     console.log(`Subscribe to the chatroom with the id ${this.challengeIdValue}.`)
 
