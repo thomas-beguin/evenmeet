@@ -3,14 +3,21 @@ import { createConsumer } from "@rails/actioncable"
 
 export default class extends Controller {
   static values = {
+    chatroomId: Number,
     challengeId: Number,
     apiKey: String,
-    markers: Array,
+    markers: Array
   }
 
   static targets = ["participation"]
 
   connect() {
+    this.channel = createConsumer().subscriptions.create(
+      { channel: "ChallengeChannel", id: this.challengeIdValue },
+      { received: data =>
+        console.log(data) }
+    )
+    console.log(`Subscribe to the chatroom with the id ${this.challengeIdValue}.`)
 
     navigator.geolocation.watchPosition((data) => {
         const lat = data.coords.latitude;
@@ -39,7 +46,6 @@ export default class extends Controller {
             this.markers = []
             this.#addMarkersToMap(data.markers)
             console.log("New changes")
-            console.log(data.markers)
           })
       })
 

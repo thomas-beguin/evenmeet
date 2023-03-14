@@ -1,10 +1,14 @@
 <div style="width: 100%; height: 600px;"
+  <%# MAPBOX %>
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-map-challenge-id-value="<%= @challenge.id %>"
-  data-map-target="participation"
 
+  <%# CHANNEL %>
+  data-map-challenge-id-value="<%= @challenge.id %>"
+
+  <%# INFO FOR SHARING POSITION %>
   data-participation-id="<%= current_user.current_participation.id %>"
-  data-challenge-id="<%= @challenge.id %>">
+  data-challenge-id="<%= @challenge.id %>"
+  data-map-target="participation">
 </div>

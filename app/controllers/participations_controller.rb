@@ -37,6 +37,12 @@ class ParticipationsController < ApplicationController
       }
     end
 
+    # ChallengeChannel.broadcast_to(
+    #   @challenge,
+    #   render(json: { markers: @markers })
+    # )
+    # head :ok
+
     respond_to do |format|
       format.json { render(json: { markers: @markers }) }
       format.html { redirect_to root_path, status: :see_other, notice: "" }

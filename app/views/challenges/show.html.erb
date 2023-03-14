@@ -21,7 +21,6 @@
 
     <%= render "challenges/map", markers: @markers, challenge: @challenge %>
 
-
     <%= simple_form_for [@challenge, @message],
       html: { data: { action: "turbo:submit-end->challenge-subscription#resetForm" }, class: "message-bar" } do |f|
     %>
