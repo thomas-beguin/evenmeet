@@ -4,7 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["modal", "menuactive", "participations", "passedparticipations", "currentparticipations"]
   connect() {
-    console.log("coucou")
   }
 
   toggle() {
