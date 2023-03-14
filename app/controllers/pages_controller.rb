@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @events = Event.all
+    @events = Event.first(4)
       if params[:query].present?
         params[:geo] = ""
         sql_query = "title ILIKE :query OR description ILIKE :query"
