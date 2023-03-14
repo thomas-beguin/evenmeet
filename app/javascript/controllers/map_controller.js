@@ -104,7 +104,10 @@ export default class extends Controller {
           "lon": lon,
           "lat": lat,
           "challenge-id": challengeId
-        })
+        }),
+        enableHighAccuracy: false,
+        timeout: 5000,
+        maximumAge: 0
       }
 
       fetchWithToken(url, options)

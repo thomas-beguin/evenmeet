@@ -10,8 +10,7 @@ export default class extends Controller {
       { channel: "ChallengeChannel", id: this.challengeIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
       )
-    console.log(`Subscribed to the chatroom with the id ${this.challengeIdValue}.`)
-
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   disconnect() {
