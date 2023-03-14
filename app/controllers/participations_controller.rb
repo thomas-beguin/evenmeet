@@ -37,11 +37,10 @@ class ParticipationsController < ApplicationController
       }
     end
 
-    # ChallengeChannel.broadcast_to(
-    #   @challenge,
-    #   render(json: { markers: @markers })
-    # )
-    # head :ok
+    ChallengeChannel.broadcast_to(
+      @challenge,
+      { markers: @markers }
+    )
 
     respond_to do |format|
       format.json { render(json: { markers: @markers }) }
