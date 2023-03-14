@@ -3,6 +3,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
     @challenge.read!
     @message = Message.new
+
     @participations = Participation.where(id: [@challenge.relationship.sender.id, @challenge.relationship.receiver.id])
 
     @markers = @participations.geocoded.map do |part|

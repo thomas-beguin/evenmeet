@@ -6,7 +6,7 @@ export default class extends Controller {
     chatroomId: Number,
     challengeId: Number,
     apiKey: String,
-    markers: Array
+    markers: Arra
   }
 
   static targets = ["participation"]
@@ -61,6 +61,7 @@ export default class extends Controller {
     this.markers = []
   }
 
+
   #addMarkersToMap(markers) {
     markers.forEach((marker) => {
       const customMarker = document.createElement("div")
@@ -72,6 +73,10 @@ export default class extends Controller {
         .addTo(this.map)
       this.markers = [ marker.lng, marker.lat ]
     })
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data)
+      })
   }
 
   #fitMapToMarkers() {
