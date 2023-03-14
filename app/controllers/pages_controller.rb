@@ -3,14 +3,14 @@ class PagesController < ApplicationController
 
   def home
     @events = Event.all
-      if params[:query].present?
-        params[:geo] = ""
-        sql_query = "title ILIKE :query OR description ILIKE :query"
-        @events = Event.where(sql_query, query: "%#{params[:query]}%")
-      elsif params[:geo].present?
-        params[:query] = ""
-        @events = Event.near(params[:geo])
-      end
+    if params[:query].present?
+      params[:geo] = ""
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @events = Event.where(sql_query, query: "%#{params[:query]}%")
+    elsif params[:geo].present?
+      params[:query] = ""
+      @events = Event.near(params[:geo])
+    end
     # @events = Event.all
     # @markers = @events.geocoded.map do |event|
     #   {
@@ -25,5 +25,9 @@ class PagesController < ApplicationController
     # end
     @participations = Participation.all
     @participation = Participation.new
+  end
+
+  def dashboard
+    @events = current_user.events
   end
 end

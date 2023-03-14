@@ -15,7 +15,7 @@ export default class extends Controller {
     this.twoMarkersValue = this.markersValue
     this.firstUser = this.twoMarkersValue[0]
     // reassign as user 1
-    this.markersValue = [{lat: }, this.twoMarkersValue[1]]
+    // this.markersValue = [{lat: }, this.twoMarkersValue[1]]
     console.log(this.markersValue)
 //     mapboxgl.accessToken = this.apiKeyValue
 
@@ -54,8 +54,8 @@ export default class extends Controller {
 
     console.log("Hello")
 
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    // this.#addMarkersToMap()
+    // this.#fitMapToMarkers()
   }
 
   disconnect() {
