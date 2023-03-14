@@ -16,7 +16,13 @@ export default class extends Controller {
       { channel: "ChallengeChannel", id: this.challengeIdValue },
       { received: (data) => {
           if (data.markers) {
-            console.log(data)
+            const markersToDelete = document.querySelectorAll(".marker")
+            markersToDelete.forEach((marker) => {
+              marker.remove()
+            })
+            this.markers = []
+            this.#addMarkersToMap(data.markers)
+            console.log("Action cable")
           }
         }
       }
