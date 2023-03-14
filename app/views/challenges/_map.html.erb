@@ -1,0 +1,19 @@
+<% if @challenge.pending? %>
+  <div
+    class="message-map"
+    <%# SHOWMAP %>
+    data-showmap-target="map"
+    <%# MAPBOX %>
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+
+    <%# CHANNEL %>
+    data-map-challenge-id-value="<%= @challenge.id %>"
+
+    <%# INFO FOR SHARING POSITION %>
+    data-participation-id="<%= current_user.current_participation.id %>"
+    data-challenge-id="<%= @challenge.id %>"
+    data-map-target="participation">
+  </div>
+<% end %>

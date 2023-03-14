@@ -1,0 +1,50 @@
+<div class="message-menu">
+
+  <div class="message-menu-first d-flex align-items-center text-white justify-content-between w-100">
+
+    <div class="d-flex align-items-center">
+      <%= link_to challenges_path, class: "pe-3" do %>
+        <i class="fa-solid fa-chevron-left"
+          data-action="click->toggle-element#menuactive"
+          data-toggle-element-target="menuactive"
+          style="font-size:calc(1.275rem + 0.3vw)"></i>
+      <% end %>
+      <div class="d-flex flex-column">
+        <p class="message-menu-target"><%= target.user.first_name.capitalize %></p>
+      </div>
+    </div>
+
+    <div>
+    </div>
+  </div>
+
+  <div class="message-submenu">
+    <div class="message-menu-photo">
+      <%= cl_image_tag target.user.photos.first.key %>
+    </div>
+    <div>
+      <div class="message-submenu-info">
+        <h3>👨‍🎤 <%= target.hint.upcase %></h3>
+        <% if challenge.pending? %>
+          <p>🔎 You didn't find <%= target.user.first_name %></p>
+        <% elsif challenge.won? %>
+          <p>🎉 Well done, you found <%= target.user.first_name %></p>
+        <% else %>
+          <p>Challenge finished</p>
+        <% end %>
+      </div>
+      <div class="d-flex">
+        <button class="message-submenu-button">
+          <i class="fa-solid fa-qrcode px-2"></i>
+          <p class="pe-2">QR-Code</p>
+        </button>
+        <button class="message-submenu-button"
+                data-action="click->showmap#displaymap">
+          <i class="fa-solid fa-gift px-2"></i>
+          <p class="pe-2">Reward</p>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,6 +1,5 @@
 class ChallengesController < ApplicationController
   def show
-# Chatroom :
     @challenge = Challenge.find(params[:id])
     @challenge.read!
     @message = Message.new

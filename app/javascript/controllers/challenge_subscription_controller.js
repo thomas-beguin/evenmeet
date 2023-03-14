@@ -9,9 +9,8 @@ export default class extends Controller {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChallengeChannel", id: this.challengeIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
-    )
-    console.log(`Subscribed to the chatroom with the id ${this.challengeIdValue}.`)
-
+      )
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   disconnect() {
@@ -24,7 +23,9 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    if (data.message) {
+      this.messagesTarget.insertAdjacentHTML("beforeend", data.message)
+      this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+    }
   }
 }
