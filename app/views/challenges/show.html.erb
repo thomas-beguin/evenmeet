@@ -1,3 +1,4 @@
+<div data-controller="showmap">
 
   <% if @challenge.relationship.receiver.user == current_user %>
     <% target = @challenge.relationship.sender %>
@@ -5,17 +6,16 @@
     <% target = @challenge.relationship.receiver %>
   <% end %>
 
-  <div class="container challenge text-white"
+  <%= render "shared/menu_messages", target: target, challenge: @challenge %>
+
+  <div class="px-3 challenge text-white"
     data-controller="challenge-subscription"
-    data-challenge-subscription-challenge-id-value="<%= @challenge.id %>"
-    style="margin-bottom: 65px;"
-  >
+    data-challenge-subscription-challenge-id-value="<%= @challenge.id %>">
 
-    <h4 class="mt-2 mb-3"><%= "Chat with #{ target.user.first_name }" %></h4>
-
-    <div class="messages d-flex flex-column" data-challenge-subscription-target="messages">
+    <div class="messages d-flex flex-column"
+         data-challenge-subscription-target="messages">
       <% @challenge.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
+          <%= render "messages/message", message: message %>
       <% end %>
     </div>
 
@@ -25,20 +25,25 @@
       html: { data: { action: "turbo:submit-end->challenge-subscription#resetForm" }, class: "message-bar" } do |f|
     %>
 
-    <% if @challenge.won? %>
-      <%= f.input :content,
-        label: false,
-        placeholder: "Write your message",
-        wrapper_html: {class: "flex-grow-1"}
-      %>
-    <% else %>
-      <%= f.input :content,
-              label: false,
-              placeholder: "Write your message",
-              wrapper_html: {class: "flex-grow-1"},
-              disabled: true
-            %>
+      <% if @challenge.won? %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Write your message",
+          wrapper_html: {class: "flex-grow-1"},
+          :as => :string
+        %>
+      <% else %>
+        <%= f.input :content,
+                label: false,
+                placeholder: "Write your message",
+                wrapper_html: {class: "flex-grow-1"},
+                disabled: true,
+                :as => :string
+              %>
+      <% end %>
+      <%= button_tag type: 'submit', class: "mb-3 message-sender" do %>
+        <i class="fa-regular fa-paper-plane"></i>
     <% end %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
     <% end %>
   </div>
+</div>
