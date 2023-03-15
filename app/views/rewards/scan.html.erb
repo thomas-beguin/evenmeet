@@ -1,0 +1,34 @@
+<div class="d-flex align-items-center" style="position: fixed; top: 20px; left: 16px;">
+  <%= link_to challenge_path(@challenge), class: "pe-3" do %>
+    <i class="fa-solid fa-chevron-left"
+      data-action="click->toggle-element#menuactive"
+      data-toggle-element-target="menuactive"
+      style="font-size:calc(1.275rem + 0.3vw)"></i>
+  <% end %>
+  <div class="d-flex flex-column">
+    <p class="message-menu-target text-light">Message</p>
+  </div>
+</div>
+
+<%# QRCODE READER %>
+<div id="qr-reader" style="width: 100%; overflow: hidden; margin-top: 20%" data-controller="qrcode"></div>
+
+<%# Style to hide Camera Starting & Camera Stoping %>
+<style>
+  #html5-qrcode-button-camera-start {
+    /* display: none !important; */
+  }
+  #html5-qrcode-button-camera-stop {
+    display: none !important;
+  }
+  #qr-reader__dashboard_section {
+    padding: 0px !important;
+  }
+</style>
+
+<%# autoclick Permission %>
+<%# <script>
+// setTimeout(() => {
+//   document.querySelector("#html5-qrcode-button-camera-permission").click()
+// }, 500);
+</script> %>
