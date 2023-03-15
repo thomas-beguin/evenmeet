@@ -1,0 +1,23 @@
+<div class="profile-modal" data-profile-target="modal">
+  <div class="wrapper-relative">
+    <div class="container-profile">
+      <div class="mb-3">
+        <% if participation.user.photos.attached? %>
+          <%= cl_image_tag participation.user.photos.first.key, class:"profile-img" %>
+        <% else %>
+          <%= image_tag "https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg", class:"event-img", style:"height: 40vh" %>
+        <% end %>
+      <h1 class="text-white font-weight-bold"><%= participation.user.first_name %></h1>
+      <p>Vit ici :<%= participation.user.city %>  </p>
+      <h2>A propos de moi</h2>
+      <p><%= participation.user.description %>  </p>
+      <h2>Passions</h2>
+      <%# participation.user.tags.to_a each do |tag| %>
+      <%# end %>
+      <h2>Mes événements</h2>
+      </div>
+      <i class="fa-solid fa-chevron-left back" data-action="click->profile#toggle"></i>
+      <div class="overlay-image"></div>
+    </div>
+  </div>
+</div>
