@@ -1,14 +1,34 @@
-
-
 <div class="container text-white">
-  <div>
-    <div class="d-flex align-items-center justify-content-between mb-2">
-      <h4 class="dashboard-title mt-2 mb-3">Review your personal data</h4>
+
+  <div class="d-flex align-items-center justify-content-between mb-2">
+    <div class="dashboard-title mt-2 mb-3 w-100">
+      <h4>My Personal Data</h4>
+      <div class="d-flex justify-content-between">
+        <div>
+          <p>Name: <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
+          <p>E-mail: <%= current_user.email %></p>
+          <p>City: <%= current_user.city %></p>
+        </div>
+        <%= cl_image_tag current_user.photos.first.key, class: "avatar-2" %>
+      </div>
+
+
     </div>
-    <p>Name : <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
-    <p>Email : <%= current_user.email %></p>
-    <p>City : <%= current_user.city %> </p>
   </div>
-  <%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+
+  <div class="d-2">
+    <h4>All My Events</h4>
+    <div class="calendrier">
+      <%= month_calendar(events: @events, attribute: :start_date, end_attributes: :end_date) do |date, events| %>
+        <span class="d-day"><%= date.day %></span>
+        <% events.each do |event| %>
+          <%= link_to event_path(event), class:"event" do %>
+            <%= event.title %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+  </div>
 
 </div>
