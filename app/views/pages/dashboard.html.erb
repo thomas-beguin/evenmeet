@@ -11,23 +11,9 @@
         </div>
         <%= cl_image_tag current_user.photos.first.key, class: "avatar-2" %>
       </div>
-
-
     </div>
   </div>
 
-  <div class="d-2">
-    <h4>All My Events</h4>
-    <div class="calendrier">
-      <%= month_calendar(events: @events, attribute: :start_date, end_attributes: :end_date) do |date, events| %>
-        <span class="d-day"><%= date.day %></span>
-        <% events.each do |event| %>
-          <%= link_to event_path(event), class:"event" do %>
-            <%= event.title %>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
   </div>
 
