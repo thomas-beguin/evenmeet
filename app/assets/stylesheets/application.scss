@@ -6,13 +6,13 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "simple_calendar";
 
 // Your CSS partials
 @import "components/index";
 @import "components/message";
 @import "components/map";
 @import "pages/index";
-@import "simple_calendar";
 
 body {
   overscroll-behavior: none;
