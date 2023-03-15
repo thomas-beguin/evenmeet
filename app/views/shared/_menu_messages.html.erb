@@ -26,7 +26,7 @@
       <div class="message-submenu-info">
         <h3>👨‍🎤 <%= target.hint.upcase %></h3>
         <% if challenge.pending? %>
-          <p>🔎 You didn't find <%= target.user.first_name %></p>
+          <p>🔎 Did you find <%= target.user.first_name %> ?</p>
         <% elsif challenge.won? %>
           <p>🎉 Well done, you found <%= target.user.first_name %></p>
         <% else %>
