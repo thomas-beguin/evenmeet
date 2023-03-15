@@ -12,15 +12,34 @@ div.scrollmenu {
   flex-wrap: nowrap;
 }
 
+.top-scrollsubmenu {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  .top-event-card {
+    width: 32vh;
+  }
+  .scroll-event-card{
+    width: 20vh;
+  }
+}
+
 .scrollsubmenu {
   display: inline-block;
   color: white;
   text-decoration: none;
+  width: 20vh;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   .top-event-card {
-    width: 300px;
+    width: 32vh;
   }
   .scroll-event-card{
-    width: 160px;
+    width: 20vh;
   }
 }
 
