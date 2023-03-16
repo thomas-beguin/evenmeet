@@ -232,8 +232,8 @@ lollapalooza = Event.new(
   tags: "Top 5",
   address: "5 Rue de Lagny, 75020 Paris",
   description: "A few weeks after Solidays, it’s Lolapalooza’s turn to bring together music lovers at the Hippodrome Longchamps. And for the occasion, the festival has kicked things up a notch: Kendrick Lamar, Rosalia, Lil Nas X, Aya Nakamura and Damso are verified as headliners for the 2023 edition.",
-  start_date: DateTime.now - 2.hours,
-  end_date: DateTime.now + 2.hours
+  start_date: DateTime.now - 2.days,
+  end_date: DateTime.now + 2.days
 )
 lollapalooza.photos.attach(io: URI.open("https://global-uploads.webflow.com/616ee9a6ca0a92c43c8929b6/63d0f1b632a91dddc41688ce_onimage.jpg"), filename: "seed.png", content_type: "image/png")
 lollapalooza.save!
@@ -427,3 +427,4 @@ puts "Challenges created : #{Challenge.count}"
 # t.text "content"
 #     t.bigint "user_id", null: false
 #     t.bigint "challenge_id", null: false
+
