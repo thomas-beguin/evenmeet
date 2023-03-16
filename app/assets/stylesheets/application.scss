@@ -22,6 +22,20 @@ body {
   background-color: $gray-background;
 }
 
+.div-reward-win {
+  width: 70%;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30%;
+  background: #00000008;
+  z-index: 2;
+  position: relative;
+  border-radius: 8px;
+}
 // body {
 //   // background: linear-gradient(311deg,#91ad33,#734339,#1f794b,#4683d4,#3efb7e,#df42cc);
 //   background: linear-gradient(311deg,#91ad33,rgb(126, 55, 28),#1f794b,#4683d4,#3efb7e,#df42cc);

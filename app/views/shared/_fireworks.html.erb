@@ -1,0 +1,28 @@
+<lottie-player src="https://assets7.lottiefiles.com/packages/lf20_GmaOBawqc8.json" background="transparent"  speed="0.7"  style="width: 100%; height: 80vh; position:absolute" loop autoplay></lottie-player>
+<div class="d-flex align-content justify-content-center align-items w-100">
+  <div class="div-reward-win">
+    <h6 class="text-light">ID#<%= @reward.id %></h6>
+    <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_E3m1qQ.json" background="transparent"  speed="0.6"  style="width: 30%;" autoplay></lottie-player>
+    <h1 class="text-light"> <%= @reward.title %></h1>
+    <h2 class="text-light"> <%= @reward.reward %></h2>
+    <p class="text-light text-center mt-3">You go to one of our partner to claim your reward with your match - Congrats !</p>
+  </div>
+</div>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<style>
+  .div-reward-win {
+    width: 70%;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30%;
+    background: #00000008;
+    z-index: 2;
+    position: relative;
+    border-radius: 8px;
+  }
+</style>
