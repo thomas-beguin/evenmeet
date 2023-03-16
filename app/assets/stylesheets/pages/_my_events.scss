@@ -30,7 +30,8 @@ ul {
 }
 
 .other {
-  padding-bottom: 13px;
+  padding-bottom: 0.5rem;
+  margin: 0 1.5rem;
 }
 
 .index-title-2 {
@@ -39,9 +40,14 @@ ul {
 }
 
 .calendrier {
-  padding: 15px;
+  // padding: 15px;
 }
 
 .margin {
   border-bottom: solid 1pw white;
+}
+
+.test {
+  border-bottom: solid 1px white;
+  margin: 1.5rem;
 }

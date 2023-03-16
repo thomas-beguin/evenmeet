@@ -17,8 +17,9 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    @challenges = current_user.current_participation.sender_challenges + current_user.current_participation.receiver_challenges
-    @events = @challenges.map { |challenge| challenge.reward.event }.uniq.reject { |event| event == current_user.current_event}
+    @challenges = current_user.current_participation&.sender_challenges
+    @challenges = @challenges + current_user.current_participation&.receiver_challenges if current_user.current_participation&.receiver_challenges
+    @events = @challenges&.map { |challenge| challenge.reward.event }&.uniq&.reject { |event| event == current_user.current_event}
   end
 
   def new
