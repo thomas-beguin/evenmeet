@@ -2,7 +2,7 @@
     <div class="row ps-3 m-0">
     <% count = 0 %>
       <% participations.where.not(user: current_user).each do |participation| %>
-        <img class="participant-img" src="<%= participation.user.photos.first.url %>" alt="">
+        <%= cl_image_tag participation.user.photos.first.key, width: 300, crop: :fill, class: "participant-img"%>
         <% count +=1 %>
       <% end %>
     </div>
