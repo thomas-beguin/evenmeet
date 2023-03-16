@@ -1,5 +1,5 @@
 #astro-modal {
-  position: absolute;
+  position: fixed;
   inset: 0;
   z-index: 9990;
   .astro-modal-backdrop {
@@ -45,10 +45,10 @@
     display: flex;
     justify-content: center;
     min-height: 100%;
-    // align-items: center;
+    align-items: center;
   }
   .astro-modal-container {
-    // padding: 1rem;
+
   }
 }
 
