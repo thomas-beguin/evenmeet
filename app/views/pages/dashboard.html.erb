@@ -4,12 +4,14 @@
     <div class="dashboard-title mt-2 mb-3 w-100">
       <h4>My Personal Data</h4>
       <div class="d-flex justify-content-between">
-        <div>
+        <div class="top-infos">
           <p>Name: <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
           <p>E-mail: <%= current_user.email %></p>
           <p>City: <%= current_user.city %></p>
         </div>
+
         <%= cl_image_tag current_user.photos.first.key, width: 1000, crop: :fill, class: "avatar-2" %>
+
       </div>
     </div>
   </div>
