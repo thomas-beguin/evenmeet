@@ -147,7 +147,7 @@ div.scrollmenu {
   img {
     // width: 100%;
     // height: 200px;
-    object-fit: contain;
+    // object-fit: contain;
     // border-radius: 5px;
   }
   &.active {
@@ -191,4 +191,9 @@ div.scrollmenu {
 .btn-flat:hover {
   background: #a50bff;
   color: white;
+}
+
+.rewards-event {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
