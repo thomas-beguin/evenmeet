@@ -28,7 +28,7 @@
   left: 0px;
   padding: 0px 1rem;
   display: flex;
-  background: #202124;
+  background: $gray-background;
   padding-top: 10px;
   z-index: 2;
 
@@ -59,7 +59,7 @@
   padding-bottom: 0px;
   width: 100%;
   z-index: 1;
-  background: #202124;
+  background: $gray-background;
   font-size: calc(1.275rem + 0.3vw);
 
   .message-menu-first {
