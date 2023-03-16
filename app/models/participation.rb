@@ -8,4 +8,6 @@ class Participation < ApplicationRecord
   has_many    :sender_challenges,   through: :sender_relationships,   source: :challenge, dependent: :destroy
   has_many    :receiver_challenges, through: :receiver_relationships, source: :challenge, dependent: :destroy
   geocoded_by :location
+
+  validates :user, uniqueness: { scope: :event }
 end

@@ -1,9 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
-import { Modal } from "bootstrap";
+import { Modal } from "../components/modal";
 import { Swiper } from "../helpers/swiper";
 
 export default class extends Controller {
-  static targets = ["card", "modal", "modalBody", "content"]
+  static targets = ["card", "content"]
 
   connect() {
     this.initSwiper()
@@ -19,11 +19,11 @@ export default class extends Controller {
   }
 
   initModal() {
-    this.modal = new Modal(this.modalTarget)
+    this.modal = new Modal()
   }
 
   hideModal() {
-    this.modal.hide()
+    this.modal.close()
   }
 
   swipeLeft(id) {
@@ -61,8 +61,8 @@ export default class extends Controller {
 
   responseHandler(data) {
     if (data.content) {
-      this.modalBodyTarget.innerHTML = data.content
-      this.modal.show()
+      this.modal.replaceContent({ html: data.content })
+      this.modal.open()
     }
   }
 
