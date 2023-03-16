@@ -1,0 +1,46 @@
+
+<div id="astro-modal">
+  <div class="astro-modal-container">
+    <div class="mb-3">
+      <% if participation.user.photos.attached? %>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <% participation.user.photos.each_with_index do |photo, index| %>
+              <div class="carousel-item <%= "active" if index == 0%>">
+                <%= cl_image_tag photo.key, class:"participation-image" %>
+              </div>
+            <% end %>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class = "visually-hidden">Next</span>
+          </button>
+        </div>
+      <% else %>
+        <img src="https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg" class="" alt="...">
+      <% end %>
+    </div>
+
+    <div class="px-3">
+      <p class="swiper__card__name">
+        <strong><%= participation.user.first_name %></strong>, <span class="profile-age"><%= participation.user.age %></span>
+      </p>
+      <div class="d-flex flex-row mt-2">
+        <i class="fa-solid fa-location-dot me-2" style="color: #8b9aa0"></i>
+        <p class="paragraph-event"> <%= participation.user.city %> </p>
+      </div>
+      <p class="text-white font-weight-bold mt-4">A propos de moi :</p>
+      <p class="paragraph-event mt-2"><%= participation.user.description %></p>
+    </div>
+  </div>
+</div>

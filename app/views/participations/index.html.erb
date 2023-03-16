@@ -1,30 +1,73 @@
-<div class="text-white" data-controller="toggle-element">
+<div class="text-white">
 
-  <div class="dpx-3">
-    <div class="bg-gradient rounded-4">
-      <h3><%= current_user.current_event.title %></h3>
-      <p><%= current_user.current_event.start_date %></p>
-      <p><%= current_user.current_event.end_date %></p>
-    </div>
+  <div class="px-3">
+    <% if current_user.current_event %>
+      <h5>Today's Festival!</h5>
+        <ul class="d-flex align-items-center d-flex justify-content-between">
+        <div>
+          <li class="event-D"><%= current_user.current_event&.title %></li>
+          <li>From: <%= current_user.current_event&.start_date.strftime("%A, %d, %B") %></li>
+          <li>To: <%= current_user.current_event&.end_date.strftime("%A, %d, %B") %></li>
+          <li>Where? <%= current_user.current_event&.address %></li>
+        </div>
+        <%= cl_image_tag current_user.current_event.photos.first.key, crop: :fill, class: "event-pic"%>
+        </ul>
 
-    <div class="d-flex mt-4 mb-2 position-relative">
-      <div class="col-6 text-center pb-1" data-action="click->toggle-element#current">
-        <span>Coming soon</span>
-      </div>
-      <div class="col-6 text-center pb-1" data-action="click->toggle-element#passed">
-        <span>Passed</span>
-      </div>
-      <span class="menu-bar" data-toggle-element-target="participations"></span>
+    <% end %>
+  </div>
+
+  <div class="d-2">
+    <div class="calendrier">
+      <%= month_calendar(events: @events, attribute: :start_date, end_attributes: :end_date) do |date, events| %>
+        <div data-controller="toggle-element">
+          <span class="d-day" data-action="click->toggle-element#toggle"><%= date.day %></span>
+          <% events.each do |event| %>
+            <%= render "pages/event_modal",  event: event %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
-  <div class="px-3">
-    <div data-toggle-element-target="currentparticipations">
-      current participations
+  <div data-controller="toggle-element">
+    <div class="d-flex mt-4 mb-2 position-relative container-fluid">
+      <div class="col-6 text-center pb-1 menu-bar" data-action="click->toggle-element#current" data-toggle-element-target="incoming">
+        <span style="color: white">Coming soon</span>
+      </div>
+      <div class="col-6 text-center pb-1" data-action="click->toggle-element#passed" data-toggle-element-target="passed">
+        <span style="color: white">Past Events</span>
+      </div>
     </div>
 
-    <div class="d-none" data-toggle-element-target="passedparticipations">
-      passed participations
+    <div class="px-3">
+      <div data-toggle-element-target="currentparticipations">
+        <h6 style="color: white">My next festivals:</h6>
+        <% current_user.events.incoming.each do |event| %>
+          <ul class="d-flex align-items-center d-flex justify-content-between">
+            <div>
+              <li class="list-title"><%= event.title %></li>
+              <li>From <%= event.start_date.strftime("%A, %d") %> to <%= event.end_date.strftime("%A, %d, %B") %></li>
+              <li><%= event.address %></li>
+            </div>
+            <%= cl_image_tag event.photos.first.key, crop: :fill, class: "event-pic"%>
+          </ul>
+        <% end %>
+      </div>
+
+      <div class="d-none" data-toggle-element-target="passedparticipations">
+        <h6 style="color: white">My past festivals:</h6>
+        <% current_user.events.past.each do |event| %>
+        <ul class="d-flex align-items-center d-flex justify-content-between">
+            <div>
+              <li class="list-title"><%= event.title %></li>
+              <li>From <%= event.start_date.strftime("%A, %d") %> to <%= event.end_date.strftime("%A, %d, %B") %></li>
+              <li><%= event.address %></li>
+            </div>
+            <%= cl_image_tag event.photos.first.key, crop: :fill, class: "event-pic"%>
+          </ul>
+        <% end %>
+      </div>
+
     </div>
   </div>
 

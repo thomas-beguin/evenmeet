@@ -22,3 +22,7 @@ export default class extends Controller {
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
   }
 }
+
+// const modal = new Modal()
+
+// modal.open()

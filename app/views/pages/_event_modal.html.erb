@@ -33,8 +33,13 @@
       </div>
       <p class="paragraph-event mt-2 px-3"> <%= event.description %> </p>
     </div>
-    <div class="form-bottom">
+    <% if user_signed_in? %>
+      <div class="div-cta">
+        <button class="cta btn btn-primary profile-link" data-action="click->modal#open" data-modal-url-param="<%= new_event_participation_path(event)%>">Join</button>
+      </div>
+    <% end %>
+    <%# <div class="form-bottom">
       <%= render "pages/participation_submit", event: event, participation: @participation %>
-    </div>
+    <%# </div> %>
   </div>
 </div>
