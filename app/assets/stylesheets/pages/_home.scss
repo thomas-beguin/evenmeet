@@ -36,20 +36,19 @@ div.scrollmenu {
   color: white;
   margin-top: 15px;
   margin-bottom: 0px;
-  font-size: 18px;
+  font-size: 22px;
   padding-left: 0px;
   text-align: start;
 }
 
 .top-numbers {
   position: absolute;
-  font-size: 50px;
-  z-index: 10;
-  top: 136px;
-  left: 0px;
+  font-size: 80px;
+  top: 108px;
+  left: 9px;
   font-family: 'Climate Crisis', cursive;
-  // font-family: 'Outfit', sans-serif;
-  // font-family: 'Roboto', sans-serif;
+  -webkit-text-stroke: 2px #fff;
+  color: #ff2e63;
 }
 
 .top-scrollsubmenu {
@@ -59,10 +58,12 @@ div.scrollmenu {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin-bottom: 12px;
   .top-event-card {
     width: fit-content;
     object-fit: contain;
     height: 180px;
+    margin-top: 6px;
     // border-top-left-radius: 10px;
     // border-top-right-radius: 10px;
   }
@@ -79,6 +80,8 @@ div.scrollmenu {
     width: fit-content;
     object-fit: contain;
     height: 120px;
+    margin-top: 6px;
+    margin-bottom: 12px;
     // border-top-left-radius: 8px;
     // border-top-right-radius: 8px;
   }
@@ -191,6 +194,58 @@ div.scrollmenu {
 .btn-flat:hover {
   background: #a50bff;
   color: white;
+}
+
+.flashy {
+  color: #ff2e63;
+}
+
+.highlight-container, .highlight {
+  position: relative;
+}
+
+.highlight-container {
+  display: inline-block;
+}
+
+.highlight-container:before {
+  content: " ";
+  display: block;
+  height: 13px;
+  width: 112%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #ff2e63;
+  transform: rotate(3deg);
+  top: 9px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
+}
+
+.menu-highlight-container, .highlight {
+  position: relative;
+}
+
+.menu-highlight-container {
+  display: inline-block;
+}
+
+.menu-highlight-container:before {
+  content: " ";
+  display: block;
+  height: 31px;
+  width: 112%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #ff2e63;
+  transform: rotate(3deg);
+  top: 9px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
 }
 
 .rewards-event {
