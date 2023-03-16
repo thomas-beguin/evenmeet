@@ -4,7 +4,7 @@
 
     <div class="d-flex align-items-center">
       <%= link_to challenges_path, class: "pe-3" do %>
-        <i class="fa-solid fa-chevron-left"
+        <i class="fa-solid fa-chevron-left flashy"
           data-action="click->toggle-element#menuactive"
           data-toggle-element-target="menuactive"
           style="font-size:calc(1.275rem + 0.3vw)"></i>
@@ -24,11 +24,11 @@
     </div>
     <div>
       <div class="message-submenu-info">
-        <h3>👨‍🎤 <%= target.hint.upcase %></h3>
+        <h3><%= target.hint.upcase %></h3>
         <% if challenge.pending? %>
-          <p>🔎 Did you find <%= target.user.first_name %> ?</p>
+          <p>Did you find <%= target.user.first_name %> ?</p>
         <% elsif challenge.won? %>
-          <p>🎉 Well done, you found <%= target.user.first_name %></p>
+          <p>Well done, you found <%= target.user.first_name %></p>
         <% else %>
           <p>Challenge finished</p>
         <% end %>
