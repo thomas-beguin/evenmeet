@@ -4,12 +4,20 @@
     <div class="nav-item active">
       <%= link_to root_path, class: "nav-link",
                             "data-navbar-target": "home" do %>
-        <i class="fa-solid fa-house"></i>
+        <% if params[:action] == "home" %>
+          <i class="fa-solid fa-house flashy"></i>
+        <% else %>
+          <i class="fa-solid fa-house"></i>
+        <% end %>
       <% end %>
 
       <%= link_to participations_path, class: "nav-link",
                             "data-navbar-target": "home" do %>
-        <i class="fa-regular fa-calendar-check"></i>
+        <% if params[:controller] == "participations" && params[:action] == "index" %>
+          <i class="fa-regular fa-calendar-check flashy"></i>
+        <% else %>
+          <i class="fa-regular fa-calendar-check"></i>
+        <% end %>
       <% end %>
     </div>
   </nav>
@@ -23,21 +31,37 @@
 
     <div class="nav-item active">
       <%= link_to current_event_path, class: "nav-link" do %>
-        <i class="fa-solid fa-play"></i>
+        <% if params[:controller] == "events" %>
+          <i class="fa-solid fa-play flashy"></i>
+        <% else %>
+          <i class="fa-solid fa-play"></i>
+        <% end %>
       <% end %>
 
       <% if current_user.nil? || current_user.current_event.nil? %>
         <span class="nav-link">
-          <i class="fa-solid fa-heart"></i>
+          <% if params[:controller] == "relationships" %>
+            <i class="fa-solid fa-heart flashy"></i>
+          <% else %>
+            <i class="fa-solid fa-heart"></i>
+          <% end %>
         </span>
       <% else %>
         <%= link_to new_participation_relationship_path(current_user.current_participation), class: "nav-link" do %>
-          <i class="fa-solid fa-heart"></i>
+          <% if params[:controller] == "relationships" %>
+            <i class="fa-solid fa-heart flashy"></i>
+          <% else %>
+            <i class="fa-solid fa-heart"></i>
+          <% end %>
         <% end %>
       <% end %>
 
       <%= link_to challenges_path, class: "nav-link" do %>
-        <i class="fa-solid fa-comments"></i>
+        <% if params[:controller] == "challenges" && params[:action] != "show" %>
+          <i class="fa-solid fa-comments flashy"></i>
+        <% else %>
+          <i class="fa-solid fa-comments"></i>
+        <% end %>
       <% end %>
     </div>
   </nav>

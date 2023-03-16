@@ -1,4 +1,6 @@
-<h3 class="section-title px-3"><%= category %></h3>
+<h3 class="section-title px-3 mt-4">
+  <span class="highlight-container"><span class="highlight"><%= category %></span></span>
+</h3>
 <div class="scrollmenu mt-1 px-3">
   <% events.each do |event| %>
     <div class="me-2 pb-3 scrollsubmenu" data-controller="toggle-element">

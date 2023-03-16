@@ -3,6 +3,7 @@
 
     <% unless params[:controller] == "challenges" && params[:action] == "show" || params[:controller] == "rewards" %>
 
+
       <div class="d-flex navbar-menu">
 
         <div class="d-flex flex-column justify-content-center">
@@ -11,7 +12,9 @@
             data-toggle-element-target="menuactive"
             style="font-size:calc(1.275rem + 0.3vw)"></i>
         </div>
+      </div>
 
+      <!--
         <% if params[:controller] == "pages" && params[:action] != "dashboard" || params[:controller] == "participations" && params[:action] == "index" %>
           <h4 class="ms-2 m-0">Home</h4>
         <% elsif params[:action] == "dashboard" %>
@@ -21,7 +24,7 @@
         <% end %>
 
       </div>
-
+      -->
       <div class="event-channel" data-toggle-element-target="modal">
         <i
           class="fa-solid fa-chevron-left"
@@ -35,15 +38,27 @@
         ></i>
 
         <%= link_to root_path do %>
-          <span>🏠 Home Page</span>
+          <% if params[:controller] == "pages" && params[:action] != "dashboard" || params[:controller] == "participations" && params[:action] == "index" %>
+            <span class="menu-highlight-container"><span class="highlight">Home Page</span></span>
+          <% else %>
+            <span>Home Page</span>
+          <% end %>
         <% end %>
 
         <%= link_to current_event_path do %>
-          <span>📅 My Event</span>
+          <% if params[:controller] == "events" || params[:controller] == "relationships" || params[:controller] == "challenges" %>
+            <span class="menu-highlight-container"><span class="highlight">My Event</span>
+          <% else %>
+            <span>My Event</span>
+          <% end %>
         <% end %>
 
         <%= link_to dashboard_path do %>
-          <span>👨‍🎤 My Profile</span>
+          <% if params[:action] == "dashboard" %>
+            <span class="menu-highlight-container"><span class="highlight">My Profile</span>
+          <% else %>
+            <span>My Profile</span>
+          <% end %>
         <% end %>
       </div>
     <% end %>
