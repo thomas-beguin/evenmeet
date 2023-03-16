@@ -1,6 +1,5 @@
 <div class="container text-white">
-
-  <div class="d-flex align-items-center justify-content-between mb-2">
+  <div class="d-flex align-items-center justify-content-between mt-2 mb-2">
     <div class="dashboard-title mt-2 mb-3 w-100">
       <h4>My Personal Data</h4>
       <div class="d-flex justify-content-between">
@@ -9,14 +8,9 @@
           <p>E-mail: <%= current_user.email %></p>
           <p>City: <%= current_user.city %></p>
         </div>
-
-        <%= cl_image_tag current_user.photos.first.key, width: 1000, crop: :fill, class: "avatar-2" %>
-
+        <%= cl_image_tag current_user.photos.first.key, width: 1000, crop: :fill, class: "avatar-3" %>
       </div>
     </div>
   </div>
-
-    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
-  </div>
-
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary", form_class: "button_to d-flex justify-content-center"%>
 </div>
