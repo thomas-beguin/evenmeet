@@ -2,12 +2,11 @@ class ParticipationsController < ApplicationController
 
   def new
     @participation = Participation.new
-    @user
     @event = Event.find(params[:event_id])
     respond_to do |format|
       format.json do
         render(json: {
-          html: render_to_string(partial: 'pages/participation_submit', locals: { event: @event, user: @user }, formats: :html)
+          html: render_to_string(partial: 'pages/participation_submit', locals: { event: @event, participation: @participation }, formats: :html)
         })
       end
     end

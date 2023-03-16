@@ -1,10 +1,8 @@
-<% if user_signed_in? && params[:controller] != "participations" %>
-  <div class="container">
+<div class="d-flex align-items-center text-white">
     <%= simple_form_for [event, participation] do |f| %>
       <%= f.input :event_id, as: :hidden, input_html: { value: event.id } %>
       <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-      <%= f.input :hint, label: :"You want to participate to this event?", placeholder: "Type your hint here!"%>
+      <%= f.input :hint, label: :"Describe your outfit or give a clue to find you", placeholder: "Type your hint here!"%>
       <%= f.submit class: 'btn btn-primary text-white p-2 w-100' %>
     <% end %>
-  </div>
-<% end %>
+</div>
