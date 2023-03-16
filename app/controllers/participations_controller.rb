@@ -2,6 +2,15 @@ class ParticipationsController < ApplicationController
 
   def new
     @participation = Participation.new
+    @user
+    @event = Event.find(params[:event_id])
+    respond_to do |format|
+      format.json do
+        render(json: {
+          html: render_to_string(partial: 'pages/participation_submit', locals: { event: @event, user: @user }, formats: :html)
+        })
+      end
+    end
   end
 
   def create
@@ -13,6 +22,17 @@ class ParticipationsController < ApplicationController
       redirect_to root_path
     else
       render "events/show", status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @participation = Participation.find(params[:id])
+    respond_to do |format|
+      format.json do
+        render(json: {
+          html: render_to_string(partial: 'participations/participation_user_profile', locals: { participation: @participation }, formats: :html)
+        })
+      end
     end
   end
 

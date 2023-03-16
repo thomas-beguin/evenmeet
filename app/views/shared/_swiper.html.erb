@@ -1,15 +1,13 @@
-<div class="swiper" data-controller="swipe coordinates">
+<div class="swiper" data-controller="swipe coordinates modal">
   <div class="swiper__content">
     <div class="swiper__card-cont"
          data-swipe-target="content"
          data-participation-id="<%= @current_participation.id %>">
       <% participations.each do |participation| %>
-
-        <%= link_to "#", class: 'profile-link hidden' do %>
           <div class="swiper__card"
               data-swipe-target="card"
               data-id="<%= participation.id %>">
-
+            <span class="profile-link hidden" data-action="click->modal#open" data-modal-url-param="<%= participation_path(participation)%>"></span>
             <div class="swiper__card__content">
 
             <div class="swiper__card__content_top">
@@ -17,30 +15,24 @@
             </div>
 
             <% if participation.user.photos.attached? %>
-              <%= cl_image_tag participation.user.photos.first.key, class: 'swiper__card__img' %>
-            <% end
-
-            # <%=
-            #   image_tag(participation.user.photos.first.key"https://images.unsplash.com/photo-1565104479617-751892dc290e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjB8fGZlc3RpdmFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            #             alt: "rss feed",
-            #             class: 'swiper__card__img')
-            # %>
+              <%= cl_image_tag participation.user.photos.first.key, class: 'swiper__card__img', alt:"Picture" %>
+            <% else %>
+              <img src="https://images.unsplash.com/photo-1454908027598-28c44b1716c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="swiper__card__img" alt="...">
+            <% end %>
 
             <div class="swiper__card__content_bottom">
               <p class="swiper__card__name">
-                <strong><%= participation.user.first_name %></strong>, <span class="profile-age"><%= participation.user.last_name %></span>
+                <strong><%= participation.user.first_name %></strong>, <span class="profile-age"><%= participation.user.age %></span>
               </p>
               <p class="swiper__card__distance">
                 <i class="fa-solid fa-magnifying-glass me-2"></i><%= participation.hint %>
               </p>
             </div>
-
             </div>
             <div class="swiper__card__choice m--reject"></div>
             <div class="swiper__card__choice m--like"></div>
             <div class="swiper__card__drag"></div>
           </div>
-        <% end %>
       <% end %>
     </div>
   </div>
