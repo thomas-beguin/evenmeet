@@ -17,7 +17,7 @@
             </div>
 
             <% if participation.user.photos.attached? %>
-              <%= cl_image_tag participation.user.photos.first.key, class: 'swiper__card__img' %>
+              <%= cl_image_tag participation.user.photos.first.key, width: 1000, crop: :fill, class: 'swiper__card__img' %>
             <% end
 
             # <%=

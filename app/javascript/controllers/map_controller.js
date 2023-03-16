@@ -6,72 +6,102 @@ export default class extends Controller {
     chatroomId: Number,
     challengeId: Number,
     apiKey: String,
-    markers: Array
+    markers: Array,
+    userId: Number
   }
 
   static targets = ["participation"]
 
   connect() {
+    this.orientation = 0
+    this.markers = []
+    this.#initMap()
+    this.#subscribe()
+    this.#watchPos()
+    this.#addMarkersToMap(this.markersValue)
+    this.#fitMapToMarker(this.#myMarker(this.markersValue))
+    this.#userOrientation()
+  }
+
+  #isIOS() {
+    return navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/)
+  }
+
+  #userOrientation() {
+    if (this.#isIOS()) {
+      console.log("je suis un iphone")
+      DeviceOrientationEvent.requestPermission()
+        .then((response) => {
+          if (response === "granted") {
+            window.addEventListener("deviceorientation", this.#handleOrientationChangeEvent.bind(this), true);
+          } else {
+            alert("has to be allowed!");
+          }
+        })
+        .catch(() => alert("not supported"));
+    } else {
+      console.log("je suis pas un iphone")
+      window.addEventListener("deviceorientationabsolute", this.#handleOrientationChangeEvent.bind(this), true);
+    }
+  }
+
+  #handleOrientationChangeEvent(e) {
+    let compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
+    this.orientation = compass
+    this.map.setBearing(compass)
+  }
+
+  #subscribe() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChallengeChannel", id: this.challengeIdValue },
       { received: (data) => {
-          if (data.markers) {
+        console.log(data.markers, data.markers.length, data.markers.length >= 2)
+          if (data.markers && data.markers.length >= 2) {
+            console.log(`data.markers received:`, [data.markers[0].lat, data.markers[0].lng], [data.markers[1].lat, data.markers[1].lat])
             const markersToDelete = document.querySelectorAll(".marker")
             markersToDelete.forEach((marker) => {
               marker.remove()
             })
             this.markers = []
             this.#addMarkersToMap(data.markers)
-            this.#fitMapToMarkers(data.markers)
-            console.log("Action cable")
+
+            // const camera = this.map.getFreeCameraOptions({bearing: 85});
+
+            // Update camera pitch and bearing
+            // camera.setPitchBearing(60, 140);
+            // Apply changes
+
+            this.#fitMapToMarker(this.#myMarker(data.markers))
+            // this.map.setBearing(80)
           }
         }
       }
     )
-    console.log(`Subscribe to the chatroom with the id ${this.challengeIdValue}.`)
+  }
 
+  #watchPos() {
     navigator.geolocation.watchPosition((data) => {
-        const lat = data.coords.latitude;
-        const lng = data.coords.longitude;
-        const participationId = this.participationTarget.dataset.participationId
-        const challengeId = this.participationTarget.dataset.challengeId
-        const url = `/participations/${participationId}`
-        const options = {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            "lng": lng,
-            "lat": lat,
-            "challenge-id": challengeId
-          })
-        }
+      const lat = data.coords.latitude;
+      const lng = data.coords.longitude;
+      const participationId = this.participationTarget.dataset.participationId
+      const challengeId = this.participationTarget.dataset.challengeId
+      const url = `/participations/${participationId}`
+      const options = {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          "lng": lng,
+          "lat": lat,
+          "challenge-id": challengeId
+        })
+      }
 
-        fetchWithToken(url, options)
-          .then(response => response.json())
-          .then((data) => {
-            // Desrtroy all previous markers
-            const markersToDelete = document.querySelectorAll(".marker")
-            markersToDelete.forEach((marker) => {
-              marker.remove()
-            })
-            this.markers = []
-            this.#addMarkersToMap(data.markers)
-            this.#fitMapToMarkers(data.markers)
-            console.log("Fetch")
-          })
-      })
-
-    mapboxgl.accessToken = this.apiKeyValue
-
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      style: "mapbox://styles/thomasbeguin/clf6pymut007b01mry8gyq1wi",
+      fetchWithToken(url, options)
+    }, () => {}, {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
     })
-
-
-    this.#addMarkersToMap(this.markersValue)
-    this.#fitMapToMarkers(this.markersValue)
-    this.markers = []
   }
 
   #addMarkersToMap(markers) {
@@ -87,40 +117,33 @@ export default class extends Controller {
     })
   }
 
-  #fitMapToMarkers(markers) {
+  #initMap() {
+    mapboxgl.accessToken = this.apiKeyValue
+
+    this.map = new mapboxgl.Map({
+      container: this.element,
+      style: "mapbox://styles/thomasbeguin/clf6pymut007b01mry8gyq1wi",
+    })
+  }
+
+  #fitMapToMarker(marker) {
     const bounds = new mapboxgl.LngLatBounds()
-    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
+    bounds.extend([ marker.lng, marker.lat ])
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 18, duration: 0 })
+    this.map.flyTo({
+      center: [marker.lng, marker.lat],
+      duration: 0,
+      bearing: this.orientation
+    })
   }
 
-  getCurrentPosition() {
-    navigator.geolocation.getCurrentPosition((data) => {
-      const lat = data.coords.latitude;
-      const lon = data.coords.longitude;
-      const participationId = this.participationTarget.dataset.participationId
-      const challengeId = this.participationTarget.dataset.challengeId
-      const url = `/participations/${participationId}`
-      const options = {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          "lon": lon,
-          "lat": lat,
-          "challenge-id": challengeId
-        }),
-        enableHighAccuracy: false,
-        timeout: 5000,
-        maximumAge: 0
-      }
-
-      fetchWithToken(url, options)
-        .then(response => response.json())
-        .then((data) => {
-          console.log(data)
-        })
-    });
+  #myMarker(markers) {
+    return Array.from(markers).find(e => e.user_id == this.userIdValue)
   }
 
+  #targetMarker(markers) {
+    return Array.from(markers).find(e => e.user_id != this.userIdValue)
+  }
 }
 
 const fetchWithToken = (url, options) => {
