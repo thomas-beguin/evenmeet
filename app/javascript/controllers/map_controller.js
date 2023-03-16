@@ -22,6 +22,7 @@ export default class extends Controller {
             })
             this.markers = []
             this.#addMarkersToMap(data.markers)
+            this.#fitMapToMarkers(data.markers)
             console.log("Action cable")
           }
         }
@@ -55,7 +56,8 @@ export default class extends Controller {
             })
             this.markers = []
             this.#addMarkersToMap(data.markers)
-            console.log("New changes")
+            this.#fitMapToMarkers(data.markers)
+            console.log("Fetch")
           })
       })
 
@@ -68,7 +70,7 @@ export default class extends Controller {
 
 
     this.#addMarkersToMap(this.markersValue)
-    this.#fitMapToMarkers()
+    this.#fitMapToMarkers(this.markersValue)
     this.markers = []
   }
 
@@ -85,9 +87,9 @@ export default class extends Controller {
     })
   }
 
-  #fitMapToMarkers() {
+  #fitMapToMarkers(markers) {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 })
   }
 

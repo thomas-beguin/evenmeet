@@ -1,7 +1,7 @@
 <div class="px-3 border-0 text-white">
   <div data-controller="toggle-element">
 
-    <% unless params[:controller] == "challenges" && params[:action] == "show" %>
+    <% unless params[:controller] == "challenges" && params[:action] == "show" || params[:controller] == "rewards" %>
 
       <div class="d-flex navbar-menu">
 
@@ -16,8 +16,8 @@
           <h4 class="ms-2 m-0">Home</h4>
         <% elsif params[:action] == "dashboard" %>
           <h4 class="ms-2 m-0">My Profile</h4>
-        <% elsif current_user %>
-          <h4 class="ms-2 m-0"><%= current_user.current_event.title %></h4>
+        <% elsif user_signed_in? %>
+          <h4 class="ms-2 m-0"><%= current_user.current_event&.title %></h4>
         <% end %>
 
       </div>

@@ -26,8 +26,4 @@ class PagesController < ApplicationController
     @participations = Participation.all
     @participation = Participation.new
   end
-
-  def dashboard
-    @events = current_user.events
-  end
 end

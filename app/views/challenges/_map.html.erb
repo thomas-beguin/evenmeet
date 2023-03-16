@@ -1,6 +1,6 @@
 <% if @challenge.pending? %>
   <div
-    class="message-map"
+    class="message-map radar"
     <%# SHOWMAP %>
     data-showmap-target="map"
     <%# MAPBOX %>
@@ -15,5 +15,7 @@
     data-participation-id="<%= current_user.current_participation.id %>"
     data-challenge-id="<%= @challenge.id %>"
     data-map-target="participation">
+
+    <div class="sweep"></div>
   </div>
 <% end %>

@@ -26,7 +26,7 @@
       <div class="message-submenu-info">
         <h3>👨‍🎤 <%= target.hint.upcase %></h3>
         <% if challenge.pending? %>
-          <p>🔎 You didn't find <%= target.user.first_name %></p>
+          <p>🔎 Did you find <%= target.user.first_name %> ?</p>
         <% elsif challenge.won? %>
           <p>🎉 Well done, you found <%= target.user.first_name %></p>
         <% else %>
@@ -34,10 +34,18 @@
         <% end %>
       </div>
       <div class="d-flex">
+      <%= link_to reward_path do %>
         <button class="message-submenu-button">
           <i class="fa-solid fa-qrcode px-2"></i>
           <p class="pe-2">QR-Code</p>
         </button>
+        <% end %>
+        <%= link_to scan_path do %>
+        <button class="message-submenu-button">
+          <i class="fa-solid fa-camera px-2"></i>
+          <p class="pe-2">Scan</p>
+        </button>
+        <% end %>
         <button class="message-submenu-button"
                 data-action="click->showmap#displaymap">
           <i class="fa-solid fa-gift px-2"></i>

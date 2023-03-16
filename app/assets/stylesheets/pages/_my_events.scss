@@ -1,0 +1,43 @@
+ul {
+  margin: 10px;
+  padding: 10px;
+  font-size: 10px;
+  border-bottom: solid 1px white;
+  color: white;
+  list-style: none;
+}
+
+.list-title {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.event-D {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+h5 {
+  text-align: center;
+  color: white;
+}
+
+.event-pic {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px
+}
+
+.d-flex {
+  padding-bottom: 13px;
+}
+
+h6 {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.calendrier {
+  padding: 15px;
+}

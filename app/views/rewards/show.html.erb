@@ -1,13 +1,25 @@
+<div class="d-flex align-items-center" style="position: fixed; top: 20px; left: 16px;">
+  <%= link_to challenge_path(@challenge), class: "pe-3" do %>
+    <i class="fa-solid fa-chevron-left"
+      data-action="click->toggle-element#menuactive"
+      data-toggle-element-target="menuactive"
+      style="font-size:calc(1.275rem + 0.3vw)"></i>
+  <% end %>
+  <div class="d-flex flex-column">
+    <p class="message-menu-target text-light">Message</p>
+  </div>
+</div>
 
 <% if @challenge.status == "pending" %>
   <%= render 'rewards/challengepending', challenge: @challenge %>
   <%= render 'rewards/qrcodesvg', challenge: @challenge %>
-  <div id="qr-reader" style="width: 350px" data-controller="qrcode"></div>
 <% elsif @challenge.status == "won" %>
   <h1 class="text-light">CHALLENGE WON</h1>
 <% end %>
 
-<% console %>
+
+
+
 
   <%# <input type="button" value="spin" style="float:left;" id='spin' />
   <canvas id="canvas" width="500" height="500"></canvas> %>
