@@ -1,11 +1,14 @@
 <h3 class="section-title mt-1 mb-1 px-3">Top 10</h3>
 <div class="scrollmenu px-3">
-  <% events.each do |event| %>
+  <% events.each_with_index do |event, index| %>
       <div class="me-2 pb-3 top-scrollsubmenu" data-controller="toggle-element">
-        <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill, class: 'top-event-card', data: { action: "click->toggle-element#toggle" } %>
-
+        <div class="position-relative">
+          <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill, class: 'top-event-card', data: { action: "click->toggle-element#toggle" } %>
+          <p class="top-numbers"><%= index + 1 %></p>
+        </div>
         <%#= render "event_modal", event: event %>
         <%= render "pages/event_modal",  event: event %>
+
       </div>
   <% end %>
 </div>
