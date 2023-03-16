@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get "challenges/:id/rewards", to: "rewards#show", as: :reward
   get "challenges/:id/rewards/qrcode", to: "rewards#qrcode"
+  get "challenges/:id/rewards/scan", to: "rewards#scan", as: :scan
 
   resources :participations, only: %i[update]
 

@@ -10,6 +10,7 @@ class ChallengesController < ApplicationController
       {
         lat: part.latitude,
         lng: part.longitude,
+        user_id: part.user.id,
         marker_html: render_to_string(partial: "shared/marker", locals: { participation: part })
       }
     end

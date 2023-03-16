@@ -19,8 +19,8 @@ class User < ApplicationRecord
     current_events = events.current
     if current_events.any?
       current_events.first
-    else
-      events.incoming.first
+    # else
+    #   events.incoming.first
     end
   end
 

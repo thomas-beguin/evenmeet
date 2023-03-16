@@ -1,0 +1,104 @@
+.simple-calendar {
+  padding: 0 1rem;
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background-color: transparent;
+    span {
+    background-color: rgb(138, 46, 138);    }
+  }
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+
+
+  .calendar-heading {
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  table {
+    table-layout: fixed;
+    border: none !important;
+  }
+
+  th {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    text-align: left;
+    color: white;
+    text-align: center;
+    width: 14%;
+    border: none;
+    padding-top: 20px;
+  }
+
+  * {
+    border: none;
+  }
+
+  td {
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+    width: 14%;
+    border: none;
+    border-top-color: #dddddd;
+    border-top-style: solid;
+    border-top-width: 0px;
+    border-right-color: #dddddd;
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-bottom-color: #dddddd;
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-left-color: #dddddd;
+    border-left-style: solid;
+    border-left-width: 0px;
+    position: relative;
+    &.has-events {
+      span {
+        background-color: pink;
+      }
+    }
+    &.prev-month {
+      opacity: 0;
+    }
+    &.next-month {
+      opacity: 0;
+    }
+
+    span {
+      display: flex;
+      position: absolute;
+      justify-content: center;
+      align-items: center;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 3rem;
+      width: 3rem;
+      border-radius: 3rem;
+      color: white;
+    }
+  }
+}

@@ -8,16 +8,22 @@
 
   <div class="list-image">
     <% if target.user.photos.attached? %>
-      <%= cl_image_tag target.user.photos.first.key %>
+      <%= cl_image_tag target.user.photos.first.key, width: 1000, crop: :fill  %>
     <% else %>
       <%= image_tag "https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg", class:"event-img" %>
     <% end %>
   </div>
 
-  <div class="list-content border-top w-100">
+  <div class="list-content w-100">
     <div class="list-content-main">
       <h4 class="text-white"><%= target.user.first_name %></h4>
-      <p><%= challenge.reward.title %></p>
+      <% if challenge.won? %>
+        <p>🎉 Well done, you found <%= target.user.first_name %></p>
+      <% elsif challenge.pending? %>
+        <p>🔎 Did you find <%= target.user.first_name %> ?</p>
+      <% else %>
+        <p>Challenge canceled</p>
+      <% end %>
     </div>
     <div class="list-content-secondary">
       <% if challenge.messages.any? %>

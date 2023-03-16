@@ -19,6 +19,12 @@ application.register("modal", ModalController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import PopoverController from "./popover_controller"
+application.register("popover", PopoverController)
+
+import ProfileController from "./profile_controller"
+application.register("profile", ProfileController)
+
 import QrcodeController from "./qrcode_controller"
 application.register("qrcode", QrcodeController)
 

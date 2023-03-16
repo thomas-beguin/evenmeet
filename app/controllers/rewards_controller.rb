@@ -2,6 +2,7 @@ class RewardsController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @reward = @challenge.reward
   end
 
   def qrcode
@@ -19,7 +20,10 @@ class RewardsController < ApplicationController
       @test = 2
       redirect_to reward_path, status: :see_other
     end
-    console
+  end
+
+  def scan
+    @challenge = Challenge.find(params[:id])
   end
 
 end

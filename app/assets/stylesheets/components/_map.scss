@@ -60,3 +60,43 @@
   border-radius: 8px;
   margin-top: 20px;
 }
+
+// CUSTOM
+
+.mapboxgl-canvas {
+  display: none;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.radar {
+  z-index: 1;
+  overflow: hidden;
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.5),
+    inset 0 0 0 1px hsla(0, 0%, 100%, 0.15);
+  background:
+    repeating-radial-gradient(transparent, transparent 23px, #287a33 25px, #287a33 27px),
+    linear-gradient(transparent 49.75%, #0e4c42 49.75%, #0e4c42 50.25%, transparent 50.25%) 50% no-repeat,
+    linear-gradient(90deg, transparent 49.75%, #0e4c42 49.75%, #0e4c42 50.25%, transparent 50.25%) 50% no-repeat,
+    linear-gradient(#333, #111);
+  background-size: 100%, 218px 218px, 218px 218px, 100%;
+}
+
+.sweep {
+  box-sizing: border-box;
+  top: 0px;
+  left: 0px;
+  border-right: solid 1px rgba(51, 153, 94, 0.3);
+  width: 150px;
+  height: 150px;
+  border-radius: 100% 0 0 0;
+  transform-origin: 100% 100%;
+  background: linear-gradient(50deg, rgba(34, 34, 34, 0) 56%, hsla(145, 50%, 40%, 1));
+  animation: sweep 5s infinite linear;
+}
+@keyframes sweep { to { transform: rotate(360deg); } }

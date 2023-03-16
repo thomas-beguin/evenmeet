@@ -1,5 +1,5 @@
 <%#= image_tag "icons/favicon.ico", height: 30, width: 30, alt: "Logo" %>
-<%= cl_image_tag participation.user.photos.first.key, style:"height: 40px;
-                                                             width: 40px;
-                                                             object-fit: cover;
-                                                             border-radius: 50%;" %>
+<%= cl_image_tag participation.user.photos.first.key, width: 300, crop: :fill, style:"height: 40px;
+                                                                                        width: 40px;
+                                                                                        object-fit: cover;
+                                                                                        border-radius: 50%;" %>

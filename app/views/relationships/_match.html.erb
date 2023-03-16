@@ -1,7 +1,7 @@
    <div class="d-flex swipe-match">
     <p class="fs-5 mb-5">It's a Match with <%= target.user.first_name %></p>
       <div class="d-flex match">
-        <%= cl_image_tag target.user.photos.first.key, class: "avatar" %>
-        <%= cl_image_tag current.user.photos.first.key, class: "avatar" %>
+        <%= cl_image_tag target.user.photos.first.key, width: 1000, crop: :fill, class: "avatar" %>
+        <%= cl_image_tag current.user.photos.first.key, width: 1000, crop: :fill, class: "avatar" %>
       </div>
   </div>

@@ -1,6 +1,6 @@
 <div style="width: 200px;">
   <%= link_to event_path(event) ,class: "text-decoration-none" do %>
-    <%= cl_image_tag event.photos.first.key, class: "rounded", style:"height: 150px; width: 100%; object-fit: cover"%>
+    <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill, class: "rounded", style:"height: 150px; width: 100%; object-fit: cover"%>
     <div class="align-items-start d-flex flex-column justify-content-start p-3 text-black">
       <h3><%= event.name %></h3>
       <p class="m-0">Address: <%= event.address %></p>

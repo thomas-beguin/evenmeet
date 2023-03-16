@@ -6,20 +6,20 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "simple_calendar";
 
 // Your CSS partials
 @import "components/index";
 @import "components/message";
 @import "components/map";
 @import "pages/index";
-@import "simple_calendar";
 
 body {
   overscroll-behavior: none;
   //background-image: url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGdyYWRpZW50JTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
   // background-size: cover;
   // background-repeat: no-repeat;
-  background-color: #0E222B;
+  background-color: $gray-background;
 }
 
 // body {

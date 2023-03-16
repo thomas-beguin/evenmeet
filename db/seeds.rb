@@ -14,6 +14,78 @@ puts "Reward : #{Reward.all.length}"
 puts "---------------------------------------"
 puts "Creating Users"
 
+olga = User.new(first_name: "Olga",
+                last_name: "RUSNAC",
+                email: "olga@mail.com",
+                password: "password",
+                city: "Paris")
+olga.photos.attach(io: URI.open("https://images.unsplash.com/photo-1500210701147-9eaeb52f32ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+olga.save!
+
+ana = User.new(first_name: "Ana",
+               last_name: "Candellier",
+               email: "anna@mail.com",
+               password: "password",
+               city: "Paris")
+ana.photos.attach(io: URI.open("https://images.unsplash.com/photo-1623082574085-157d955f1d35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+ana.save!
+
+robin = User.new(first_name: "Robin",
+  last_name: "SIX",
+  email: "robin@mail.com",
+  password: "password",
+  city: "Paris")
+robin.photos.attach(io: URI.open("https://images.unsplash.com/photo-1570053381569-78f606b5caab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2831&q=80"), filename: "seed.png", content_type: "image/png")
+robin.save!
+
+noemie = User.new(first_name: "Noémie",
+  last_name: "NATAF",
+  email: "noemie@mail.com",
+  password: "password",
+  city: "Evry")
+noemie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1567784177951-6fa58317e16b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+noemie.save!
+
+thomas = User.new(first_name: "THOMAS",
+  last_name: "PICAMOLES",
+  email: "thomas@mail.com",
+  password: "password",
+  city: "Evry")
+thomas.photos.attach(io: URI.open("https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+thomas.save!
+
+julie = User.new(first_name: "Julie",
+  last_name: "BRUNET",
+  email: "julie@mail.com",
+  password: "password",
+  city: "Ivry")
+julie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+julie.save!
+
+maxime = User.new(first_name: "Maxime",
+  last_name: "COQUERELLE",
+  email: "maxime@mail.com",
+  password: "password",
+  city: "Ivry")
+maxime.photos.attach(io: URI.open("https://images.unsplash.com/photo-1581382575275-97901c2635b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+maxime.save!
+
+amelie = User.new(first_name: "Amélie",
+  last_name: "BERTHIER",
+  email: "amelie@mail.com",
+  password: "password",
+  city: "London")
+amelie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1592621385612-4d7129426394?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+amelie.save!
+
+marie = User.new(first_name: "Marie",
+  last_name: "LANGLOIS",
+  email: "marie@mail.com",
+  password: "password",
+  city: "London")
+marie.photos.attach(io: URI.open("https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"), filename: "seed.png", content_type: "image/png")
+marie.save!
+
 mickael = User.new(first_name: "Mickael",
                 last_name: "SIGMAR",
                 email: "mickael@mail.com",

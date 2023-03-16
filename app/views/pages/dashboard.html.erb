@@ -4,30 +4,18 @@
     <div class="dashboard-title mt-2 mb-3 w-100">
       <h4>My Personal Data</h4>
       <div class="d-flex justify-content-between">
-        <div>
+        <div class="top-infos">
           <p>Name: <%= "#{current_user.first_name} #{current_user.last_name}" %></p>
           <p>E-mail: <%= current_user.email %></p>
           <p>City: <%= current_user.city %></p>
         </div>
-        <%= cl_image_tag current_user.photos.first.key, class: "avatar-2" %>
+
+        <%= cl_image_tag current_user.photos.first.key, width: 1000, crop: :fill, class: "avatar-2" %>
+
       </div>
-
-
     </div>
   </div>
 
-  <div class="d-2">
-    <h4>All My Events</h4>
-    <div class="calendrier">
-      <%= month_calendar(events: @events, attribute: :start_date, end_attributes: :end_date) do |date, events| %>
-        <span class="d-day"><%= date.day %></span>
-        <% events.each do |event| %>
-          <%= link_to event_path(event), class:"event" do %>
-            <%= event.title %>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
     <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
   </div>
 

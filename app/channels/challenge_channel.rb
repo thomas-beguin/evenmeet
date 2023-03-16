@@ -4,7 +4,7 @@ class ChallengeChannel < ApplicationCable::Channel
     stream_for challenge
   end
 
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
-  end
+  # def unsubscribed
+  #   channel.unsubscribe
+  # end
 end
