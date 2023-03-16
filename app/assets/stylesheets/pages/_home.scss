@@ -2,7 +2,7 @@
 .title {
   text-align: center;
   padding: 15px;
-  background-color: #202124;
+  background-color: $gray-background;
   color: white;
   font-size: 30px;
 }
@@ -53,6 +53,8 @@ h3 {
 .scroll-event-title {
   font-size: 16px;
   margin: 0px;
+  text-align: start;
+  color: $home-title;
 }
 
 .scroll-event-dates {
@@ -103,7 +105,7 @@ h3 {
   bottom: 0;
   left: 0;
   // background-color: white;
-  background-color: #202124;
+  background-color: $gray-background;
   z-index: 1021;
   // opacity: 0;
   transition: height ease 0.5s;
@@ -156,4 +158,3 @@ h3 {
   background: #a50bff;
   color: white;
 }
-

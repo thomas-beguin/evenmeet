@@ -105,12 +105,16 @@ div.scrollmenu {
 
 
 body {
-  background-color: #202124;
+  background-color: $gray-background;
 }
 
 // p events
+.medium-gray {
+  color: $medium-gray;
+}
+
 .paragraph-event {
-  color: #8b9aa0;
+  color: $medium-gray;
   font-size: 14px;
   margin: 0;
   white-space: break-spaces;
