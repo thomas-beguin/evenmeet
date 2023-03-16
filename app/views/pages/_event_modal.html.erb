@@ -36,8 +36,13 @@
       <p class="paragraph-event mt-2"> <%= event.description %> </p>
     </div>
     <% if user_signed_in? %>
-      <div class="div-cta">
-        <button class="cta btn btn-primary profile-link" data-action="click->modal#open" data-modal-url-param="<%= new_event_participation_path(event)%>">Join</button>
+      <div class="div-join-button" data-controller="modal">
+        <button class="join-button btn btn-primary profile-link d-none" data-toggle-element-target="button" data-action="click->modal#open" data-modal-url-param="<%= new_event_participation_path(event)%>">Join</button>
+      </div>
+    <% else %>
+      <div class="div-join-button">
+        <button class="join-button btn btn-primary d-none" data-toggle-element-target="button"%>
+        <a href="users/sign_in" style="color:inherit"> Log in </a></button>
       </div>
     <% end %>
     <%# <div class="form-bottom">

@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @participations = Participation.all
     @participation = Participation.new
+    @user = User.find(params[:user_id])
   end
 
   def new

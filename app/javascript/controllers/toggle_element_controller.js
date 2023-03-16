@@ -2,12 +2,13 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle-element"
 export default class extends Controller {
-  static targets = ["modal", "menuactive", "participations", "passedparticipations", "currentparticipations"]
+  static targets = ["modal", "button", "menuactive", "participations", "passedparticipations", "currentparticipations"]
   connect() {
   }
 
   toggle() {
     this.modalTarget.classList.toggle("active");
+    this.buttonTarget.classList.toggle("d-none")
   }
 
   menuactive() {
