@@ -13,7 +13,7 @@
   .today {
     background-color: transparent;
     span {
-    background-color: rgb(138, 46, 138);    }
+    background-color: #FF2E63   }
   }
   .past {}
   .future {}
@@ -78,7 +78,8 @@
     position: relative;
     &.has-events {
       span {
-        background-color: pink;
+        background-color: #FF2E63;
+        color: black;
       }
     }
     &.prev-month {
