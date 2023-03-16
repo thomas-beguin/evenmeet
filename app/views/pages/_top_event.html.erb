@@ -5,7 +5,6 @@
         <div class="top-event-card", style="background-image: url(<%= event.photos.first.url %>); background-position: center; background-size: cover;",
             data-action="click->toggle-element#toggle">
         </div>
-        <%#= render "event_modal", event: event %>
         <%= render "pages/event_modal",  event: event %>
       </div>
   <% end %>

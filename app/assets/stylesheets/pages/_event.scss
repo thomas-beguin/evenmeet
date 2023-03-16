@@ -107,6 +107,21 @@ body {
   padding: 0px;
 }
 
-.participant-div {
+.cta {
+  background-color: $primary;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 30px;
+  border: none;
+}
 
+.div-cta {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  position: fixed;
+  align-items: center;
+  bottom: 60px;
+  width: 100%;
+  left: 0px;
 }

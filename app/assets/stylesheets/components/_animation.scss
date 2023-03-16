@@ -1,0 +1,39 @@
+.fade-in {
+  animation: fade-in 0.75s ease-in-out;
+}
+
+.fade-out {
+  animation: fade-out 0.75s ease-in-out;
+}
+
+.fade-out-in {
+  animation: fade-out-in 1.5s ease-in-out;
+}
+
+.quick-fade-in {
+  animation: fade-in 250ms ease-in-out forwards;
+}
+
+.quick-fade-out {
+  animation: fade-out 250ms ease-in-out forwards;
+}
+
+.quick-fade-out-in {
+  animation: fade-out-in 250ms ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-out-in {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
