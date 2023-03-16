@@ -1,7 +1,7 @@
     <div class="container-event">
       <div class="mb-3">
         <% if event.photos.attached? %>
-          <%= cl_image_tag event.photos.first.key, class:"event-img" %>
+          <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill, class:"event-img" %>
         <% else %>
           <%= image_tag "https://cdn.sortiraparis.com/images/61/1665/838944-solidays-2023-a-paris-ouverture-de-la-billetterie-debut-fevrier.jpg", class:"event-img", style:"height: 40vh" %>
         <% end %>

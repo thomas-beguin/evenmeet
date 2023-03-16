@@ -2,7 +2,7 @@
   <div class="event-card-wrapper" data-controller="toggle-element">
     <div class="event-card" data-action="click->toggle-element#toggle">
       <div class="event-image">
-        <%= cl_image_tag event.photos.first.key, width: 30, height: 40 %>
+        <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill %>
       </div>
       <h3><%= event.title %></h3>
       <div class="event-description">
@@ -13,7 +13,7 @@
     <div class="event-modal" data-toggle-element-target="modal">
       <div class="wrapper-relative">
         <div class="event-image">
-          <%= cl_image_tag event.photos.first.key, width: 30, height: 40 %>
+          <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill %>
         </div>
 
         <div class="container">

@@ -20,7 +20,7 @@
 
   <div class="message-submenu">
     <div class="message-menu-photo">
-      <%= cl_image_tag target.user.photos.first.key %>
+      <%= cl_image_tag target.user.photos.first.key, width: 1000, crop: :fill %>
     </div>
     <div>
       <div class="message-submenu-info">
@@ -34,23 +34,24 @@
         <% end %>
       </div>
       <div class="d-flex">
-      <%= link_to reward_path do %>
-        <button class="message-submenu-button">
-          <i class="fa-solid fa-qrcode px-2"></i>
-          <p class="pe-2">QR-Code</p>
-        </button>
+        <%= link_to reward_path do %>
+          <button class="message-submenu-button">
+            <i class="fa-solid fa-qrcode px-2"></i>
+            <p class="pe-2">QR-Code</p>
+          </button>
         <% end %>
         <%= link_to scan_path do %>
-        <button class="message-submenu-button">
-          <i class="fa-solid fa-camera px-2"></i>
-          <p class="pe-2">Scan</p>
-        </button>
+          <button class="message-submenu-button">
+            <i class="fa-solid fa-camera px-2"></i>
+            <p class="pe-2">Scan</p>
+          </button>
         <% end %>
-        <button class="message-submenu-button"
-                data-action="click->showmap#displaymap">
-          <i class="fa-solid fa-gift px-2"></i>
-          <p class="pe-2">Reward</p>
-        </button>
+        <%= link_to reward_path do %>
+          <button class="message-submenu-button">
+            <i class="fa-solid fa-gift px-2"></i>
+            <p class="pe-2">Reward</p>
+          </button>
+        <% end %>
       </div>
     </div>
   </div>
