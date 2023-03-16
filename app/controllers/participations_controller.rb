@@ -49,11 +49,13 @@ class ParticipationsController < ApplicationController
     @participation.update_attribute(:latitude, params[:lat])
     @participation.update_attribute(:longitude, params[:lng])
     @participations = Participation.where(id: [@challenge.relationship.sender.id, @challenge.relationship.receiver.id])
+    # @participations = Participation.where(id: @participation.id)
 
     @markers = @participations.geocoded.map do |part|
       {
         lat: part.latitude,
         lng: part.longitude,
+        user_id: part.user.id,
         marker_html: render_to_string(partial: "shared/marker", locals: { participation: part })
       }
     end

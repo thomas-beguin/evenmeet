@@ -4,9 +4,7 @@ class ChallengeChannel < ApplicationCable::Channel
     stream_for challenge
   end
 
-  def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
-    console.log("Unsubscribed from the challenge")
-    this.channel.unsubscribe
-  end
+  # def unsubscribed
+  #   channel.unsubscribe
+  # end
 end

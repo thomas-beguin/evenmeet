@@ -2,9 +2,9 @@
 <div class="scrollmenu px-3">
   <% events.each do |event| %>
       <div class="me-2 pb-3 top-scrollsubmenu" data-controller="toggle-element">
-        <div class="top-event-card", style="background-image: url(<%= cl_image_path event.photos.first.key, width: 1000, crop: :fill %>); background-position: center; background-size: cover;",
-            data-action="click->toggle-element#toggle">
-        </div>
+        <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill, class: 'top-event-card', data: { action: "click->toggle-element#toggle" } %>
+
+        <%#= render "event_modal", event: event %>
         <%= render "pages/event_modal",  event: event %>
       </div>
   <% end %>
