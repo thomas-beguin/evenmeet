@@ -2,8 +2,8 @@
 
   <div class="px-3">
     <% if current_user.current_event %>
-      <h5>Today's Festival!</h5>
-        <ul class="d-flex align-items-center d-flex justify-content-between">
+      <h5 class="index-title">Today's Festival!</h5>
+        <ul class="other d-flex align-items-center d-flex justify-content-between">
         <div>
           <li class="event-D"><%= current_user.current_event&.title %></li>
           <li>From: <%= current_user.current_event&.start_date.strftime("%A, %d, %B") %></li>
@@ -30,7 +30,7 @@
   </div>
 
   <div data-controller="toggle-element">
-    <div class="d-flex mt-4 mb-2 position-relative container-fluid">
+    <div class="other d-flex mt-4 mb-2 position-relative container-fluid">
       <div class="col-6 text-center pb-1 menu-bar" data-action="click->toggle-element#current" data-toggle-element-target="incoming">
         <span style="color: white">Coming soon</span>
       </div>
@@ -41,9 +41,9 @@
 
     <div class="px-3">
       <div data-toggle-element-target="currentparticipations">
-        <h6 style="color: white">My next festivals:</h6>
+        <h6 class="index-title-2" style="color: white">My next festivals:</h6>
         <% current_user.events.incoming.each do |event| %>
-          <ul class="d-flex align-items-center d-flex justify-content-between">
+          <ul class="other d-flex align-items-center d-flex justify-content-between">
             <div>
               <li class="list-title"><%= event.title %></li>
               <li>From <%= event.start_date.strftime("%A, %d") %> to <%= event.end_date.strftime("%A, %d, %B") %></li>
@@ -55,9 +55,9 @@
       </div>
 
       <div class="d-none" data-toggle-element-target="passedparticipations">
-        <h6 style="color: white">My past festivals:</h6>
+        <h6 class="index-title-2" style="color: white">My past festivals:</h6>
         <% current_user.events.past.each do |event| %>
-        <ul class="d-flex align-items-center d-flex justify-content-between">
+        <ul class="other d-flex align-items-center d-flex justify-content-between">
             <div>
               <li class="list-title"><%= event.title %></li>
               <li>From <%= event.start_date.strftime("%A, %d") %> to <%= event.end_date.strftime("%A, %d, %B") %></li>
