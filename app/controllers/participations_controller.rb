@@ -18,7 +18,7 @@ class ParticipationsController < ApplicationController
     @participation.event = @event
     @participation.user = current_user
     if @participation.save
-      redirect_to root_path
+      redirect_to participations_path
     else
       render "events/show", status: :unprocessable_entity
     end
