@@ -1,11 +1,13 @@
 .search-form {
-  // border: 1px solid #dee2e6c4;
   margin-top: 5px;
   padding: 5px;
-  border-radius: 10px;
   overflow: hidden;
-  background-color: white;
-  // box-shadow: 0 0px 7px #ced4da5e;
+  background: transparent;
+  border-bottom: 3px solid white;
+  input {
+    background-color: transparent;
+    color: white;
+  }
 }
 
 .search-bar {
@@ -21,7 +23,7 @@
 }
 
 .search-button {
-  background-color: white;
+  background-color: transparent;
   border: none;
   border-radius: 50%;
   padding: 0;
@@ -29,6 +31,6 @@
 
 .search-button i {
   padding: 10px;
-  font-size: 13px;
-  color: black;
+  font-size: 30px;
+  color: white;
 }
