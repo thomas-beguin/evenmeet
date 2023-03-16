@@ -18,6 +18,18 @@ h3 {
   padding-left: 10px;
 }
 
+// SCROLL
+
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.event-title {
+  font-size: 16px;
+}
+
 // TOP 10
 
 .section-title {
@@ -29,25 +41,47 @@ h3 {
   text-align: start;
 }
 
-.top-event-card {
-  width: 100%;
-  background-color: lightgrey;
-  border-radius: 5px;
-  height: 40vh;
-  background-color: #00000024;
-  color: white;
+.top-numbers {
+  position: absolute;
+  font-size: 50px;
+  z-index: 10;
+  top: 136px;
+  left: 0px;
+  font-family: 'Climate Crisis', cursive;
+  // font-family: 'Outfit', sans-serif;
+  // font-family: 'Roboto', sans-serif;
 }
 
-// Scroll
-
-.scroll-event-card {
-  width: 20vh;
-  background-color: lightgrey;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 20vh;
-  background-color: #00000024;
+.top-scrollsubmenu {
+  display: inline-block;
   color: white;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  .top-event-card {
+    width: fit-content;
+    object-fit: contain;
+    height: 180px;
+    // border-top-left-radius: 10px;
+    // border-top-right-radius: 10px;
+  }
+}
+
+.scrollsubmenu {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  .scroll-event-card{
+    width: fit-content;
+    object-fit: contain;
+    height: 120px;
+    // border-top-left-radius: 8px;
+    // border-top-right-radius: 8px;
+  }
 }
 
 .scroll-event-title {
@@ -113,7 +147,7 @@ h3 {
   img {
     // width: 100%;
     // height: 200px;
-    object-fit: cover;
+    object-fit: contain;
     // border-radius: 5px;
   }
   &.active {

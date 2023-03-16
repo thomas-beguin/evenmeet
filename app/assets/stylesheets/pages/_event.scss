@@ -1,50 +1,7 @@
 .event-img {
   width: 100%;
   object-fit: cover;
-  height: 300px;
-}
-
-// Scroll Menu
-
-div.scrollmenu {
-  overflow: auto;
-  white-space: nowrap;
-  flex-wrap: nowrap;
-}
-
-.top-scrollsubmenu {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  .top-event-card {
-    width: 32vh;
-  }
-  .scroll-event-card{
-    width: 20vh;
-  }
-}
-
-.scrollsubmenu {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  width: 20vh;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  .top-event-card {
-    width: 32vh;
-  }
-  .scroll-event-card{
-    width: 20vh;
-  }
-}
-
-.event-title {
-  font-size: 16px;
+  height: 100%;
 }
 
 // Reward

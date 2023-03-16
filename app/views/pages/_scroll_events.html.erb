@@ -2,10 +2,7 @@
 <div class="scrollmenu mt-1 px-3">
   <% events.each do |event| %>
     <div class="me-2 pb-3 scrollsubmenu" data-controller="toggle-element">
-        <div class="scroll-event-card mb-1", style="background-image: url(<%= cl_image_path event.photos.first.key, width: 1000, crop: :fill %>); background-position: center; background-size: cover;",
-             data-action="click->toggle-element#toggle"
-        >
-        </div>
+        <%= cl_image_tag event.photos.first.key, width: 1000, crop: :fill, class: 'scroll-event-card', data: { action: "click->toggle-element#toggle" } %>
         <h5 class="scroll-event-title"><%= event.title.capitalize %></h5>
         <span class="scroll-event-dates"><%= event.start_date.strftime("%D") %> - <%= event.end_date.strftime("%D") %></span>
         <%#= render "event_modal", event: event %>
