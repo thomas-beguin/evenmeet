@@ -2,6 +2,7 @@ class RewardsController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @reward = @challenge.reward
   end
 
   def qrcode
