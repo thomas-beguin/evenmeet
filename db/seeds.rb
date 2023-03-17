@@ -381,7 +381,7 @@ delta = Event.new(
   tags: "Newcomers",
   address: "9 Quai du Lazaret, 13002 Marseille",
   description: "Every summer, the Prado beach in Marseille hosts one of the biggest festivals in France: Delta. We still don’t know the names of the artists on the bill for this edition. With five stages and regulars such as Big Flo & Oli, PNL, Kungs and Vitalic, the festival offers a rich and varied programme every year.",
-  start_date: DateTime.now + 1.day,
+  start_date: DateTime.now - 1.day,
   end_date: DateTime.now + 3.days
 )
 delta.photos.attach(io: URI.open("https://images.bfmtv.com/owqG4OKlNTDmFADP6vv3xTor9U0=/30x2:1966x1091/1936x0/images/Delta-Festival-2022-1228406.jpg"), filename: "seed.png", content_type: "image/png")

@@ -21,6 +21,7 @@ export default class extends Controller {
     this.#addMarkersToMap(this.markersValue)
     this.#fitMapToMarker(this.#myMarker(this.markersValue))
     this.#userOrientation()
+    this.markers = []
   }
 
   #isIOS() {
@@ -47,22 +48,17 @@ export default class extends Controller {
 
   #handleOrientationChangeEvent(e) {
     let compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
-    this.orientation = compass
-    this.map.setBearing(compass)
+    this.orientation = compass + 90
+    this.map.setBearing(this.orientation)
   }
 
   #subscribe() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "ChallengeChannel", id: this.challengeIdValue },
       { received: (data) => {
-        console.log(data.markers, data.markers.length, data.markers.length >= 2)
           if (data.markers && data.markers.length >= 2) {
-            console.log(`data.markers received:`, [data.markers[0].lat, data.markers[0].lng], [data.markers[1].lat, data.markers[1].lat])
+            console.log(`data.markers received:`, [data.markers[0].lat, data.markers[0].lng], [data.markers[1].lat, data.markers[1].lng])
             const markersToDelete = document.querySelectorAll(".marker")
-            markersToDelete.forEach((marker) => {
-              marker.remove()
-            })
-            this.markers = []
             this.#addMarkersToMap(data.markers)
 
             // const camera = this.map.getFreeCameraOptions({bearing: 85});
@@ -70,17 +66,20 @@ export default class extends Controller {
             // Update camera pitch and bearing
             // camera.setPitchBearing(60, 140);
             // Apply changes
-
+            // console.log('preslice', this.markers)
+            markersToDelete.forEach((marker) => {
+              marker.remove()
+            })
             this.#fitMapToMarker(this.#myMarker(data.markers))
             // this.map.setBearing(80)
           }
         }
       }
-    )
-  }
+      )
+    }
 
-  #watchPos() {
-    navigator.geolocation.watchPosition((data) => {
+    #watchPos() {
+      navigator.geolocation.watchPosition((data) => {
       const lat = data.coords.latitude;
       const lng = data.coords.longitude;
       const participationId = this.participationTarget.dataset.participationId
@@ -100,7 +99,7 @@ export default class extends Controller {
     }, () => {}, {
       enableHighAccuracy: true,
       timeout: 5000,
-      maximumAge: 0
+      maximumAge: 50
     })
   }
 
@@ -111,9 +110,9 @@ export default class extends Controller {
       customMarker.innerHTML = marker.marker_html
 
       var marker = new mapboxgl.Marker(customMarker)
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(this.map)
-      this.markers = [ marker.lng, marker.lat ]
+      .setLngLat([ marker.lng, marker.lat ])
+      .addTo(this.map)
+      // this.markers.push(marker)
     })
   }
 
@@ -129,11 +128,10 @@ export default class extends Controller {
   #fitMapToMarker(marker) {
     const bounds = new mapboxgl.LngLatBounds()
     bounds.extend([ marker.lng, marker.lat ])
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 18, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 0 })
     this.map.flyTo({
       center: [marker.lng, marker.lat],
       duration: 0,
-      bearing: this.orientation
     })
   }
 
