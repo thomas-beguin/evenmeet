@@ -48,7 +48,7 @@ export default class extends Controller {
 
   #handleOrientationChangeEvent(e) {
     let compass = e.webkitCompassHeading || Math.abs(e.alpha - 360);
-    this.orientation = compass + 90
+    this.orientation = compass // + 90
     this.map.setBearing(this.orientation)
   }
 
@@ -58,20 +58,12 @@ export default class extends Controller {
       { received: (data) => {
           if (data.markers && data.markers.length >= 2) {
             console.log(`data.markers received:`, [data.markers[0].lat, data.markers[0].lng], [data.markers[1].lat, data.markers[1].lng])
-            const markersToDelete = document.querySelectorAll(".marker")
-            this.#addMarkersToMap(data.markers)
-
-            // const camera = this.map.getFreeCameraOptions({bearing: 85});
-
-            // Update camera pitch and bearing
-            // camera.setPitchBearing(60, 140);
-            // Apply changes
-            // console.log('preslice', this.markers)
+            var markersToDelete = document.querySelectorAll(".marker")
             markersToDelete.forEach((marker) => {
               marker.remove()
             })
+            this.#addMarkersToMap(data.markers)
             this.#fitMapToMarker(this.#myMarker(data.markers))
-            // this.map.setBearing(80)
           }
         }
       }
@@ -79,12 +71,13 @@ export default class extends Controller {
     }
 
     #watchPos() {
-      navigator.geolocation.watchPosition((data) => {
+      navigator.geolocation.watchPosition(throttle((data) => {
+        console.log(data.coords.latitude, data.coords.longitude)
       const lat = data.coords.latitude;
       const lng = data.coords.longitude;
       const participationId = this.participationTarget.dataset.participationId
       const challengeId = this.participationTarget.dataset.challengeId
-      const url = `/participations/${participationId}`
+      const url = `/participations/${participationId}/`
       const options = {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -95,15 +88,16 @@ export default class extends Controller {
         })
       }
 
-      fetchWithToken(url, options)
-    }, () => {}, {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 50
-    })
-  }
+        fetchWithToken(url, options)
+      }, 500), () => {}, {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        })
+    }
 
   #addMarkersToMap(markers) {
+    console.log('Jajoute des markers:', markers)
     markers.forEach((marker) => {
       const customMarker = document.createElement("div")
       customMarker.classList.add("marker")
@@ -112,7 +106,6 @@ export default class extends Controller {
       var marker = new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
       .addTo(this.map)
-      // this.markers.push(marker)
     })
   }
 
@@ -128,10 +121,11 @@ export default class extends Controller {
   #fitMapToMarker(marker) {
     const bounds = new mapboxgl.LngLatBounds()
     bounds.extend([ marker.lng, marker.lat ])
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 14, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 18, duration: 0 })
     this.map.flyTo({
       center: [marker.lng, marker.lat],
       duration: 0,
+      bearing: this.orientation
     })
   }
 

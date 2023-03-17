@@ -50,6 +50,17 @@ function toggleElements() {
   })
 }
 
+function throttle(f, t) {
+  return function (args) {
+    let previousCall = this.lastCall;
+    this.lastCall = Date.now();
+    if (previousCall === undefined // function is being called for the first time
+        || (this.lastCall - previousCall) > t) { // throttle time has elapsed
+      f(args);
+    }
+  }
+}
+
 global.csrfToken        = csrfToken
 global.fetchWithToken   = fetchWithToken
 global.showElements     = showElements
@@ -57,3 +68,4 @@ global.hideElements     = hideElements
 global.fadeShowElements = fadeShowElements
 global.fadeHideElements = fadeHideElements
 global.toggleElements   = toggleElements
+global.throttle         = throttle
