@@ -30,7 +30,6 @@ export default class extends Controller {
 
   #userOrientation() {
     if (this.#isIOS()) {
-      console.log("je suis un iphone")
       DeviceOrientationEvent.requestPermission()
         .then((response) => {
           if (response === "granted") {
@@ -41,7 +40,6 @@ export default class extends Controller {
         })
         .catch(() => alert("not supported"));
     } else {
-      console.log("je suis pas un iphone")
       window.addEventListener("deviceorientationabsolute", this.#handleOrientationChangeEvent.bind(this), true);
     }
   }
@@ -57,7 +55,6 @@ export default class extends Controller {
       { channel: "ChallengeChannel", id: this.challengeIdValue },
       { received: (data) => {
           if (data.markers && data.markers.length >= 2) {
-            console.log(`data.markers received:`, [data.markers[0].lat, data.markers[0].lng], [data.markers[1].lat, data.markers[1].lng])
             var markersToDelete = document.querySelectorAll(".marker")
             markersToDelete.forEach((marker) => {
               marker.remove()
@@ -72,7 +69,6 @@ export default class extends Controller {
 
     #watchPos() {
       navigator.geolocation.watchPosition(throttle((data) => {
-        console.log(data.coords.latitude, data.coords.longitude)
       const lat = data.coords.latitude;
       const lng = data.coords.longitude;
       const participationId = this.participationTarget.dataset.participationId
@@ -97,7 +93,6 @@ export default class extends Controller {
     }
 
   #addMarkersToMap(markers) {
-    console.log('this.myMarker && this.#myMarker(markers)', this.myMarker, this.#myMarker(markers))
     // if (this.myMarker && this.#myMarker(markers)) this.myMarker.remove()
     if (this.#myMarker(markers)) {
       const myMarker = document.createElement("div")
@@ -110,7 +105,6 @@ export default class extends Controller {
     }
 
     // target marker
-    console.log('this.targetMarker, this.#targetMarker(markers)', this.targetMarker, this.#targetMarker(markers))
     // if (this.targetMarker && this.#targetMarker(markers)) this.targetMarker.remove()
     if (this.#targetMarker(markers)) {
       const targetMarker = document.createElement("div")
