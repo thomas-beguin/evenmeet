@@ -312,7 +312,7 @@ lewagon = Event.new(
   start_date: DateTime.now - 1.day,
   end_date: DateTime.now + 1.day
 )
-lewagon.photos.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/lewagon.jpeg')), filename: "seed.png", content_type: "image/png")
+lewagon.photos.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/lewagon.png')), filename: "seed.png", content_type: "image/png")
 lewagon.save!
 
 solidays = Event.new(
@@ -416,7 +416,7 @@ puts "Events created : #{Event.count}"
 puts "---------------------------------------"
 puts "Creating Rewards"
 
-Event.all.each do |event|
+Event.all.where.not(title: "Le Wagon Festival").each do |event|
   beer = Reward.create(
     title:  "Beer discount",
     event: event,
@@ -446,31 +446,40 @@ Event.all.each do |event|
 end
 
 pen = Reward.create(
-  title: "Exclusive Le Wagon pen!",
+  title: "Free pen!",
   event: lewagon,
-  description:  "Find your match and win an exclusive Le Wagon pen!",
-  reward: "An exclusive Le Wagon pen!"
+  description:  "An exclusive Le Wagon pen!",
+  reward: "You've just won an exclusive Le Wagon pen!"
 )
-pen.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/pen.jpeg')), filename: "seed.png", content_type: "image/png")
+pen.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/pen.jpg')), filename: "seed.png", content_type: "image/png")
 pen.save!
 
 treteau = Reward.create(
-  title:  "Le Wagon's signature 'tréteau'!",
+  title:  "Signature 'tréteau'!",
   event: lewagon,
-  description:  "Find your match and win the Le Wagon's signature 'tréteau'!",
-  reward: "The signature Le Wagon's 'tréteau'!"
+  description:  "Le Wagon's signature 'tréteau'!",
+  reward: "You've just won the signature Le Wagon's 'tréteau'!"
 )
-treteau.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/treteau.jpeg')), filename: "seed.png", content_type: "image/png")
+treteau.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/treteau.jpg')), filename: "seed.png", content_type: "image/png")
 treteau.save!
 
 notebook = Reward.create(
   title:  "Le Wagon's exclusive notebook!",
   event: lewagon,
-  description:  "Find your match and win an exclusive Le Wagon's notebook!",
-  reward: "An exclusive Le Wagon's notebook!"
+  description:  "Le Wagon's notebook!",
+  reward: "You've just won a Le Wagon's notebook!"
 )
-notebook.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/notebook.jpeg')), filename: "seed.png", content_type: "image/png")
+notebook.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/notebook.jpg')), filename: "seed.png", content_type: "image/png")
 notebook.save!
+
+beer = Reward.create(
+  title:  "Beer discount",
+  event: lewagon,
+  description:  "Get 30% off",
+  reward: "Claim your 30% off all beers"
+)
+beer.photo.attach(io: URI.open("https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"), filename: "seed.png", content_type: "image/png")
+beer.save!
 
 puts "Rewards created : #{Reward.count}"
 
