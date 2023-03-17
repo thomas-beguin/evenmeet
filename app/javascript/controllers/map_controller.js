@@ -98,23 +98,27 @@ export default class extends Controller {
 
   #addMarkersToMap(markers) {
     if (this.myMarker) this.myMarker.remove()
-    const myMarker = document.createElement("div")
-    myMarker.classList.add("marker")
-    myMarker.innerHTML = this.#myMarker(markers).marker_html
+    if (this.#myMarker(markers)) {
+      const myMarker = document.createElement("div")
+      myMarker.classList.add("marker")
+      myMarker.innerHTML = this.#myMarker(markers).marker_html
 
-    this.myMarker = new mapboxgl.Marker(myMarker)
-    .setLngLat([ this.#myMarker(markers).lng, this.#myMarker(markers).lat ])
-    .addTo(this.map)
+      this.myMarker = new mapboxgl.Marker(myMarker)
+      .setLngLat([ this.#myMarker(markers).lng, this.#myMarker(markers).lat ])
+      .addTo(this.map)
+    }
 
     // target marker
     if (this.targetMarker) this.targetMarker.remove()
-    const targetMarker = document.createElement("div")
-    targetMarker.classList.add("marker")
-    targetMarker.innerHTML = this.#targetMarker(markers).marker_html
+    if (this.#targetMarker(markers)) {
+      const targetMarker = document.createElement("div")
+      targetMarker.classList.add("marker")
+      targetMarker.innerHTML = this.#targetMarker(markers).marker_html
 
-    this.targetMarker = new mapboxgl.Marker(targetMarker)
-    .setLngLat([ this.#targetMarker(markers).lng, this.#targetMarker(markers).lat ])
-    .addTo(this.map)
+      this.targetMarker = new mapboxgl.Marker(targetMarker)
+      .setLngLat([ this.#targetMarker(markers).lng, this.#targetMarker(markers).lat ])
+      .addTo(this.map)
+    }
   }
 
   #initMap() {
