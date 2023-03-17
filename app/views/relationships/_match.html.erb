@@ -11,7 +11,7 @@
 
   <div class="chat mt-4">
     <p>Don't wait... Go and find <%= target.user.first_name.capitalize %>!</p>
-    <%= link_to "Go!", challenge_path(challenge), class: 'join-button', style: 'z-index: 9999999;' %>
+    <%= link_to "Go!", challenge_path(challenge), class: 'join-button', style: 'z-index: 9999999;text-decoration:none' %>
     <span data-action="click->modal#close" class="button-transparent">Keep swiping</span>
   </div>
 
