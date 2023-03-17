@@ -14,38 +14,6 @@ puts "Reward : #{Reward.all.length}"
 puts "---------------------------------------"
 puts "Creating Users"
 
-laura = User.new(first_name: "Laura",
-  last_name: "Person",
-  email: "laura@mail.com",
-  password: "password",
-  city: "Paris",
-  age: 31,
-  description: "J'aime les ordinateurs, le tricot et la chasse à la tronçonneuse.")
-laura.photos.attach(io: URI.open("https://media.licdn.com/dms/image/C4D03AQHL7i5I36OttA/profile-displayphoto-shrink_800_800/0/1641245014637?e=2147483647&v=beta&t=0Zh-rkB5vrFV5fneFhMDjoRuniR565Ujxxr-UG5Nfvc"), filename: "seed.png", content_type: "image/png")
-laura.photos.attach(io: URI.open('https://i0.wp.com/maze.fr/wp-content/uploads/2022/02/films-d-horreur-fantastique-61acc30f67d38.jpg?fit=1920%2C1080&ssl=1'), filename: 'seed2.png', content_type: 'image/png')
-laura.save!
-
-paul = User.new(first_name: "Paul",
-  last_name: "Portier",
-  email: "paul@mail.com",
-  password: "password",
-  city: "Paris",
-  age: 31,
-  description: "Passionné d'astrologie, signes, ascendants et décans guident ma recherche de l'amour. Si vous êtes donc née un 5 avril 1991 entre 17h59 et 18h01 le long de l'axe Bordeaux - Brives-la-Gaillarde, contactez-moi !")
-paul.photos.attach(io: URI.open("https://avatars.githubusercontent.com/u/54004476?v=4"), filename: "seed.png", content_type: "image/png")
-paul.photos.attach(io: URI.open('https://images.unsplash.com/photo-1623082574085-157d955f1d35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'), filename: 'seed2.png', content_type: 'image/png')
-paul.save!
-
-marie = User.new(first_name: "Marie",
-  last_name: "LANGLOIS",
-  email: "marie@mail.com",
-  password: "password",
-  city: "Paris",
-  age: 25,
-  description: "Originaire d'Orléans et fraichement débarquée à Paris. Après des études de philosophie et un premier job dans le tourisme, j'ai décidé de rejoindre Le Wagon pour apprendre le code et j'y ai découvert une nouvelle passion !")
-marie.photos.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/marie.jpeg')), filename: "seed.jpeg", content_type: "image/jpeg")
-marie.save!
-
 alexis = User.new(first_name: "Alexis",
   last_name: "RUSNAC",
   email: "alexis@mail.com",
@@ -256,6 +224,38 @@ wissam.photos.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/asse
 wissam.save!
 puts "wissam created"
 
+marie = User.new(first_name: "Marie",
+  last_name: "LANGLOIS",
+  email: "marie@mail.com",
+  password: "password",
+  city: "Paris",
+  age: 25,
+  description: "Originaire d'Orléans et fraichement débarquée à Paris. Après des études de philosophie et un premier job dans le tourisme, j'ai décidé de rejoindre Le Wagon pour apprendre le code et j'y ai découvert une nouvelle passion !")
+marie.photos.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/marie.jpeg')), filename: "seed.jpeg", content_type: "image/jpeg")
+marie.save!
+
+laura = User.new(first_name: "Laura",
+  last_name: "Person",
+  email: "laura@mail.com",
+  password: "password",
+  city: "Paris",
+  age: 31,
+  description: "J'aime les ordinateurs, le tricot et la chasse à la tronçonneuse.")
+laura.photos.attach(io: URI.open("https://media.licdn.com/dms/image/C4D03AQHL7i5I36OttA/profile-displayphoto-shrink_800_800/0/1641245014637?e=2147483647&v=beta&t=0Zh-rkB5vrFV5fneFhMDjoRuniR565Ujxxr-UG5Nfvc"), filename: "seed.png", content_type: "image/png")
+laura.photos.attach(io: URI.open('https://i0.wp.com/maze.fr/wp-content/uploads/2022/02/films-d-horreur-fantastique-61acc30f67d38.jpg?fit=1920%2C1080&ssl=1'), filename: 'seed2.png', content_type: 'image/png')
+laura.save!
+
+paul = User.new(first_name: "Paul",
+  last_name: "Portier",
+  email: "paul@mail.com",
+  password: "password",
+  city: "Paris",
+  age: 31,
+  description: "Passionné d'astrologie, signes, ascendants et décans guident ma recherche de l'amour. Si vous êtes donc née un 5 avril 1991 entre 17h59 et 18h01 le long de l'axe Bordeaux - Brives-la-Gaillarde, contactez-moi !")
+paul.photos.attach(io: URI.open("https://avatars.githubusercontent.com/u/54004476?v=4"), filename: "seed.png", content_type: "image/png")
+paul.photos.attach(io: URI.open('https://images.unsplash.com/photo-1623082574085-157d955f1d35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'), filename: 'seed2.png', content_type: 'image/png')
+paul.save!
+
 # thomasp = User.new(first_name: "Thomas",
 #                 last_name: "PICAMOLES",
 #                 email: "thomas@mail.com",
@@ -416,33 +416,15 @@ puts "Events created : #{Event.count}"
 puts "---------------------------------------"
 puts "Creating Rewards"
 
-Event.all.where.not(title: "Le Wagon Festival").each do |event|
+Event.all.each do |event|
   beer = Reward.create(
     title:  "Beer discount",
     event: event,
-    description:  "Find your match and go get a beer at the bar with a 30% discount!",
+    description:  "Get a beer with a 30% discount!",
     reward: "Get 30% off"
   )
   beer.photo.attach(io: URI.open("https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"), filename: "seed.png", content_type: "image/png")
   beer.save!
-
-  burger = Reward.create(
-    title:  "Burger discount",
-    event: event,
-    description:  "Find your match and go get a burger at the restaurant with a 15% discount!",
-    reward: "Get 15% off"
-  )
-  burger.photo.attach(io: URI.open("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1899&q=80"), filename: "seed.png", content_type: "image/png")
-  burger.save!
-
-  tshirt = Reward.create(
-    title:  "Get your T-shirt",
-    event: event,
-    description:  "Find your match and buy a t-shirt at the merch shop with a 10% discount!",
-    reward: "Get a 10% discount"
-  )
-  tshirt.photo.attach(io: URI.open("https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80"), filename: "seed.png", content_type: "image/png")
-  tshirt.save!
 end
 
 pen = Reward.create(
@@ -460,11 +442,11 @@ treteau = Reward.create(
   description:  "Le Wagon's signature 'tréteau'!",
   reward: "You've just won the signature Le Wagon's 'tréteau'!"
 )
-treteau.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/treteau.jpg')), filename: "seed.png", content_type: "image/png")
+treteau.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/treteau.png')), filename: "seed.png", content_type: "image/png")
 treteau.save!
 
 notebook = Reward.create(
-  title:  "Le Wagon's exclusive notebook!",
+  title:  "Le Wagon's notebook!",
   event: lewagon,
   description:  "Le Wagon's notebook!",
   reward: "You've just won a Le Wagon's notebook!"
@@ -472,29 +454,22 @@ notebook = Reward.create(
 notebook.photo.attach(io: URI.open(File.join(File.dirname(__FILE__), '../app/assets/images/notebook.jpg')), filename: "seed.png", content_type: "image/png")
 notebook.save!
 
-beer = Reward.create(
-  title:  "Beer discount",
-  event: lewagon,
-  description:  "Get 30% off",
-  reward: "Claim your 30% off all beers"
-)
-beer.photo.attach(io: URI.open("https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"), filename: "seed.png", content_type: "image/png")
-beer.save!
-
 puts "Rewards created : #{Reward.count}"
 
 puts "---------------------------------------"
 puts "Creating Participations"
 
-hints = ["coiffe indienne", "ailes d'anges", "costume de dinosaure", "veste militaire", "masque de loup", "bicorne", "drapeau breton", "lunettes rouge et t-shirt jaune à pois verts"]
+hints = ["Combinaison d'astronaute"]
 
 User.all.each do |user|
   Event.all.each do |event|
-    Participation.create!(
+    unless user == thomasb && event == lewagon
+      Participation.create!(
       hint: hints.sample,
       user: user,
       event: event
-  )
+      )
+    end
   end
 end
 
@@ -517,19 +492,19 @@ puts "Participations created : #{Participation.count}"
 puts "---------------------------------------"
 puts "Creating Relationships"
 
-Event.all.each do |event|
-  Participation.where(event: event.id).each do |participation|
-    Relationship.create(
-      status: [0, 1].sample,
-      sender: participation,
-      receiver: Participation.where(event: event.id).where.not(user: participation.user).sample
-    )
-  end
-end
+# Event.all.each do |event|
+#   Participation.where(event: event.id).each do |participation|
+#     Relationship.create(
+#       status: 0,
+#       sender: participation,
+#       receiver: thomasb.participations.select { |e| e.event == event }
+#     )
+#   end
+# end
 
-Relationship.all.where(sender: marie.id).each do |relationship|
-  relationship.status = 1
-end
+# Relationship.all.where(sender: marie.id).each do |relationship|
+#   relationship.status = 0
+# end
 
 puts "Relationships created : #{Relationship.count}"
 

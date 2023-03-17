@@ -4,12 +4,16 @@ class RelationshipsController < ApplicationController
   before_action :set_target_participation, only: %i[create]
 
   def new
-    @all_participations = @event.participations.reject { |participation| participation == @current_participation }
+    @all_participations = @event.participations
     @sender_matches     = @current_participation.sender_relationships.map { |relation| relation.receiver }
     @receiver_matches   = @current_participation.receiver_relationships.map { |relation| relation.sender unless relation.pending? }
-
     @participations = @all_participations - @sender_matches - @receiver_matches
-    @participations.reject! { |participation| participation.user == current_user }
+    @participations = @participations.reject! { |participation| participation.user == current_user }
+    
+    @participations = @participations.select { |p| p.user.first_name == "Laura" ||
+                                                   p.user.first_name == "Paul" ||
+                                                   p.user.first_name == "Marie" ||
+                                                   p.user.first_name == "Thomas"}
   end
 
   def create
