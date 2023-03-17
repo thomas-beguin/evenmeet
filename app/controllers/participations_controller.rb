@@ -13,13 +13,17 @@ class ParticipationsController < ApplicationController
   end
 
   def create
-    @event = Event.find(params[:event_id])
+    @event = Event.find(params[:participation][:event_id])
     @participation = Participation.new(participation_params)
     @participation.event = @event
     @participation.user = current_user
     if @participation.save
       redirect_to participations_path
     else
+      @event = Event.find(params[:id])
+      @participations = Participation.all
+      @participation = Participation.new
+      @user = User.find(params[:user_id])
       render "events/show", status: :unprocessable_entity
     end
   end
