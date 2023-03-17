@@ -226,11 +226,35 @@ div.scrollmenu {
   padding: 10px 3px 3px 10px;
 }
 
+.menu-highlight-container-2:before {
+  content: " ";
+  display: block;
+  height: 31px;
+  width: 112%;
+  margin-left: -3px;
+  margin-right: -3px;
+  position: absolute;
+  background: #ff2e63;
+  transform: rotate(3deg);
+  top: -3px;
+  left: -1px;
+  border-radius: 20% 25% 20% 24%;
+  padding: 10px 3px 3px 10px;
+}
+
 .menu-highlight-container, .highlight {
   position: relative;
 }
 
 .menu-highlight-container {
+  display: inline-block;
+}
+
+.menu-highlight-container-2, .highlight {
+  position: relative;
+}
+
+.menu-highlight-container-2 {
   display: inline-block;
 }
 
