@@ -97,7 +97,8 @@ export default class extends Controller {
     }
 
   #addMarkersToMap(markers) {
-    if (this.myMarker) this.myMarker.remove()
+    console.log('this.myMarker && this.#myMarker(markers)', this.myMarker, this.#myMarker(markers))
+    // if (this.myMarker && this.#myMarker(markers)) this.myMarker.remove()
     if (this.#myMarker(markers)) {
       const myMarker = document.createElement("div")
       myMarker.classList.add("marker")
@@ -109,7 +110,8 @@ export default class extends Controller {
     }
 
     // target marker
-    if (this.targetMarker) this.targetMarker.remove()
+    console.log('this.targetMarker, this.#targetMarker(markers)', this.targetMarker, this.#targetMarker(markers))
+    // if (this.targetMarker && this.#targetMarker(markers)) this.targetMarker.remove()
     if (this.#targetMarker(markers)) {
       const targetMarker = document.createElement("div")
       targetMarker.classList.add("marker")
