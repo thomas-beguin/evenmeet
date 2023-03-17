@@ -60,7 +60,8 @@ div.scrollmenu {
   overflow: hidden;
   margin-bottom: 12px;
   .top-event-card {
-    width: fit-content;
+    // width: fit-content;
+    width: auto;
     object-fit: contain;
     height: 180px;
     margin-top: 6px;
@@ -77,7 +78,8 @@ div.scrollmenu {
   white-space: nowrap;
   overflow: hidden;
   .scroll-event-card{
-    width: fit-content;
+    // width: fit-content;
+    width: auto;
     object-fit: contain;
     height: 120px;
     margin-top: 6px;
