@@ -1,17 +1,17 @@
-<div class="d-flex align-items-center" style="position: fixed; top: 20px; left: 16px;">
+<div class="d-flex flex-row justify-content-between align-items-center" style="width:88%;position: fixed; top: 20px; left: 16px;">
   <%= link_to challenge_path(@challenge), class: "pe-3" do %>
     <i class="fa-solid fa-chevron-left flashy"
       data-action="click->toggle-element#menuactive"
       data-toggle-element-target="menuactive"
       style="font-size:calc(1.275rem + 0.3vw)"></i>
   <% end %>
-  <div class="d-flex flex-column">
-    <p class="message-menu-target text-light">Message</p>
-  </div>
+  <%= image_tag("logos/logo-em-flashy.png", :style => "width:120px; height:auto") %>
+  <div></div>
 </div>
 
 <%# QRCODE READER %>
-<div id="qr-reader" style="width: 100%; overflow: hidden; margin-top: 20%" data-controller="qrcode"></div>
+<div id="qr-reader" style="width: 100%; overflow: hidden; margin-top: 35%" data-controller="qrcode"></div>
+<h4 class="text-light text-center mt-5">Scan your match QR Code</h4>
 
 <%# Style to hide Camera Starting & Camera Stoping %>
 <style>

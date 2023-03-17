@@ -96,6 +96,14 @@ body {
   background-color: $flashy;
 }
 
+.button-transparent {
+  background-color: transparent;
+  border: $flashy solid;
+  color: $flashy;
+  padding: 10px 40px;
+  border-radius: 30px;
+}
+
 .div-join-button {
   display: flex;
   flex-direction: column;
