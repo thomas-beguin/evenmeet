@@ -3,8 +3,8 @@
     <div class="mt-3 me-3 pb-3" style="height: 155px; width: 150px;">
         <div class="reward-card", style="background-image: url(<%= cl_image_path reward.photo.key, width: 300, crop: :fill %>); background-position: center; background-size: cover;">
         </div>
-      <h4 class="event-title m-0"><%= reward.title.capitalize %></h4>
-      <div class="event-reward d-inline-block">Reward: <%= reward.reward.capitalize %></div>
+      <h4 class="event-title m-0 text-white"><%= reward.title.capitalize %></h4>
+      <div class="event-reward d-inline-block text-white">Reward: <%= reward.reward.capitalize %></div>
     </div>
   <% end %>
 </div>

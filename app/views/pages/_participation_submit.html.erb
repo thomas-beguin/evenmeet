@@ -4,7 +4,7 @@
         <%= f.input :event_id, as: :hidden, input_html: { value: event.id } %>
         <%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
         <%= f.input :hint, label: :"Give a hint to find you easily", placeholder: "Your hint"%>
-        <%= f.submit class: 'btn text-white p-2 w-100 mt-1 join-button' %>
+        <%= f.submit "Confirm", class: 'btn text-white p-2 w-100 mt-1 join-button' %>
       <% end %>
   </div>
 </div>
