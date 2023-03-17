@@ -25,13 +25,12 @@ body {
 .div-reward-win {
   width: 70%;
   display: flex;
-  height: 100vh;
+  height: auto;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   align-items: center;
-  padding-top: 30%;
-  background: #00000008;
+  padding-top: 10%;
   z-index: 2;
   position: relative;
   border-radius: 8px;

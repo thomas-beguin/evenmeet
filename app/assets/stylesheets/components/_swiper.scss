@@ -170,6 +170,14 @@ $orange: #FF945A; $green: #B1DA96;
   transition: transform 1s ease-in;
 }
 
+.avatar-reward {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  object-fit: cover;
+  transition: transform 1s ease-in;
+}
+
 .match img:nth-child(1) {
   animation: match-right 20s ease-in-out infinite;
 }

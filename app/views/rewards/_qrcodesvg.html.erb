@@ -1,4 +1,4 @@
-  <div class="d-flex flex-column align-items-center justify-content-center" style="width: 100%; margin-top: 20%">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="width: 100%; margin-top: 35%">
     <div class="" style="width: 80%;background-color: white;padding: 20px">
       <% qrcode = RQRCode::QRCode.new("#{root_url}#{challenge_path[1..-1]}/rewards/qrcode?target_id=#{current_user.id}")
       # NOTE: showing with default options specified explicitly
@@ -13,5 +13,5 @@
       %>
       <%= svg.html_safe %>
     </div>
-    <h2 class="mt-4 text-light">Your QRCODE</h2>
+    <h4 class="mt-4 text-light">Your QRCODE</h4>
   </div>
