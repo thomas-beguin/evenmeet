@@ -80,7 +80,7 @@ Once the match is found, you have to certify the match by scanning a QR Code. Th
   </div>
 </div>
 
-4. Now you have to find your match with the help of a compass, which indicates the direction and distance from your. Then, you have to scan the Qr-code to certify the match and gain a reward!
+4. Now you have to find your match with the help of a compass, which indicates the direction and distance from you. Then, you have to scan the Qr-code to certify the match and gain a reward!
 ℹ️ We used the API of mapbox to create the compass.
 <div align="center">
   <div style="display: flex;">
