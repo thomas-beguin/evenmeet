@@ -70,7 +70,7 @@ Once the match is found, you have to certify the match by scanning a QR Code. Th
 </div>
 
 3. Now, you can start matching. In the case of a match, a chat thread is created. But we can't exchange, because it would be too easy to find each other.
-ℹ️ We used action cable for the match so that we don't have to refresh the page to get messages.
+ℹ️ We used action cable for the chat so that we don't have to refresh the page to get messages.
 <div align="center">
   <div style="display: flex;">
     <img src="https://user-images.githubusercontent.com/107207796/230313674-7a49b442-2daf-46e8-a2a8-305af7b878a7.PNG" width="200px">
