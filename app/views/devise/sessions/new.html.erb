@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid text-white">
   <h2>Please log into your account</h2>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
     <div class="form-inputs">
@@ -13,7 +13,8 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in", class:"text-white" %>
     </div>
   <% end %>
 
