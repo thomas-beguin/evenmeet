@@ -7,6 +7,49 @@ It differs from other dating apps in that it is fun.
 Because, when you match with someone, the objective is to find him/her in the festival thanks to a clue (outfit, hat...) and a compass (geolocation in real time). 
 Once the match is found, you have to certify the match by scanning a QR Code. This allows you to win a random reward among those offered by the festival. 
 
+#### 👨‍💻 Technos
+
+<div align="left"> 
+  <a href="https://rubyonrails.org" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/rails/rails-original-wordmark.svg" alt="rails" width="40" height="40"/> 
+  </a> 
+  
+  <a href="https://www.ruby-lang.org/en/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" alt="ruby" width="40" height="40"/> 
+  </a> 
+  
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>   </a> 
+  
+  <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> 
+  </a> 
+  
+  <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40"     height="40"/> 
+  </a> 
+  
+  <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
+  </a> 
+  
+  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> 
+  </a> 
+  
+  <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> 
+  </a> 
+ 
+  <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> 
+  </a> 
+  
+  <a href="https://scalingo.com" target="_blank" rel="noreferrer"> 
+    <img src="https://user-images.githubusercontent.com/107207796/230320741-65f094c7-a722-4773-8c36-0369d24dbba0.svg" alt="scalingo" width="40" height="40"/> 
+  </a> 
+</div>
+
 #### 📸 Screenshots of the user journey
 
 1. Home and Login pages. We used Device for the login feature.
@@ -26,7 +69,8 @@ Once the match is found, you have to certify the match by scanning a QR Code. Th
   </div>
 </div>
 
-3. 
+3. Now, you can start matching. In the case of a match, a chat thread is created. But we can't exchange, because it would be too easy to find each other.
+ℹ️ We used action cable for the match so that we don't have to refresh the page to get messages.
 <div align="center">
   <div style="display: flex;">
     <img src="https://user-images.githubusercontent.com/107207796/230313674-7a49b442-2daf-46e8-a2a8-305af7b878a7.PNG" width="200px">
@@ -36,7 +80,8 @@ Once the match is found, you have to certify the match by scanning a QR Code. Th
   </div>
 </div>
 
-4. 
+4. Now you have to find your match with the help of a compass, which indicates the direction and distance from your. Then, you have to scan the Qr-code to certify the match and gain a reward!
+ℹ️ We used the API of mapbox to create the compass.
 <div align="center">
   <div style="display: flex;">
     <img src="https://user-images.githubusercontent.com/107207796/230316139-6d639682-bc7c-40c9-a935-8f1bba7fbfc5.PNG" width="200px">
